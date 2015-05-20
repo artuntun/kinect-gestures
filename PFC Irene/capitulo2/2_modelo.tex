@@ -1,0 +1,105 @@
+
+% Cambiar las s por x, y las x por y.
+
+El modelo de canal que describiremos a lo largo de este capítulo es un modelo general que podría ser utilizado tanto en un sistema MIMO de un único usuario como en un escenario MIMO masivo en el que tendríamos múltiples antenas en una estación base (BS) que sirve a varios usuarios. El modelo descrito a lo largo de este capítulo y que emplearemos en este proyecto es una particularización del propuesto en \cite{Chizhik04} y se detalla en \cite{mati}.
+
+Un canal MIMO con M antenas transmisoras y N antenas receptoras está definido por la matriz de canal $\miH$, cuyos elementos $h_{n,m}$ definen el desvanecimiento del canal existente entre la antena transmisora \textit{m}-ésima en la estación base y la antena receptora \textit{n}-ésima. 
+
+%Si llamamos $s_m^{(t)}$ a la señal en banda base que se transmitirá desde la antena \textit{m}-ésima durante el período de tiempo \textit{t} y, para este período de símbolo, el canal entre la antena \textit{m}-ésima transmisora y la antena \textit{n}-ésima receptora viene determinado por el valor escalar $h_{nm}^{(t)}$, que representa la amplitud compleja del canal. Dado que cada antena receptora está expuesta a todas las antenas transmitidas, la señal recibida en la antena \textit{n}-ésima durante el período \textit{t} se puede expresar como una combinación lineal de las señales transmitidas.
+%\begin{equation}
+%x_n^{(t)} = \sum_{m=1}^{M}{   h_{n,m}^{(t)}s_m^{(t)}   } + n_n^{(t)}
+%\end{equation}
+%donde $n_n^{(t)}$ representa ruido aditivo y complejo. Si expresamos la anterior ecuación de forma matricial, podemos escribir:
+%
+%\begin{equation}
+%\begin{bmatrix}
+%x_1^{(t)} \\
+%\vdots\\
+%x_N^{(t)}
+%\end{bmatrix} 
+%=
+%  \begin{bmatrix}
+% h_{1,1}^{(t)} & \cdots & h_{1,M}^{(t)} \\
+% \vdots & \ddots & \vdots \\
+% h_{N,1}^{(t)} & \cdots & h_{N,M}^{(t)}
+% \end{bmatrix}
+%  \begin{bmatrix}
+% s_1^{(t)} \\
+% \vdots \\
+% s_M^{(t)}
+% \end{bmatrix}
+% +
+%  \begin{bmatrix}
+% n_1^{(t)} \\
+% \vdots \\
+% n_N^{(t)}
+% \end{bmatrix}
+%\end{equation}
+%
+%que de forma compacta, se puede expresar como
+%\begin{equation}
+%x^{(t)} = \textbf{H}^{(t)}s^{(t)} + \textbf{n}^{(t)}
+%% $\in\mathbb{C}$
+%\end{equation}
+%
+%donde $x \in \mathbb{C}^{Nx1}$ , $\textbf{H}^{(t)} \in \mathbb{C}^{NxM}$, $\textbf{s}^{(t)} \in \mathbb{C}^{Mx1}$ y, por último, $\textbf{n}^{(t)} \in \mathbb{C}^{Nx1}$. A partir de ahora, y para simplificar la notación, obviaremos el superíndice \textit{t}. Debemos comentar que el vector de ruido \textbf{n} es ruido blanco aditivo Gaussiano, de media cero y varianza $\sigma^{2}$ cada componente. 
+
+Los elementos de la matriz \textbf{H} pueden estar correlados en tiempo, espacio y frecuencia \cite{Xu04} pero nosotros asumiremos para nuestro escenario un canal estacionario y con desvanecimiento plano.
+Bajo esta premisa, el modelo de canal se caracteriza completamente por la geometría de las antenas en transmisión y en recepción así como por la dispersión que pueda existir \cite{Chizhik04}. El elemento $h_{n,m}$ se puede modelar haciendo uso de la función de Green en la posición de la antena \textit{n}-ésima receptora $\mir'_n$, teniendo en cuenta que la señal se emite desde la antena transmisora $m$-ésima ubicada en $\mir_m$
+\begin{equation}
+    h_{nm}=\int\int S(\mik',\mik)e^{-j\mik\mir_m}e^{j\mik'\mir_n'}d\mik'd\mik
+\end{equation}
+donde $S(\mik',\mik)$ es la función de $scattering$ o dispersión del canal, que relaciona la onda plana emitida en la dirección $\mik$  y que incide en el receptor en la dirección $\mik'$.
+Si dividimos la onda transmitida en un conjunto finito de ondas planas que parten de direcciones $\left\{\mik_1,\mik_2,..,\mik_{L}\right\}$ y la onda recibida de igual forma con direcciones $\left
+\{\mik'_1,\mik'_2,..,\mik'_{L'}\right\}$ la matriz $\miH$ se puede escribir como sigue:
+\begin{equation}\label{ec_2}
+\begin{split}
+\miH=&\left [\begin{array}{cccc}
+  e^{j\mik'_1\mir'_1} & e^{j\mik'_2\mir'_1} & .. & e^{j\mik'_{L'}\mir'_1} \\
+  e^{j\mik'_1\mir'_2} & e^{j\mik'_2\mir'_2} & .. & e^{j\mik'_{L'}\mir'_2} \\
+  .. & .. & .. & .. \\
+  e^{j\mik'_1\mir'_N} & e^{j\mik'_2\mir'_N} & .. & e^{j\mik'_{L'}\mir'_N} \\
+\end{array}\right ]\\
+&\times\left [\begin{array}{cccc}
+  S(\mik'_1,\mik_1) & S(\mik'_1,\mik_2) & .. & S(\mik'_1,\mik_{L}) \\
+  S(\mik'_2,\mik_1) & S(\mik'_2,\mik_2) & .. & S(\mik'_2,\mik_{L}) \\
+  .. & .. & .. & .. \\
+  S(\mik'_{L'},\mik_1) & S(\mik'_{L'},\mik_2) & .. & S(\mik'_{L'},\mik_{L}) \\
+\end{array}\right ]\\
+&\times\left [\begin{array}{cccc}
+  e^{-j\mik_1\mir_1} & e^{-j\mik_1\mir_2} & .. & e^{-j\mik_1\mir_M} \\
+  e^{-j\mik_2\mir_1} & e^{-j\mik_2\mir_2} & .. & e^{-j\mik_2\mir_M} \\
+  .. & .. & .. & .. \\
+  e^{-j\mik_{L}\mir_1} & e^{-j\mik_{L}\mir_2} & .. & e^{-j\mik_{L}\mir_M} \\
+\end{array}\right ]
+\end{split}
+\end{equation}
+
+Así, la matriz de canal $\miH$ se puede componer en el producto de tres matrices, 
+
+\begin{equation}
+\miH = \mathbf{B}_N^H\mathbf{S}\mathbf{B}_M
+\end{equation}
+
+Estando ante un canal estacionario, tanto $\mathbf{B_N}$ como $\mathbf{B_M}$ serán matrices rectangulares deterministas que dependen únicamente de la geometría de la antena. $\mathbf{S}$ es una matriz rectangular aleatoria cuyos estadísticos se modelarán en función de las características angulares de la dispersión.
+
+En nuestro escenario, las entradas del canal siguen una distribución gaussiana y los coeficientes que describen la dispersión son independientes, por lo que la matriz de dispersión $\mathbf{S}$ está totalmente caracterizada por el perfil angular de potencia (PAS, \textit{Power Angular Spectrum}) \cite{Xu04}. Esto nos lleva a que los elementos de esta matriz de dispersión serán gaussianos i.n.d.\footnote{independientes y no idénticamente distribuidos}. 
+
+En \cite{Kermoal01} vimos que en general el PAS del receptor y del transmisor pueden ser magnitudes dependientes. En el caso de un medio con dispersión lo suficientemente rico, entonces es razonable asumir que el PAS en el receptor y el transmisor son independientes. Esto resulta muy positivo ya que si esta asunción es válida, entonces la distribución de potencia en las filas viene dada por el PAS en el receptor y la distribución de potencia en las columnas coincide con el PAS en el transmisor. El PAS en el receptor y en el transmisor están caracterizados  respectivamente por los parámetros ASA (\textit{Angular Spread of Arrival}, dispersión angular de salida en el transmisor) y ASD (\textit{Angular Spread of Departure}, dispersión angular de llegada en el receptor). En este proyecto analizaremos el efecto de múltiples parámetros, entre los que se encuentra el ASD. 
+
+Teniendo en cuenta estos parámetros, la matriz $\mathbf{S}$ se puede simplificar de la siguiente forma
+\begin{equation}
+\mathbf{S} = \mathbf{\Sigma}^{\frac{1}{2}}_{ASA} \mathbf{G} \mathbf{\Sigma}^{\frac{1}{2}}_{ASD}
+\end{equation}
+
+donde $\mathbf{G}$ es una matriz aleatoria compleja cuyos componentes son i.i.d. y siguen una distribución gaussiana de varianza unidad. Por otro lado, $\mathbf{\Sigma}^{\frac{1}{2}}_{ASA}$ y $\mathbf{\Sigma}^{\frac{1}{2}}_{ASD}$ son matrices diagonales deterministas cuya diagonal viene determinada por el perfil angular de potencia correspondiente en el transmisor (${\mathcal
+P}_{ASD}(\mik)$) y en el receptor (${\mathcal P}_{ASA}(\mik')$). Estas matrices son normalizadas para que su traza sea 1. 
+
+Finalmente, podremos expresar la matriz de canal $\miH$ de la siguiente forma, 
+
+\begin{equation}\label{ec_4}
+\miH=\miB^H_{N}\miSigma_{ASA}^{\frac{1}{2}}\miG\miSigma_{ASD}^{\frac{1}{2}}\miB_{M}
+\end{equation}
+
+
+

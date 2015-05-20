@@ -1,0 +1,127 @@
+\begin{thebibliography}{10}
+
+\bibitem{Foschini98}
+G.~J. Foschini and M.~J. Gans.
+\newblock {On limits of Wireless Communications in a Fading Environment when
+  using Multiple Antennas}.
+\newblock {\em Wireless Personal Communications}, 6(3):311--335, March 1998.
+
+\bibitem{LTE}
+Q.~Li, G.~Li, W.~Lee, M.~il~Lee, D.~Mazzarese, B.~Clerckx, and Z.~Li.
+\newblock {MIMO techniques in WiMAX and LTE: a feature overview}.
+\newblock {\em IEEE Communications Magazine}, 48, 2010.
+
+\bibitem{Chizhik04}
+D.~Chizhik.
+\newblock {Slowing the time-fluctuating MIMO channel by beam forming}.
+\newblock {\em IEEE Transactions on Wireless Communications}, 3(5):1554 --
+  1565, September 2004.
+
+\bibitem{mati}
+M.~S\'anchez-Fern\'andez, S.~Zazo, and R.~Valenzuela.
+\newblock {Performance Comparison between Beamforming and Spatial Multiplexing
+  for the Downlink Wireless Cellular Systems}.
+\newblock {\em IEEE Transactions on Communications}, 19, December 2001.
+
+\bibitem{Xu04}
+H.~Xu, D.~Chizhik, H.~Huang, and R.~Valenzuela.
+\newblock {A generalized space-time multiple-input multiple-output (MIMO)
+  channel model}.
+\newblock {\em IEEE Transactions on Wireless Communications}, 3(3):966 -- 975,
+  May 2004.
+
+\bibitem{Kermoal01}
+J-P Kermoal, L.~Schumacher, F.~Frederiksen, and P.E. Mogensen.
+\newblock Polarization diversity in mimo radio channels: experimental
+  validation of a stochastic model and performance assessment.
+\newblock In {\em Vehicular Technology Conference, 2001. VTC 2001 Fall. IEEE
+  VTS 54th}, volume~1, pages 22--26, 2001.
+
+\bibitem{Goldsmith_book}
+A.~Goldsmith.
+\newblock {\em Wireless communications}.
+\newblock Cambridge University Press, 2005.
+
+\bibitem{Biglieri}
+E.~Biglieri, R.~Calderbank, A.~Constantinides, A.Goldsmith, A.~Paulrauj, and
+  H.~V. Poor.
+\newblock {\em MIMO wireless communications}.
+\newblock Cambridge University Press, 2010.
+
+\bibitem{Huang}
+H.~Huang, C.~Papadias, and S.~Venkatesen.
+\newblock {\em Wireless communication for cellular networks}.
+\newblock Springer, 2012.
+
+\bibitem{Lee73}
+W.C.Y. Lee.
+\newblock {Effects on correlation between two mobile radio base station
+  antennas}.
+\newblock {\em IEEE Transactions on Communications}, COM-21:1214--1224,
+  November 1973.
+
+\bibitem{Shiu00}
+S.~Shiu, G.~J. Foschini, M.~J. Gans, and J.~M. Kahn.
+\newblock Fading correlation and its effect on the capacity of multielement
+  antenna systems.
+\newblock {\em IEEE Transactions on Communications}, 48(3):502--513, March
+  2000.
+
+\bibitem{Chizhik00}
+D.~Chizhik, F.~Rashid-Farrokhi, J.~Ling, and A.~Lozano.
+\newblock {Effect of antenna separation on the capacity of BLAST in correlated
+  channels}.
+\newblock {\em IEEE Communications Letters}, 4(11):1337 -- 339, November 2000.
+
+\bibitem{Pedersen00}
+K.I. Pedersen, P.E. Mogensen, and B.H. Fleury.
+\newblock A stochastic model of the temporal and azimuthal dispersion seen at
+  the base station in outdoor propagation environments.
+\newblock {\em IEEE Transactions on Vehicular Technology}, 49(2):437 -- 447,
+  March 2000.
+
+\bibitem{Jafar04}
+S.A. Jafar and A.~Goldsmith.
+\newblock Transmitter optimization and optimality of beamforming for multiple
+  antenna systems.
+\newblock {\em IEEE Transactions on Wireless Communications}, 3(4):1165 --
+  1175, July 2004.
+
+\bibitem{Visotsky01}
+E.~Visotsky and U.~Madhow.
+\newblock {Space-Time Transmit Precoding With Imperfect Feedback}.
+\newblock {\em IEEE Transactions on Information Theory}, 47(6):2632--2639,
+  September 2001.
+
+\bibitem{Tulino04}
+A.M. Tulino, A.~Lozano, and S.~Verd\'u.
+\newblock Capacity-achieving input covariance for single-user multi-antenna
+  channels.
+\newblock {\em {IEEE Transactions on Wireless Communications}}, 5(3):662--671,
+  March 2006.
+
+\bibitem{Tulino05}
+A.M. Tulino, A.~Lozano, and S.~Verd\'u.
+\newblock Impact of antenna correlation on the capacity of mutiantenna
+  channels.
+\newblock {\em IEEE Transactions on Information Theory}, 51(7):2491 -- 2509,
+  July 2005.
+
+\bibitem{tensor}
+
+
+\bibitem{Rusek13scalingup}
+Fredrik Rusek, Daniel Persson, Buon~Kiong Lau, Erik~G. Larsson, Thomas~L.
+  Marzetta, Ove Edfors, Fredrik Tufvesson, Post Print, Fredrik Rusek, Daniel
+  Persson, Buon~Kiong Lau, Erik~G. Larsson, Thomas~L. Marzetta, Fredrik Rusek,
+  Daniel Persson, Buon~Kiong Lau, Erik~G. Larsson, Thomas~L. Marzetta, Ove
+  Edfors, and Fredrik Tufvesson.
+\newblock Scaling up mimo: Opportunities and challenges with very large arrays.
+\newblock {\em IEEE Signal Process. Mag}, pages 40--60, 2013.
+
+\bibitem{Xiang00}
+X.~Gao, O.~Edfors, F.~Rusek, and F.~Tufvesson.
+\newblock {Linear Pre-Coding Performance in Measured Very-Large MIMO Channels}.
+\newblock {\em IEEE Vehicular Technology Conference}, 2011.
+
+\end{thebibliography}

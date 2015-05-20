@@ -1,0 +1,12 @@
+\select@language {spanish}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Capacidad (bps/Hz) para un sistema MIMO masivo con el mismo número de antenas en transmisión que en recepción. Comparación entre los escenarios CSIT y CDIT para 10, 60 y 80 antenas.\relax }}{38}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Capacidad (bps/Hz) para un sistema MIMO masivo con $4$ antenas en recepción y 10, 60 y 80 antenas en transmisión. Comparación entre los escenarios CSIT y CDIT\relax }}{42}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Valores de la norma de Frobenius para el caso de matrices i.i.d. con 50 antenas en el transmisor y 2, 4 y 50 antenas en el receptor\relax }}{60}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Valores del defecto de ortogonalidad para el caso de matrices i.i.d. con 50 antenas en el transmisor y 2, 4 y 50 antenas en el receptor\relax }}{61}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Valores del producto de filas para el caso de matrices i.i.d. con 50 antenas en el transmisor y 2, 4 y 50 antenas en el receptor\relax }}{61}
+\addvspace {10\p@ }
+\addvspace {10\p@ }

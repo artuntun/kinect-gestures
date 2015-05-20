@@ -1,0 +1,569 @@
+
+\section{Introducción}
+
+El primer objetivo principal de este proyecto es el estudio de la capacidad en un sistema MIMO masivo ante un canal realista y cómo varía esta en función de los diferentes parámetros, algunos ya comentados: el número de antenas $M$, la distancia entre las antenas $d_t$ o la dispersión angular de salida $ASD$. Habiendo introducido ya los conceptos básico que hay tras los sistemas de comunicaciones MIMO, además de algunas de sus ventajas, en especial las ganancias en capacidad, exploraremos en este capítulo de forma detallada los límites que existen en cuanto a la capacidad de estos sistemas \cite{Goldsmith_book}. 
+
+Cuando se habla de capacidad, es inevitable mencionar al que sería el pionero en este campo: Claude Shannon, apodado \guillemotleft el padre de la Teoría de la Información\guillemotright cuando a finales de los cuarenta propone una teoría matemática en la que pone de manifiesto el concepto de capacidad, una unidad de medida para los canales de comunicaciones que determina la máxima velocidad de transferencia de información alcanzable con una probabilidad de error tan pequeña como queramos, asumiendo que no existen restricciones en la complejidad del codificador ni en el decodificador \cite{Biglieri}. 
+
+En este capítulo, realizaremos un repaso sobre la definición de capacidad de Shannon y el concepto de información mutua para después aplicar estas ideas a un canal MIMO de un único usuario en el que hay presente ruido blanco aditivo gaussiano (AWGN). Presentaremos además diferentes definiciones de capacidad que aparecen bajo diferentes circunstancias, como el conocimiento que tengamos sobre el canal bien en el transmisor o en el receptor, estudiando el comportamiento en estos casos. 
+
+% -------------------------------------------------------------------------------------------
+
+\section{Información mutua y capacidad de Shannon}
+
+Como ya hemos mencionado, Claude Shannon, usando una teoría matemática de la comunicación, describió la capacidad $C$ de un canal como la máxima velocidad a la que se puede realizar una comunicación, sin ninguna restricción en la complejidad del transmisor y el receptor. Shannon demostró que para cualquier velocidad que se encontrara por debajo de $C$, existen códigos de canal con los que obtener una probabilidad de error arbitrariamente pequeña. Así pues, para cualquier velocidad $R < C$ y cualquier probabilidad de error deseada (distinta de cero) $P_e$, existe el código que nos permite alcanzar $P_e$. La intuición nos dice que dicho código deberá tener una longitud muy larga, y que la complejidad de este codificador/decodificador será muy elevada. De hecho, dicha longitud y complejidad aumentan a medida que intentamos hacer que $P_e$ disminuya. Además, Shannon demostró que los códigos que operan a $R > C$ no pueden alcanzar una probabilidad de error arbitrariamente pequeña. Por todo esto, la capacidad de canal es un límite fundamental de la comunicación. 
+
+Aunque teóricamente no encontramos problemas a la hora de comunicarnos a una velocidad por debajo de la capacidad, en la práctica es altamente difícil diseñar códigos con una longitud y complejidad razonable que operen a velocidades cercanas a la capacidad. En las últimas décadas se han hecho enormes progresos en cuanto al diseño de estos códigos y de hecho existen códigos reales que operan a velocidades muy cercanas a la capacidad en ciertos canales, como canales Gaussianos con una única antena. Sin embargo, estos códigos no pueden utilizarse directamente en canales MIMO, ya que en estos canales se explota también la dimensión especial. 
+
+% ----------------------------------------
+\subsection{Definición matemática de capacidad}
+
+El trabajo realizado por Shannon muestra que la capacidad de canal se puede caracterizar de forma simple en términos de la información mutua entre la entrada $X$ y la salida $Y$ del canal, entre las cuales existe una relación probabilística caracterizada habitualmente por la distribución de $Y$ condicionada a $X$, $f(y|x)$. Así pues, la información mutua de un canal de un único usuario se define como 
+
+\begin{equation}
+	I(X; Y) = \int_{X,Y}{f(x,y) \log\left(\frac{f(x,y)}{f(x)f(y)}    \right) dx dy}
+\end{equation}
+
+donde $f(x)$ y $f(y)$ denotan la distribución de probabilidad de las variables aleatorias $X$ e $Y$, y $f(x, y)$ es la probabilidad conjunta de ambas variables. La información mutua se puede escribir también como la diferencia entre la entropía de la salida del canal y la entropía de la salida condicionada a la entrada, 
+
+\begin{equation}
+	I(X; Y) = H(Y) - H(Y|X)
+\end{equation}
+
+donde
+
+\begin{equation}
+	H(Y) = \int_{Y}{f(y) \log\left(\frac{1}{f(y)}\right) dy}
+\end{equation}
+
+y
+
+\begin{equation}
+	H(Y|X) = \int_{X,Y}{f(y|x) \log\left(\frac{1}{f(y|x)}\right) dxdy}
+\end{equation}
+
+Shannon mostró que la capacidad de canal es la información mutua del canal maximizada sobre todas las posibles distribuciones probabilísticas de la entrada X:
+
+\begin{equation}
+	C = \max_{f(x)} I(X;Y) = \max_{f(x)} [H(Y) - H(Y|X)]
+\end{equation}
+
+Para un canal AWGN invariante con el tiempo y una relación señal a ruido $\snr$, la distribución que maximiza la ecuación anterior es la Gaussiana, resultando en la capacidad de canal
+\begin{equation}
+	C = \log_{2}{(1 + \snr)}
+\end{equation}
+
+La definición de entropía e información mutua es la misma cuando la entrada y salida del canal son, en lugar de magnitudes escalares como en este desarrollo, vectores como en el caso de un canal MIMO; y por lo tanto, la capacidad de este canal MIMO estará basada en la máxima información mutua entre los vectores de entrada $\mix$ y salida $\miy$, como veremos en profundidad en \ref{cap:capacidad_mimo}.
+
+Es importante tener en cuenta que el desarrollo matemático visto en esta sección es válido para canales invariantes en el tiempo. Veremos a continuación qué ocurre cuándo los canales varían en el tiempo.
+
+
+
+% -------------------------------------------------------------------------------------------
+
+\section{Canales MIMO}\label{cap:capacidad_mimo}
+
+La capacidad de un canal MIMO es la extensión de la fórmula de la información mutua para un canal SISO ya mencionada, para una matriz de canal . Para canales estáticos, podemos obtener de forma relativamente fácil una buena estimación de $\miH$ en el receptor, así que asumiremos CSIR a partir de ahora. Bajo esta asunción, la capacidad será
+
+\begin{equation}
+	C = \max_{f(x)} I(\miX;\miY) = \max_{p(x)} [H(\miY) - H(\miY | \miX)]
+\end{equation}
+
+siendo $H(\miY)$ y $H(\miY | \miX)$ la entropía en $\miy$ y en $\miy | \mix$, respectivamente. 
+
+La definición de entropía nos lleva a que $H(\miY | \miX) = H(\mathbf{N})$, es decir, la entropía del ruido. Dado que el ruido $\minn$ tiene una entropía fija independiente de la entrada del canal, maximizar la información mutua es equivalente a maximizar la entropía en $\miy$. 
+
+Dada la matriz de covarianza $\textbf{R}_{\textbf{x}}$ del vector de entrada $\mix$, la matriz de covarianza de salida $\textbf{R}_{\textbf{y}}$ asociada con la salida $\miy$ del canal MIMO viene dada por
+\begin{equation}
+	\textbf{R}_{\textbf{y}} = E[\miy \miy^{H}\textbf{]} = \miH\textbf{R}_{\textbf{x}}\miH^{H} + \textbf{R}_{N}
+\end{equation}
+
+Además. para todos los vectores aleatorios con una matriz de covarianza $\textbf{R}_{\miy}$, 
+la entropía de $\miy$ es máxima cuando $\miy$ es de media cero, con simetría circular compleja Gaussian (ZMCSCG, \textit{Zero-mean Circularly Symmetric Complex Gaussian})
+%PREGUNTAR A MATI
+. Pero para que $\miy$ sea ZMCSCG, forzosamente $\mix$ debe ser ZMCSCG, por lo que esta es la distribución óptima de $\mix$ bajo la restricción de potencia de \textit{Tr}$(\textbf{R}_{\textbf{x}}) = P$. Así, tenemos $H(\miY) =\log_2$ det[$\pi e \textbf{R}_{\textbf{y}}]$ y $H(\textbf{n}) = \log_2$ det[$\pi e \textbf{R}_{\textbf{n}}]$, que resulta en la siguiente expresión de información mutua
+
+\begin{align}
+	I(\miX;\miY) &= \miH(\miy) - \miH(\minn)\nonumber\\ 
+	&= \text{log det}(\pi e \textbf{R}_{\textbf{x}}) - \text{log det}(\pi e \textbf{R}_{\textbf{n}})\nonumber\\
+	&= \text{log}\frac{\text{det} (\pi e \textbf{R}_{\textbf{y}})}{\text{det} (\pi e \textbf{R}_{\textbf{n}})}\nonumber\\
+	&= \text{log det}(\textbf{R}_{\textbf{y}} \textbf{R}_{\textbf{n}}^{-1})\nonumber\\
+	&= \text{log det}((\miH^H \textbf{R}_{\textbf{x}} \miH + \textbf{R}_{\textbf{n}})\textbf{R}_{\textbf{n}}^{-1})\nonumber\\
+	&= \text{log det}(\textbf{I} + \miH^H \textbf{R}_{\textbf{x}} \miH \textbf{R}_{\textbf{n}})
+\end{align}
+
+Si tenemos en cuenta que la matriz de correlación del ruido será de la siguiente forma $\textbf{R}_{\textbf{n}} = \sigma^2\mathbf{I}$, tendremos
+
+\begin{equation}
+I(\miX;\miY) = \text{log det}(\textbf{I} + \frac{1}{\sigma^2}\miH^H \textbf{R}_{\textbf{x}} \miH)
+\end{equation}
+
+Si normalizamos la matriz de correlación $\mathbf{R}_\mathbf{x}$ con respecto a la potencia $P$ y además la transformamos de tal forma que su traza sea siempre igual a $M$, $\mathbf{R}_\mathbf{x}' =  \frac{P}{M}  \mathbf{R}_\mathbf{x}$
+
+\begin{align}
+I(\miX;\miY) &= \text{log det}(\textbf{I} + \frac{P}{M\sigma^2}\miH^H \textbf{R}_{\textbf{x}}' \miH)\nonumber\\
+&= \text{log det}(\textbf{I} + \frac{\snr}{\sigma^2}\miH^H \textbf{R}_{\textbf{x}}' \miH)
+\end{align}
+
+por lo que nuestra definición de capacidad será la siguiente
+
+\begin{equation}\label{eq_capacidad}
+C = \max_{Tr(\textbf{R}_{\textbf{x}}) = M} E\left\lbrace \text{log det} \left(\mathbf{I}_N + \frac{\snr}{M}\miH \mathbf{\textbf{R}_{\textbf{x}}} \miH^{H}\right)\right\rbrace
+\end{equation}
+
+donde det[$\textbf{A}$] denota el determinante de la matriz $\textbf{A}$. Como se puede ver claramente, la optimización relativa a $\textbf{R}_{\textbf{x}}$ dependerá de si $\miH$ es conocida o no en el transmisor, por lo que a continuación consideraremos dicha optimización bajo diferentes situaciones sobre lo que conocemos acerca del CSI ($\textit{Channel State Information}$) del canal en el transmisor. 
+
+La capacidad de un canal MIMO depende en gran medida de las propiedades estadísticas del canal y de la correlación que se deriva de los elementos radiantes. Esta correlación varía drásticamente como una función de la dispersión existente en el entorno, de la distancia entre el transmisor y el receptor, la configuración de las antenas y la dispersión Doppler. Como veremos en las simulaciones mostradas en la sección \ref{sec:simul}, el efecto de la correlación en la capacidad depende del conocimiento que tengamos del canal en el transmisor y en el receptor; la correlación aumentará la capacidad en algunos casos y la reducirá en otros. 
+
+Cuando estamos ante un canal que varía con el tiempo la capacidad de canal tiene múltiples definiciones, dependiendo de la información que tengamos sobre el canal o su distribución en el transmisor y/o en el receptor, como veremos a continuación. 
+
+Cuando conocemos perfectamente en el transmisor y en el receptor las ganancias instantáneas del canal, también llamadas información de estado del canal (\textit{channel state information}, \textbf{CSI}), el transmisor puede adaptar su estrategia de transmisión (bien la velocidad o la potencia) en base a este estado del canal. En este caso la capacidad ergódica
+\footnote{Llamarlo ergódico esencialmente significa que una muestra relativamente larga de las realizaciones del canal tiene una distribución similar la distribución estadística del canal. La capacidad ergódica es una métrica de capacidad apropiada para canales que varían rápidamente, o en canales que se comportan de forma ergódica en el período que nos interesa observar.} 
+ es la máxima información mutua promediada sobre todos los estados del canal. En condiciones de CSI en el transmisor (CSIT), la capacidad ergódica se puede alcanzar utilizando una estrategia de transmisión adaptativa donde la potencia y la velocidad varían en función de las variaciones existentes en el estado del canal. 
+ % Echar un ojo a la referencia [40] de capacity limits en mimo channels de goldsmith.
+En este caso de estrategias adaptativas, la velocidad varía como una función del estado instantáneo del canal y la capacidad ergódica se refiere al máximo promedio (de larga duración) posible de las velocidades instantáneas. Por lo tanto, no es necesario que el canal varíe rápidamente durante una palabra de código ya que la capacidad ergódica es significativa incluso en entornos con desvanecimento relativamente lento y donde los promedios de larga duración son de interés también. %quien entiende esto?
+
+Cuando sólo conocemos la distribución del canal en alguno de los extremos de la comunicación, bien en el transmisor o en el receptor, la estrategia en este extremo se basa en la distribución del canal en lugar del estado instantáneo del canal, como hacíamos en el caso anterior. Este caso se conoce como \textbf{CDI}, \textit{channel distribution information}, específicamente CDIT o CDIR cuando el conocimiento es en el transmisor o en el receptor, respectivamente. Típicamente, se asume que los coeficientes del canal son conjuntamente Gaussianos, por lo que la distribución del canal viene determinada por la media del canal y las matrices de covarianza. Cuando solo existe perfecto CSI en el transmisor o en el receptor, el transmisor debe mantener una estrategia de transmisión de velocidad fija, optimizada con respecto a su CSI. En este caso la capacidad ergódica define la velocidad que puede alcanzarse basada en el promedio sobre todos los estados del canal. Alternativamente, el transmisor puede emitir a una velocidad no soportada por todos los estados del canal; en esos estados ``pobre''  la información transmitida se pierde. 
+
+En nuestro caso, en el que nos encontramos en canales que varían con el tiempo, calcularemos la capacidad ergódica calculando la media entre todas las realizaciones.
+
+
+
+\section{Descomposición de un canal MIMO en múltiples canales paralelos}
+
+Puede resultar muy útil descomponer un canal MIMO en un número $K$ de canales paralelos e independientes \cite{Huang}. Multiplexando los datos independientes en estos canales independientes, podemos multiplicar por $K$ la velocidad de transmisión de datos si la comparamos con un sistema con una única antena en transmisión y recepción. A este aumento en la velocidad se le llama ganancia de multiplexación y a continuación mostraremos cómo realizar esta descomposición.  
+
+Considerando un canal MIMO con una matriz de canal $\miH$ de dimensiones $[N \times M]$, conocida en el transmisor y en el receptor. Como se indica en el apéndice A
+%apéndice lo que sea
+, para cualquier matriz podemos obtener su descomposición en valores singulares, SVD. 
+
+\begin{equation}
+\miH = \mathbf{U}\mathbf{\Sigma}\mathbf{V}^{H}
+\end{equation}
+
+donde las matrices $\mathbf{U}$ ($N \times N$) y $\mathbf{V}$ ($M \times M$) son matrices unitarias y $\mathbf{\Sigma}$ es una matriz diagonal de dimensiones ($N\times M$) compuesta por los valores singulares ($\sigma_i$) de $\miH$. Estos valores singulares cumplen la propiedad de que $\sigma_i = \sqrt{\lambda_i}$, siendo $\lambda_i$ los autovalores de la matriz $\miH$.
+
+Esta descomposición en canales paralelos se lleva a cabo realizando transformaciones tanto en el receptor como en el transmisor del sistema MIMO. En el transmisor se realiza una precodificación al vector de entrada $\mix$ de la forma $\mix = \mathbf{V}\tilde{\mix}$ y en el receptor se realiza una operación similar multiplicando la salida $\miy$ por la matriz $\mathbf{U}^H$. 
+
+De esta forma habremos transformado el canal MIMO en $R_H$
+\footnote{
+$R_H$ denota el rango de la matriz $\miH$. El rango de una matriz es el máximo entre el número de filas linealmente independientes y el número de columnas independientes, por lo que siempre se cumplirá que $R_H \le min(M, N)$. La matriz $\miH$ tendrá $R_H$ autovalores distintos de cero.
+}
+ canales paralelos SISO (\textit{Single input single output}) cuyas entrada y salida serán $\tilde{\mix}$ y $\tilde{\miy}$ respectivamente. 
+ 
+ % Figura de un diagrama de bloques con las transformaciones quedaría bastante bien. 
+ 
+ %Esta ecuación hay que ponerla en varias lineas
+ %\begin{equation}
+ \begin{align}
+ \tilde{\miy} &= \mathbf{U^H}(\miH\mix + \minn)\nonumber \\
+ &= \mathbf{U^H}(\mathbf{U}\mathbf{\Sigma}\mathbf{V}^{H}\mix + \minn) \nonumber \\
+ &= \mathbf{U^H}(\mathbf{U}\mathbf{\Sigma}\mathbf{V}^{H}\mathbf{V}\tilde{\mix} + \minn)\nonumber \\
+ &= \mathbf{U^H}\mathbf{U}\mathbf{\Sigma}\mathbf{V}^{H}\mathbf{V}\tilde{\mix} + \mathbf{U^H}\minn\nonumber \\
+ &= \mathbf{\Sigma}\tilde{\mix} + \tilde{\minn} 
+ \end{align}
+ %\end{equation}
+ 
+donde $\tilde{\minn} = \mathbf{U^H}\minn$ 
+(lo que no hace que cambie la distribución del ruido al ser 
+$\mathbf{U}$ unitaria) y  $\mathbf{\Sigma}$ es la matriz cuya diagonal está formada por los valores singulares de $\miH$ y es nula fuera de la diagonal. En resumen, la transformación que estamos empleando hace que el canal MIMO se transforme en $R_H$ canales paralelos e independientes con entrada $\tilde{x_i}$, salida $\tilde{y_i}$, ruido $\tilde{n_i}$ y ganancia $\sigma_i$. Dado que estos $R_H$ canales son independientes (no interfieren entre ellos) la complejidad de la demodulación óptima ML es lineal en $R_H$, el número de señales independientes que hemos de demodular. Además, al enviar información por estos canales independientes, la velocidad que puede soportar este canal MIMO será $R_H$ veces la velocidad soportada por un sistema con una única antena en transmisión. Sin embargo, cómo de bien se comporte un canal dependerá por completo de su ganancia asociada ($\sigma_i$). 
+
+%un dibujito figura 10.3. del goldsmith
+
+
+\section{Estrategias de transmisión}
+
+Recordemos que, fijando la potencia transmitida a P, la capacidad ergódica será
+\begin{equation}\label{ec_cap_estra}
+C = \max_{Tr(\mathbf{Q}) \le P} E\left\lbrace \text{log det} \left(\mathbf{I}_N + \frac{\snr}{M}\miH \mathbf{Q} \miH^{H}\right)\right\rbrace
+\end{equation}
+donde $\mathbf{Q}$ es la matriz de covarianza de la señal de entrada. 
+
+Para alcanzar el máximo, habremos de optimizar la matriz de covarianza de la señal transmitida ($\mathbf{Q	} = \mathbf{V}\mathbf{P}\mathbf{V}^H$) definiendo así la estrategia de transmisión basada en la información disponible del transmisor. Analizaremos a continuación dos escenarios diferentes en base a esta información: CSIT, cuando conocemos el canal en el transmisor, y CDIT, cuando conocemos la distribución estadística del canal. 
+
+Como se ve en la ecuación (\ref{ec_cap_estra}), la matriz de correlación es un parámetro que afecta enormemente a la capacidad. El estudio de esta matriz de correlación y su efecto en sistemas de comunicaciones con múltiples antenas se puede encontrar en \cite{Lee73, Shiu00, Chizhik00} y viene caracterizado por completo por la separación entre antenas en el transmisor y el receptor así como por un modelo estadístico que describe la dispersión dada por el perfil angular de potencia \cite{Pedersen00,Xu04}.
+
+
+\subsection{CSIT: Conocido el canal en el transmisor}
+
+Con CSIT, asumimos que la matriz de canal $\miH$ es conocida instantáneamente en el transmisor. Cuando el transmisor conoce esta matriz, asumimos de la misma forma que conoce la distribución perfectamente (ya que la distribución se puede obtener a partir de las observaciones instantáneas). 
+
+En este primer caso, la matriz $\mathbf{V}$ estará formada por los autovalores de la correlación en el transmisor  $E\left \{{\bf H}^H {\bf H}\right \}$. 
+
+Dado que los canales paralelos en los que se descompone en el canal no son, como es esperable, idénticos sino que tienen diferente calidad, la asignación del nivel de potencia para cada canal (la matriz $\mathbf{P}$ se hará utilizando el algoritmo Water-Filling. Este algoritmo, como nos adelanta su nombre, compara la asignación de potencia de los diferentes canales con recipientes que se van llenando de agua. Así, este algoritmo nos lleva a
+\begin{equation}
+P_i = \left(\mu - \frac{1}{\sigma_i^2}\right)^+, 1 \le i \le R_H
+\end{equation}
+
+donde $ P_i $ es la potencia correspondiente $\tilde{x_i}$, $x^+$ se define como $max(x,0)$, y el nivel de``llenado de agua'' $\mu$ se elige de tal forma que $\sum_{i=1}^{R_H}P_i = P$. La capacidad por tanto se alcanza eligiendo cada componente $\tilde{x_i}$ de acuerdo a una distribución Gaussiana independiente con potencia $P_i$. La covarianza que hace máxima la expresión es $\mathbf{Q} = \mathbf{V}\mathbf{P}\mathbf{V}^H$, donde la matriz $\mathbf{P}$ es una matriz diagonal definida como $\mathbf{P} = \diag(P_1, ..., P_{R_H}, 0, ..., 0)$. La capacidad resultante será
+
+\begin{equation}
+C = \sum_i^{R_H} (log(\mu\sigma_i^2))^+
+\end{equation}
+
+Para niveles bajos de $\snr$, el algoritmo de Water-Filling distribuye la potencia disponible colocándola en el canal paralelo cuya ganancia sea mayor. Para altos niveles de $\snr$, este algoritmo administra la potencia adjudicando a cada canal apróximadamente la misma, llevándonos a la siguiente aproximación de la capacidad para altos valores de $\snr$:
+\begin{equation}
+C \approx R_H\log_2(P) + O(1)
+\end{equation}
+donde la constante depende de los valores singulares de $\miH$. 
+
+De esta estrategia de transmisión podemos extraer varias conclusiones. En primer lugar, la multiplicación de $\mathbf{V}$ por la entrada consiste en una precodificación que alinea dichas entradas con los modos propios del canal. Esto quiere decir que, haciendo una simple multiplicación de las señales de salida, podremos tratarlas como observaciones independientes. Además, el transmisor aplica la estrategia de Water-Filling haciendo uso de los diferentes modos del canal, para aprovechar la diferente calidad de los canales paralelos. 
+
+
+%En este capítulo examinaremos la capacidad de un canal inalámbrico para un solo usuario donde cada transmisor y/o receptor tienen una única antena; partiendo de la fórmula de capacidad para un canal donde existe ruido aditivo Gaussiano blanco para después considerar la capacidad de un canal en el que existe desvanecimiento plano y variante con el tiempo, donde no obtendremos la capacidad a partir de una fórmula simple como ocurre en el primer caso ya que la capacidad dependerá de la información que se tiene sobre el canal y los transmisores y/o receptores. Es más, para diferentes suposiciones sobre la información que disponemos sobre el canal, obtendremos diferentes definiciones sobre la capacidad de canal .
+
+\subsection{CDIT: Conocida la distribución del canal en el transmisor} \label{sec:cdit}
+
+En un escenario con CDIT, la optimización de la matriz de covarianza $\mathbf{Q}$, descrita por $\mathbf{Q} = \mathbf{V}\mathbf{P}\mathbf{V}^H$ suele descomponerse separadamente en la optimización de los autovalores $\mathbf{P}$ (que definen la distribución de potencia) y los autovectores $\mathbf{V}$ \cite{Jafar04,Visotsky01,Tulino04}. 
+
+En esta sección propondremos dos algoritmos diferentes y en el capítulo \ref{sec:comp} analizaremos el comportamiento de cada uno de ellos.  
+
+En primer lugar, los autovectores que maximizan (\ref{ec_cap_estra}) son los de la correlación en el transmisor  $E\left \{{\bf H}^H {\bf H}\right \}$. Para hallar la distribución óptima de potencia haremos uso del algoritmo propuesto en \cite{Tulino04}. Este algoritmo propone una distribución de potencia basada en el MMSE \footnote{Minimun Mean Square Error, mínimo error cuadrático medio}. Este algoritmo es válido cuando los autovalores $\mathbf{V}$ son conocidos. 
+
+Definimos una versión rotada del canal, $\hat{\miH} = \miH \mathbf{V}$, cuya columna $j$-ésima se denota como $\hat{\mih}_j$. Como se muestra en el apéndice B de \cite{Tulino04}, para alcanzar la capacidad la matriz $\mathbf{P}$ debe cumplir la condición suficiente y necesaria descrita a continuación
+
+\begin{equation}\label{eq5}
+\frac{1}{N} E \left[Tr\left\lbrace \left(\mathbf{I} + \mmse \hat{\mih}_j \hat{\mih}_j^H\right)\left(\mathbf{I} + \frac{\snr}{M}\hat{\miH}\mathbf{P}\hat{\miH}^H\right)^{-1}\right\rbrace\right]  
+	\begin{cases}
+		= 1 & \text{si } p_j > 0\\
+		\le 1 & \text{si } p_j = 0
+\end{cases}
+\end{equation}
+
+Dado que los canales paralelos correspondientes no son ortogonales \footnote{En contraste con el escenario en el que $\miH$ es conocido en el transmisor (CSIT), caso en el que los canales paralelos pueden ser creados para que sean ortogonales y la distribución de potencia se reduce a un Water-Filling}, esta solución no se corresponde con un Water-Filling. La inecuación (\ref{eq5}) indica que cuando nos encontramos por debajo de una determinada SNR la potencia transmitida por algunos de los canales será nula. 
+
+Así pues, la potencia inyectada en cada canal canal descrita en la matriz $\mathbf{P}$ no puede ser hallada de forma explícita por lo que se propone un algortimo basándonos en el error cuadrático medio para lo que, en primer lugar, se define 
+
+\begin{equation}\label{B-mmse}
+\mathbf{B}_j \triangleq \left(\mathbf{I} + \frac{\snr}{M} \hat{\miH}_j \mathbf{P}_j \hat{\miH}_j^H \right)^{-1}
+\end{equation}
+
+donde $\hat{\miH}_j$ es la matriz obtenida eliminando la columna $j$-ésima de $\miH$ y $\mathbf{P}_j$ es la matriz diagonal obtenida eliminando la fila y columna $j$-ésima. Así, el $\mmse$ resultante de la estimación lineal de la señal $s_j$ transmitida a través del autovector $j$-ésimo es
+\begin{equation}\label{eq_mmse}
+\mmse= \frac{1}{1 + p_j\frac{\snr}{M}\hat{\mih}_j^H \mathbf{B}_j \hat{\mih}_j}
+\end{equation}
+
+La potencia recibida de la señal $j$-ésima viene dada por $1 - \mmse_j$ y por lo tanto la SINR \footnote{Signal-to-interference-and-noise ratio} viene dada por la siguiente expresión
+\begin{equation}
+\mathsf{SINR}_j = \frac{1 - \mmse}{\mmse} 
+\end{equation}
+
+La esperanza de (\ref{eq_mmse}) con respecto a $\hat{\miH}$ se denota como
+\begin{equation}
+\overline{\mmse}_j \triangleq E[\mmse_j] 
+\end{equation}
+
+Además, se puede verificar que 
+\begin{equation}\label{eq9}
+Tr\left\lbrace \left(\mathbf{I} + \frac{\snr}{M}\hat{\miH}\mathbf{P}\hat{\miH}^H\right)^{-1} \right\rbrace = \sum_{l = 1}^M \mmse_l + N - M
+\end{equation}
+
+Usando (\ref{B-mmse}) y (\ref{eq9}), las condiciones enunciadas en un principio en (\ref{eq5}) se pueden reescribir finalmente como
+\begin{equation}
+\begin{cases}
+	p_j = 0 & \frac{\snr}{M}E\left[\hat{\mih}_j^H \mathbf{B}_j \hat{\mih}_j\right] \le \frac{1}{M}\sum_{l = 1}^M (1 - \overline{\mmse}_l) \\
+	p_j = \frac{1 - \overline{\mmse}_j}{\frac{1}{M}\sum_{l = 1}^M (1 - \overline{\mmse}_l)} & \mbox{en el resto de casos}
+\end{cases}
+\end{equation}
+
+Este algoritmo iterativo converge rápidamente a los valores buscados de potencia.
+
+En segundo lugar y en este mismo escenario de CDIT, realizaremos también simulaciones no sólo con este algoritmo sino con una estrategia de transmisión de \textbf{beamforming generalizado} (BF). En este caso, en lugar de tratar de optimizar la matriz de potencia $\mathbf{P}$ como hacíamos anteriormente, inyectaremos toda la potencia en una de las antenas transmisoras. 
+
+Como veremos a continuación en la sección \ref{sec:comp}, para bajos niveles de SNR, el algoritmo de beamforming arroja unos resultados similares al explicado en esta sección y que realiza una optimización de la distribución de potencia. A medida que la SNR va aumentando, las prestaciones del beamforming se muestran peores que las obtenidas a través de este algoritmo. 
+
+
+\section{Resultados de las simulaciones}\label{sec:simul}
+
+Las simulaciones que hemos realizado para hallar la capacidad de estos sistemas han variado, de nuevo, los parámetros en el transmisor: distancia entre antenas transmisoras y ángulos de dispersión en el transmisor. Además, se han realizado varias pruebas con diferente números de antenas y en escenarios con diferente $\snr$.
+
+Para extraer conclusiones de las simulaciones realizadas nos interesan especialmente los resultados pertenecientes a los escenarios asintóticos, es decir, para altas $\snr$ y bajas $\snr$ (sobre todo este último) \cite{Tulino05}. Mostraremos de igual forma la evolución de la capacidad con respecto a este parámetro. 
+
+En todos los casos estudiados se representarán los resultados tanto para un sistema MIMO masivo con $M$ antenas en el transmisor y $4$ antenas en el receptor como para un sistema MIMO con el mismo número de antenas transmisoras que receptoras.
+
+\subsection{Parámetros para las simulaciones}\label{sec:param}
+
+
+Como ya hemos comentado, para realizar las simulaciones nos centraremos en el enlace descendente y en un escenario MIMO de un solo usuario. 
+
+En primer lugar, y dado que la dispersión angular de elevación será mucho menor que la dispersión azimutal, sólo tendremos en cuenta para las simulaciones este último, que será muestreado de forma uniforme en $\theta \in (0, 2\pi)$. Además, tanto las antenas en transmisión como en recepción (ambas omnidireccionales) estarán dispuestas de tal manera que formen un array lineal, separadas una distancia $d_t$ y $d_r$ en transmisión y recepción, respectivamente. El perfil angular de potencia en la BS tiene una distribución \textit{broadside} y Laplaciana en azimut caracterizada por la dispersión angular en el transmisor (ASD) mientras que en el receptor asumimos una distribución uniforme caracterizada también por su dispersión angular (ASA). 
+
+Las condiciones más desfavorables en términos de correlación se darán en la BS donde, al estar situada la BS en un lugar normalmente elevado, los valores de ASD serán pequeños. Teniendo esto en cuenta, realizaremos las simulaciones centrándonos en el transmisor y los parámetros del mismo: $M$, número de antenas; $d_t$, distancia entre antenas transmisoras y ASD, dispersión angular en el transmisor. 
+
+\subsection{Evolución de la capacidad con respecto a la $\snr$}
+
+A lo largo de esta sección presentaremos los resultados de los tres algoritmos comentados pero no haremos énfasis en el análisis del algoritmo de beamforming generalizado (CDIT) pues como se verá en la sección \ref{sec:comp} sólo igualará al algoritmo propuesto para el escenario CDIT cuando la $\snr$ es baja. Por ello, en adelante nos centraremos en la comparación entre el Water-Filling implementado para CSIT y el algoritmo propuesto para CDIT.
+
+\subsubsection{Sistema MIMO con el mismo número de antenas transmisoras y receptoras}
+
+Se muestra en las figuras (\ref{fig:MN_C_dt05}) y (\ref{fig:MN_C_dt1}) el comportamiento de la capacidad en un escenario de CSIT y otro de CDIT (diferenciando entre las dos estrategias de transmisión propuestas) frente a la $\snr$ para diferentes valores de $ASD$ y $d_t$. 
+
+\begin{figure}
+\centering
+	\mbox{ \subfigure[$ASD = 10^\circ$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CSIT_CDIT_ASD10_dt05.eps}}}}
+	\mbox{ \subfigure[$ASD = 20^\circ$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CSIT_CDIT_ASD20_dt05.eps}}}}
+	\caption{Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) para un sistema MIMO Masivo con igual número de antenas transmisoras y receptoras y en el que $d_t = \frac{\lambda}{2}$}
+	\label{fig:MN_C_dt05}
+\end{figure}
+
+\begin{figure}
+\centering
+	\mbox{ \subfigure[$ASD = 10^\circ$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CSIT_CDIT_ASD10_dt1.eps}}}}
+	\mbox{ \subfigure[$ASD = 20^\circ$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CSIT_CDIT_ASD20_dt1.eps}}}}
+	\caption{Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) para un sistema MIMO Masivo con igual número de antenas transmisoras y receptoras y en el que $d_t = \lambda$}
+	\label{fig:MN_C_dt1}
+\end{figure}
+
+En primer lugar en la figura (\ref{fig:MN_C_dt05}) nos encontramos en un escenario típico en el que la distancia entre antenas transmisoras es igual a $\frac{\lambda}{2}$ mientras que en (\ref{fig:MN_C_dt1}) forzamos un escenario en el que no exista apenas correlación, aumentando la separación entre antenas hasta $\lambda$. En ambos casos, se ve cómo la estrategia de beamforming generalizado en el escenario CDIT nunca es óptima frente al resto y, en cuanto a la empleada en CSIT y CDIT, el Water-Filling utilizado en el primer caso supera siempre al algoritmo empleado en el escenario CDIT. Además, esta diferencia es mayor cuanto menor es el nivel de $\snr$ y va disminuyendo conforme aumenta este parámetro. 
+
+Para ilustrar de forma más clara los resultados obtenidos, lo haremos a través de la tabla \ref{tabla_mn} en la que se comparan los valores obtenidos de capacidad para un escenario de $ASD = 10^\circ$ y $d_t = \frac{\lambda}{2}$ y para diferentes valores tanto de $\snr$ como del número de antenas. De nuevo, con respecto a este último parámetro, nos interesa conocer el comportamiento en los extremos; es decir, en escenarios con pocas antenas o muchas antenas, especialmente este último.  
+
+\begin{sidewaystable}[htbp]
+\begin{center}
+\begin{tabular}{cc|c|c|c|c|c|c|c|c|c|}
+\cline{3-11}
+                                                &    & \multicolumn{3}{c|}{10 antenas} & \multicolumn{3}{c|}{60 antenas} & \multicolumn{3}{c|}{80 antenas} \\ \cline{3-11} 
+                                                &    & CSIT    & CDIT    & Diferencia  & CSIT    & CDIT    & Diferencia  & CSIT    & CDIT    & Diferencia  \\ \hline
+\multicolumn{1}{|c|}{\multirow{6}{*}{SNR (dB)}} & -5 & 5,760   & 5,404   & 0,302       & 33,87   & 32,23   & 1,64        & 45,12   & 42,96   & 2,16        \\ \cline{2-11} 
+\multicolumn{1}{|c|}{}                          & 1  & 10,51   & 10,16   & 0,35        & 61,45   & 59,59   & 1,86        & 81,8    & 79,34   & 2,46        \\ \cline{2-11} 
+\multicolumn{1}{|c|}{}                          & 5  & 14,89   & 14,51   & 0,38        & 86,45   & 84,48   & 1,97        & 115     & 112,4   & 2,6         \\ \cline{2-11} 
+\multicolumn{1}{|c|}{}                          & 9  & 20,28   & 19,88   & 0,4         & 117,1   & 115     & 2,1         & 155,8   & 153     & 2,8         \\ \cline{2-11} 
+\multicolumn{1}{|c|}{}                          & 15 & 30,27   & 29,84   & 0,43        & 173,8   & 171,6   & 2,2         & 231,2   & 228,2   & 3           \\ \cline{2-11} 
+\multicolumn{1}{|c|}{}                          & 19 & 38,16   & 37,73   & 0,43        & 218,7   & 216,5   & 2,2         & 290,9   & 287,9   & 8,55        \\ \hline
+\end{tabular}
+\caption{Capacidad (bps/Hz) para un sistema MIMO masivo con el mismo número de antenas en transmisión que en recepción. Comparación entre los escenarios CSIT y CDIT para 10, 60 y 80 antenas.}
+\label{tabla_mn}
+\end{center}
+\end{sidewaystable}
+
+Mostraremos en estas tablas los resultados para el escenario CSIT y el CDIT, pues como comprobaremos en la sección \ref{sec:comp} el algoritmo de beamforming nunca superará al propuesto en la sección \ref{sec:cdit} por lo que no tendremos en cuenta dicha estrategia en esta comparación. 
+
+Como se ve en la tabla \ref{tabla_mn}, en estas condiciones la diferencia entre los dos algoritmos es muy pequeña. Evidentemente, los resultados obtenidos en CSIT son mejores que los obtenidos en CDIT, pues al tener conocimiento del canal y no únicamente de sus estadísticos, las condiciones son mejores. El algoritmo Water-Filling empleado en el escenario CSIT proporciona entre 0.3 y 0.4 bps/Hz más que el algoritmo implementado para el escenario CDIT y la diferencia entre estos dos casos aumenta muy poco a medida que los valores de la $\snr$ aumentan. 
+
+Sin embargo, al observar los datos correspondientes a 60 y 80 antenas podemos ver que con un número elevado de antenas en transmisión y en recepción la diferencia entre los dos escenarios se hace notable. Con 60 antenas la diferencia entre los dos casos es de alrededor de 2 bps/Hz y la variación con respecto a la $\snr$ es mayor que la que teníamos para 10 antenas. Por último, para 80 antenas es cuando la diferencia entre los dos escenarios se hace mayor partiendo desde 2.16 bps/Hz para una $\snr$ de -5 dB y llegando hasta 3 bps/Hz para 19 dB. Estos 3 bits extra que estamos consiguiendo en el caso CSIT son 3 bits más que podemos incluir en la constelación y aumentar de esta forma el número de símbolos posibles a transmitir.
+
+\subsubsection{Sistema MIMO Masivo con $M$ antenas transmisoras y $4$ antenas receptoras}
+
+\begin{figure}
+\centering
+	\mbox{ \subfigure[$ASD = 10^\circ$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CSIT_CDIT_ASD10_dt05_N4.eps}}}}
+	\mbox{ \subfigure[$ASD = 20^\circ$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CSIT_CDIT_ASD20_dt05_N4.eps}}}}
+	\caption{Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) para un sistema MIMO Masivo con $M$ antenas transmisoras y $4$ receptoras y en el que $d_t = \frac{\lambda}{2}$}
+	\label{fig:MN4_C_dt05}
+\end{figure}
+
+\begin{figure}
+\centering
+	\mbox{ \subfigure[$ASD = 10^\circ$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CSIT_CDIT_ASD10_dt1_N4.eps}}}}
+	\mbox{ \subfigure[$ASD = 20^\circ$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CSIT_CDIT_ASD20_dt1_N4.eps}}}}
+	\caption{Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) para un sistema MIMO Masivo con $M$ antenas transmisoras y $4$ receptoras y en el que $d_t = \lambda$}
+	\label{fig:MN4_C_dt1}
+\end{figure}
+
+En las figuras (\ref{fig:MN4_C_dt05}) y (\ref{fig:MN4_C_dt1}) se puede ver la evolución de la capacidad con respecto a la $\snr$ para diferentes valores de $ASD$ y $d_t$. En cada gráfica se muestra además dicha capacidad para diferente número de antenas.
+
+De igual forma que hacíamos en la sección anterior, observaremos de forma más clara los resultados obtenidos en una tabla en la que podamos comparar el comportamiento en los dos escenarios con respecto a la $\snr$ y al número de antenas transmisoras. 
+
+\begin{sidewaystable}[htbp]
+\begin{center}
+\begin{tabular}{cc|c|c|c|c|c|c|c|c|c|}
+\cline{3-11}
+                                                &    & \multicolumn{3}{c|}{10 antenas} & \multicolumn{3}{c|}{60 antenas} & \multicolumn{3}{c|}{80 antenas} \\ \cline{3-11} 
+                                                &    & CSIT    & CDIT    & Diferencia  & CSIT    & CDIT    & Diferencia  & CSIT    & CDIT    & Diferencia  \\ \hline
+\multicolumn{1}{|c|}{\multirow{6}{*}{SNR (dB)}} & -5 & 4       & 3,082   & 0,541       & 9,3     & 4,981   & 4,319       & 10,79   & 5,246   & 5,544       \\ \cline{2-11} 
+\multicolumn{1}{|c|}{}                          & 1  & 6,893   & 6,137   & 0,756       & 16,1    & 10,02   & 6,08        & 17,91   & 10,53   & 7,38        \\ \cline{2-11} 
+\multicolumn{1}{|c|}{}                          & 5  & 9,926   & 8,991   & 0,935       & 21,15   & 14,37   & 6,78        & 23,04   & 15,01   & 8,03        \\ \cline{2-11} 
+\multicolumn{1}{|c|}{}                          & 9  & 13,64   & 12,53   & 1,11        & 26,35   & 19,22   & 7,13        & 28,28   & 19,94   & 8,34        \\ \cline{2-11} 
+\multicolumn{1}{|c|}{}                          & 15 & 20,43   & 18,93   & 1,5         & 34,27   & 26,94   & 7,33        & 36,22   & 27,7    & 8,52        \\ \cline{2-11} 
+\multicolumn{1}{|c|}{}                          & 19 & 25,46   & 23,74   & 1,72        & 39,57   & 32,2    & 7,37        & 41,52   & 32,97   & 8,55        \\ \hline
+\end{tabular}
+\caption{Capacidad (bps/Hz) para un sistema MIMO masivo con $4$ antenas en recepción y 10, 60 y 80 antenas en transmisión. Comparación entre los escenarios CSIT y CDIT}
+\label{tabla_masivo}
+\end{center}
+\end{sidewaystable}
+
+En primer lugar, en la tabla \ref{tabla_masivo} encontramos los resultados para un escenario con 10, 60 y 80 antenas en transmisión y 4 en recepción. Para 10 antenas, la diferencia entre las dos estrategias oscila en torno a 1 bps/Hz, una diferencia mayor a la que obteníamos para el caso de 10 antenas transmisoras y receptoras. Podemos ver como esta diferencia se hace mucho mayor cuando aumentamos el número de antenas transmisoras. Para el caso de 60 la diferencia va desde 4.319 bps/Hz hasta 7.37 bps/Hz y para 80 antenas, esta diferencia varía desde 5.544 bps/Hz para una $\snr$ de -5 dB hasta 8.55 bps/Hz para una $\snr$ de 19 dB.
+
+\subsection{Alta $\snr$}
+
+Antes de presentar los resultados obtenidos a través de la simulaciones realizadas, cabe destacar que existen aproximaciones analíticas para calcular la capacidad y la eficiencia espectral de un sistema de comunicaciones tanto para altas $\snr$ como para bajas. Para ello, a menudo es conveniente expresar la capacidad no sólo como una función de la relación señal a ruido sino también de la energía por bit transmitida relativa al nivel de ruido $\left(\frac{E_b}{N_0}\right)$
+
+\begin{equation}
+\frac{E_b}{N_0} = \frac{E[||\mix||^2]}{N_0C(\snr)} = \frac{\snr}{gC(\snr)}
+\end{equation}
+
+De \cite{Tulino05}, para valores elevados de $\snr$ la capacidad se comporta de la siguiente forma:
+
+\begin{equation}
+C(\snr) = S_{\infty} \left(\frac{\snr}{3 \text{dB}} - L_{\infty} \right) + o(1)
+\end{equation}
+
+donde $S_{\infty}$ denota la pendiente a alta $\snr$ en bps/Hz/(3 dB) 
+y $L_{\infty}$ 
+representa el offset de potencia respecto a un canal de referencia ortogonal tal que $\frac{1}{M}\miH \miH ^H = \mathbf{I}$. Relacionando la capacidad con $\frac{E_b}{N_0}$ obtenemos
+
+\begin{equation}
+\frac{E_b}{N_0}|_{dB} = \left(\frac{C}{S_{\infty}} + L_{\infty} \right)\text{3 dB} - 10\text{log}_{10}C - g|_{\text{dB}} + o(1)
+\end{equation}
+
+Como se ve, $S_{\infty}$ representa tanto la pendiente en términos de $\snr$ como en términos $\frac{E_b}{N_0}$. 
+
+Hemos hecho uso de esta aproximación para comprobar si los resultados obtenidos en las simulaciones son coherentes. 
+
+\subsubsection{Sistema MIMO con el mismo número de antenas transmisoras y receptoras}
+
+Para un valor de $\snr$ de 19 dB se muestran los resultados de capacidad, comparándola en función de los diferentes escenarios expuestos. En primer lugar en la figura (\ref{fig:MN_COMP_HS_DT}) podemos observar dicha comparación para dos valores concretos del ángulo de dispersión, por lo que podremos examinar su evolución con respecto a la distancia entre las antenas. A medida que esta aumenta, el valor de la capacidad lo hace también, como es de esperar pues cuando la correlación es menor nos encontramos en mejores condiciones. 
+
+\begin{figure}
+\centering
+	\mbox{ \subfigure[$ASD = 10^\circ$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CDIT_CSIT_SNR19_ASD10.eps}}}}
+	\mbox{ \subfigure[$ASD = 20^\circ$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CDIT_CSIT_SNR19_ASD20.eps}}}}
+	\caption{Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) de un sistema MIMO Masivo con igual número de antenas transmisoras y receptoras para $\snr = 19$ dB. Evolución con respecto a la distancia entre antenas transmisoras.}
+	\label{fig:MN_COMP_HS_DT}
+\end{figure}
+
+En la figura (\ref{fig:MN_COMP_HS_ASD}) lo que podemos ver es la evolución con respecto a $ASD$, es decir, al ángulo de dispersión del transmisor. Estas gráficas tienen un comportamiento similar a una función logarítmica, es decir, crecen rápidamente cuando nos encontramos en valores del $ASD$ bajos y se estabilizan a medida que este ángulo se hace mayor. Este comportamiento se acerca cada vez más a un comportamiento logarítmico a medida que nos encontramos en mejores condiciones ($d_t$ aumenta), y el momento en el que empieza a tener un comportamiento constante sucede para valores menores del $ASD$. 
+
+
+\begin{figure}
+\centering
+	\mbox{ \subfigure[$d_t = \frac{\lambda}{2}$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CDIT_CSIT_SNR19_dt05.eps}}}}
+	\mbox{ \subfigure[$d_t = \lambda$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CDIT_CSIT_SNR19_dt1.eps}}}}
+	\caption{Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) de un sistema MIMO Masivo con igual número de antenas transmisoras y receptoras para $\snr = 19$ dB. Evolución con respecto al ángulo de dispersión en el transmisor.}
+	\label{fig:MN_COMP_HS_ASD}
+\end{figure}
+
+En ambos casos las diferencias existentes entre los dos escenarios son mínimas, pues para valores elevados de $\snr$ los algoritmos empleados en ambos casos tienen muy buena respuesta. 
+
+
+\subsubsection{Sistema MIMO masivo con M antenas transmisoras y 4 antenas receptoras}
+
+De nuevo, para un valor de $\snr$ de 19 dB se muestran los resultados de capacidad, comparándola en función de los diferentes escenarios expuestos. En primer lugar en la figura (\ref{fig:MN_COMP_HS_DT_N4}) podemos observar dicha comparación para dos valores concretos del ángulo de dispersión, por lo que podremos examinar su evolución con respecto a la distancia entre las antenas; mientras que en la figura (\ref{fig:MN_COMP_HS_ASD_N4}) lo que veremos será la evolución con respecto al ángulo de dispersión. 
+
+\begin{figure}
+\centering
+	\mbox{ \subfigure[$ASD = 10^\circ$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CDIT_CSIT_SNR19_ASD10_N4.eps}}}}
+	\mbox{ \subfigure[$ASD = 20^\circ$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CDIT_CSIT_SNR19_ASD20_N4.eps}}}}
+	\caption{Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) de un sistema MIMO Masivo con $M$ antenas transmisoras y $4$ receptoras para $\snr = 19$ dB. Evolución con respecto a la distancia entre antenas transmisoras.}
+	\label{fig:MN_COMP_HS_DT_N4}
+\end{figure}
+
+
+\begin{figure}
+\centering
+	\mbox{ \subfigure[$d_t = \frac{\lambda}{2}$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CDIT_CSIT_SNR19_dt05_N4.eps}}}}
+	\mbox{ \subfigure[$d_t = \lambda$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CDIT_CSIT_SNR19_dt1_N4.eps}}}}
+	\caption{Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) de un sistema MIMO Masivo con $M$ antenas transmisoras y $4$ receptoras para $\snr = 19$ dB. Evolución con respecto al ángulo de dispersión en el transmisor.}
+	\label{fig:MN_COMP_HS_ASD_N4}
+\end{figure}
+
+Mientras que el comportamiento en el escenario CSIT tiende a estabilizarse a partir de un cierto valor de $ASD$ o $d_t$ (valor que será menor a medida que las condiciones mejoren bien aumentando la distancia entre antenas o el ángulo de dispersión respectivamente), no sucede lo mismo para el escenario CDIT. Para valores elevados de correlación, los valores arrojados en cada caso son muy similares y van separándose conforme evolucionan las gráficas. Cuanto mayor es el número de antenas y mayor es $ASD$ o $d_t$, más se aleja la gráfica correspondiente a CDIT de la CSIT. 
+
+
+\subsection{Baja $\snr$}
+Este escenario es uno de los más relevantes en sistemas de comunicaciones debido principalmente a la necesidad de reutilizar frecuencias para un uso eficiente del ancho de banda, lo que resulta en sistemas con fuerte nivel de interferencias. 
+
+Para el caso de CDIT, una aproximación aceptada de la capacidad de un sistema MIMO es
+\begin{equation}\label{ec_10}
+C \left(\frac{E_b}{N_o}\right) = \frac{S_o}{3\text{dB}} \left( \frac{E_b}{N_o} |_{\text{dB}} - (\frac{E_b}{N_o})_{\text{min}} |_{\text{dB}} \right) + \epsilon 
+\end{equation}
+con
+\begin{equation}\label{ec_11}
+S_0=\frac{2\text{
+Tr}\left\{\miTheta_R\right\}^2}{\text{Tr}\left\{\miTheta_R\right\}^2+\text{Tr}\left\{\miTheta_R^2\right\}}
+\end{equation}
+
+\begin{equation}\label{ec_12}
+\frac{E_b}{N_o}_{\text{min}}=\frac{\log_e
+2}{\text{Tr}\left\{\miTheta_R\right\}\lambda_{\text{max}}(\miTheta_T)}
+\end{equation}
+
+siendo $\miTheta_T$ y $\miTheta_R$ la correlacion en el transmisor y en el receptor respectivamente.
+
+\begin{equation}\label{ec_7}
+\miTheta_R= \frac{1}{M}E\left \{\miH \miH^{H}\right
+\}
+\end{equation}
+\begin{equation}\label{ec_8}
+\miTheta_T= \frac{1}{N}E\left \{\miH^{H}\miH\right
+\}
+\end{equation}
+
+Observando las ecuaciones (\ref{ec_10}), (\ref{ec_11}) y (\ref{ec_12}) podemos ver que para el análisis para baja $\snr$ son $\lambda_{\text{max}}(\miTheta_T)$ y $\text{Tr}\left\{\miTheta_R\right\}$ son los parámetros que tienen influencia en la capacidad del sistema. 
+
+El efecto de la correlación  en el transmisor como en el receptor es diferente desde el punto de vista de la capacidad. Cuando la correlación en el transmisor es elevada, $\frac{E_b}{N_o}_{\text{min}}$ disminuye, lo que hace que la eficiencia espectral aumente para un punto de trabajo concreto $\frac{E_b}{N_o}$. 
+
+De nuevo, hemos utilizado estas fórmulas para comprobar si los resultados que hemos ido obteniendo a lo largo de esta sección son correctos. 
+
+\subsubsection{Sistema MIMO con el mismo número de antenas transmisoras y receptoras}
+Para un valor de $\snr = -5$ dB y un sistema MIMO con igual número de antenas transmisoras y receptoras podemos observar los resultados en las figuras (\ref{fig:MN_COMP_LS_DT}) y (\ref{fig:MN_COMP_LS_ASD}). 
+
+\begin{figure}
+\centering
+	\mbox{ \subfigure[$ASD = 10^\circ$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CDIT_CSIT_SNRm5_ASD10.eps}}}}
+	\mbox{ \subfigure[$ASD = 20^\circ$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CDIT_CSIT_SNRm5_ASD20.eps}}}}
+	\caption{Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) de un sistema MIMO Masivo con igual número de antenas transmisoras y receptoras para $\snr = -5$ dB. Evolución con respecto a la distancia entre antenas transmisoras.}
+	\label{fig:MN_COMP_LS_DT}
+\end{figure}
+
+
+\begin{figure}
+\centering
+	\mbox{ \subfigure[$d_t = \frac{\lambda}{2}$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CDIT_CSIT_SNRm5_dt05.eps}}}}
+	\mbox{ \subfigure[$d_t = \lambda$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CDIT_CSIT_SNRm5_dt1.eps}}}}
+	\caption{Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) de un sistema MIMO Masivo con igual número de antenas transmisoras y receptoras para $\snr = -5$ dB. Evolución con respecto al ángulo de dispersión en el transmisor.}
+	\label{fig:MN_COMP_LS_ASD}
+\end{figure}
+
+El comportamiento es similar al que comentábamos en la sección anterior. Mientras que el algoritmo de Water-Filling empleado en el caso CSIT hace que  la capacidad se estabilice a partir de cierto valor de $d_t$ o $ASD$, los resultados de capacidad que arroja el caso CDIT se alejan cada vez más de los obtenidos para CSIT conforme aumentan tanto $d_t$ como $ASD$. Sin embargo, hemos encontrado un comportamiento que no esperábamos en este caso, la existencia de un punto de trabajo para el que se alcanza la capacidad. Es decir, no nos acercamos más a la capacidad del sistema cuando la correlación es más o menos alta sino que existe un punto concreto (muy apreciable en la figura (\ref{fig:MN_COMP_LS_ASD})) de $ASD$ para el cual la capacidad es máxima. 
+
+\subsubsection{Sistema MIMO masivo con M antenas transmisoras y 4 antenas receptoras}
+
+En este último caso, la evolución de las gráficas es la misma que la ya comentada. En las figuras (\ref{fig:MN_COMP_LS_DT_N4}) y (\ref{fig:MN_COMP_LS_ASD_N4}) se ve cómo mientras el Water-Filling utilizado en el escenario CSIT tiende a estabilizarse a partir de cierto valor de $d_t$ o de $ASD$ (estabilización que sucederá antes cuando nos encontremos en condiciones con menor correlación), la capacidad correspondiente al escenario CDIT disminuye a medida que la correlación disminuye. 
+
+\begin{figure}
+\centering
+	\mbox{ \subfigure[$ASD = 10^\circ$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CDIT_CSIT_SNRm5_ASD10_N4.eps}}}}
+	\mbox{ \subfigure[$ASD = 20^\circ$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CDIT_CSIT_SNRm5_ASD20_N4.eps}}}}
+	\caption{Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) de un sistema MIMO Masivo con $M$ antenas transmisoras y $4$ receptoras para $\snr = -5$ dB. Evolución con respecto a la distancia entre antenas transmisoras.}
+	\label{fig:MN_COMP_LS_DT_N4}
+\end{figure}
+
+
+\begin{figure}
+\centering
+	\mbox{ \subfigure[$d_t = \frac{\lambda}{2}$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CDIT_CSIT_SNRm5_dt05_N4.eps}}}}
+	\mbox{ \subfigure[$d_t = \lambda$]{\resizebox{!}{10cm}		{\includegraphics{figuras/CDIT_CSIT_SNRm5_dt1_N4.eps}}}}
+	\caption{Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) de un sistema MIMO Masivo con $M$ antenas transmisoras y $4$ receptoras para $\snr = -5$ dB. Evolución con respecto al ángulo de dispersión en el transmisor.}
+	\label{fig:MN_COMP_LS_ASD_N4}
+\end{figure}
+
+\subsection{Comparación entre los diferentes algoritmos para el escenario CDIT}\label{sec:comp}
+
+Como ya hemos comentado en la sección \ref{sec:cdit}, para un escenario en el que existe CDIT, hemos implementado dos estrategias de transmisión diferentes. La primera de ellas trata de optimizar la matriz de covarianza en base a cálculos a partir del mínimo error cuadrático medio mientras que el segundo, mucho más sencillo, únicamente inyecta toda la potencia en una de las antenas transmisoras. 
+
+Como es de esperar, los resultados que obtendremos para el primero de ellos serán mejores que para el segundo. Se muestran estos resultados en las figuras (\ref{fig:comparacioncditbf}) y (\ref{fig:comparacioncditbf2}) donde, para una distancia entre antenas fija o un ángulo de dispersión concreto, se puede comparar el comportamiento en términos de capacidad que ofrece el beamforming generalizado frente al algoritmo de distribución de potencia detallado anteriormente. 
+
+\begin{figure}
+\centering
+	\mbox{ \subfigure[$d_t = \frac{\lambda}{2}$]{\resizebox{!}{7cm}		{\includegraphics{figuras/comparacion_cdit_bf_M2_N2_dt05.eps}}}}
+	\mbox{ \subfigure[$d_t = \lambda$]{\resizebox{!}{7cm}		{\includegraphics{figuras/comparacion_cdit_bf_M2_N2_dt1.eps}}}}
+	\mbox{ \subfigure[$d_t = 2\lambda$]{\resizebox{!}{7cm}		{\includegraphics{figuras/comparacion_cdit_bf_M2_N2_dt2.eps}}}}
+	\caption{Comparación de las dos estrategias de transmisión planteadas para el escenario CDIT. Evaluación de las mismas con respecto a $ASD$ y para diferentes valores de $\snr$}
+	\label{fig:comparacioncditbf}
+\end{figure}
+
+\begin{figure}
+\centering
+	\mbox{ \subfigure[$ASD = 2^\circ$]{\resizebox{!}{7cm}		{\includegraphics{figuras/comparacion_cdit_bf_M2_N2_ASD2.eps}}}}
+	\mbox{ \subfigure[$ASD = 10^\circ$]{\resizebox{!}{7cm}		{\includegraphics{figuras/comparacion_cdit_bf_M2_N2_ASD10.eps}}}}
+	\mbox{ \subfigure[$ASD = 16^\circ$]{\resizebox{!}{7cm}		{\includegraphics{figuras/comparacion_cdit_bf_M2_N2_ASD16.eps}}}}
+	\caption{Comparación de las dos estrategias de transmisión planteadas para el escenario CDIT. Evaluación de las mismas con respecto a $d_t$ y para diferentes valores de $\snr$}
+	\label{fig:comparacioncditbf2}
+\end{figure}
+
+Así, tal y como anticipábamos, en las figuras se puede apreciar cómo el comportamiento de estas dos estrategias de transmisión para bajos niveles de SNR es prácticamente idéntico. A medida que la $\snr$ va aumentando estos comportamientos se van alejando el uno del otro situándose el beamforming como el peor de los dos. Además, cuanto mayor es la $\snr$ antes empieza a ser óptimo el algoritmo frente al beamforming. 
+
+Cuando las condiciones en términos de correlación mejoran (es decir, aumenta la distancia entre antenas o la dispersión angular y por lo tanto disminuye la correlación) también es posible ver cómo el beamforming vuelve a ser peor que el algoritmo utilizado.
+
+En resumen, las dos estrategias de transmisión arrojan resultados muy similares para entornos con bajos niveles de $\snr$ mientras que a medida que las condiciones se hacen favorables (aumenta la $\snr$, el $ASD$ o $d_t$) se hace notable la diferencia entre estas dos estrategias, posicionándose el beamforming como el peor de los dos. 

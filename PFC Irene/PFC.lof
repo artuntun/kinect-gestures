@@ -1,0 +1,68 @@
+\select@language {spanish}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) para un sistema MIMO Masivo con igual número de antenas transmisoras y receptoras y en el que $d_t = \frac {\lambda }{2}$\relax }}{35}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ASD = 10^\circ $}}}{35}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$ASD = 20^\circ $}}}{35}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) para un sistema MIMO Masivo con igual número de antenas transmisoras y receptoras y en el que $d_t = \lambda $\relax }}{36}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ASD = 10^\circ $}}}{36}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$ASD = 20^\circ $}}}{36}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) para un sistema MIMO Masivo con $M$ antenas transmisoras y $4$ receptoras y en el que $d_t = \frac {\lambda }{2}$\relax }}{39}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ASD = 10^\circ $}}}{39}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$ASD = 20^\circ $}}}{39}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) para un sistema MIMO Masivo con $M$ antenas transmisoras y $4$ receptoras y en el que $d_t = \lambda $\relax }}{40}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ASD = 10^\circ $}}}{40}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$ASD = 20^\circ $}}}{40}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) de un sistema MIMO Masivo con igual número de antenas transmisoras y receptoras para $\mathsf {SNR}= 19$ dB. Evolución con respecto a la distancia entre antenas transmisoras.\relax }}{44}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ASD = 10^\circ $}}}{44}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$ASD = 20^\circ $}}}{44}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) de un sistema MIMO Masivo con igual número de antenas transmisoras y receptoras para $\mathsf {SNR}= 19$ dB. Evolución con respecto al ángulo de dispersión en el transmisor.\relax }}{45}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$d_t = \frac {\lambda }{2}$}}}{45}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$d_t = \lambda $}}}{45}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) de un sistema MIMO Masivo con $M$ antenas transmisoras y $4$ receptoras para $\mathsf {SNR}= 19$ dB. Evolución con respecto a la distancia entre antenas transmisoras.\relax }}{46}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ASD = 10^\circ $}}}{46}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$ASD = 20^\circ $}}}{46}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) de un sistema MIMO Masivo con $M$ antenas transmisoras y $4$ receptoras para $\mathsf {SNR}= 19$ dB. Evolución con respecto al ángulo de dispersión en el transmisor.\relax }}{47}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$d_t = \frac {\lambda }{2}$}}}{47}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$d_t = \lambda $}}}{47}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) de un sistema MIMO Masivo con igual número de antenas transmisoras y receptoras para $\mathsf {SNR}= -5$ dB. Evolución con respecto a la distancia entre antenas transmisoras.\relax }}{49}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ASD = 10^\circ $}}}{49}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$ASD = 20^\circ $}}}{49}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) de un sistema MIMO Masivo con igual número de antenas transmisoras y receptoras para $\mathsf {SNR}= -5$ dB. Evolución con respecto al ángulo de dispersión en el transmisor.\relax }}{50}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$d_t = \frac {\lambda }{2}$}}}{50}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$d_t = \lambda $}}}{50}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) de un sistema MIMO Masivo con $M$ antenas transmisoras y $4$ receptoras para $\mathsf {SNR}= -5$ dB. Evolución con respecto a la distancia entre antenas transmisoras.\relax }}{52}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ASD = 10^\circ $}}}{52}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$ASD = 20^\circ $}}}{52}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Comparación de la capacidad en escenarios CSIT o CDIT (y diferenciando las dos estrategias de transmisión para este último) de un sistema MIMO Masivo con $M$ antenas transmisoras y $4$ receptoras para $\mathsf {SNR}= -5$ dB. Evolución con respecto al ángulo de dispersión en el transmisor.\relax }}{53}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$d_t = \frac {\lambda }{2}$}}}{53}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$d_t = \lambda $}}}{53}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Comparación de las dos estrategias de transmisión planteadas para el escenario CDIT. Evaluación de las mismas con respecto a $ASD$ y para diferentes valores de $\mathsf {SNR}$\relax }}{54}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$d_t = \frac {\lambda }{2}$}}}{54}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$d_t = \lambda $}}}{54}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$d_t = 2\lambda $}}}{54}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Comparación de las dos estrategias de transmisión planteadas para el escenario CDIT. Evaluación de las mismas con respecto a $d_t$ y para diferentes valores de $\mathsf {SNR}$\relax }}{55}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ASD = 2^\circ $}}}{55}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$ASD = 10^\circ $}}}{55}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$ASD = 16^\circ $}}}{55}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Medida de ortogonalidad para un sistema MIMO masivo con $M$ antenas transmisoras y $2$ antenas receptoras para diferentes valores de $d_t$.\relax }}{63}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ASD = 5^\circ $}}}{63}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$ASD =10^\circ $}}}{63}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$ASD =20^\circ $}}}{63}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Medida de ortogonalidad para un sistema MIMO masivo con $M$ antenas transmisoras y $2$ antenas receptoras para diferentes valores de $ASD$.\relax }}{64}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$d_t = 0.5\lambda $}}}{64}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$d_t = \lambda $}}}{64}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$d_t = 2\lambda $}}}{64}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Medida de ortogonalidad para un sistema MIMO masivo con $M$ antenas transmisoras y $4$ antenas receptoras para diferentes valores de $ASD$ y $d_t$.\relax }}{66}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ASD = 10^\circ $}}}{66}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$d_t = \lambda $}}}{66}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Medida de ortogonalidad para un sistema MIMO con igual número de antenas transmisoras y receptoras para diferentes valores de $ASD$ y $d_t$.\relax }}{67}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ASD = 10^\circ $}}}{67}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$d_t = \lambda $}}}{67}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Medida de ortogonalidad para un sistema MIMO con $50$ antenas transmisoras y diferente número de antenas receptoras para diferentes valores de $ASD$ y $d_t$.\relax }}{69}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ASD = 10^\circ $}}}{69}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$d_t = \lambda $}}}{69}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
