@@ -7,7 +7,7 @@ Created on Mon May 18 12:10:13 2015
 
 import csv
 
-txt_file = r"skeltonData.txt"
+txt_file = r"skeletonData.txt"
 csv_file = r"skeletonData.csv"
 
 # use 'with' if the program isn't going to immediately terminate
