@@ -1,6 +1,7 @@
 
 
 import nltk
+from collections import deque
 
 class SkeletonFrame():
     """This class store data for each Skeletonframe"""
@@ -85,13 +86,15 @@ class SkeletonFrame():
 
 
 f = open("skeltonData.txt","r")
-#skeletonlist = []
+skeleton_queue = deque([])
 
 line = "2"
-lista = list(f)
+queue = deque(list(f))
 
 while(line != "\r\n"):
-    line = lista.pop()
+    line = queue.popleft()
     if (line != "\r\n"):
-        print line
+        skeleton_queue.append(SkeletonFrame(line))
 
+skeleton = skeleton_queue.popleft()
+print skeleton.spine
