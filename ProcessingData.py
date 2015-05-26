@@ -25,82 +25,73 @@ class SkeletonFrame():
         buff = []
         for x in tokens:
             if aux == 0:
-                self.iden = x
+                self.label = x
             elif aux == 1:
-                slef.label = x
+                buff.append(x)
             elif aux == 2:
                 buff.append(x)
             elif aux == 3:
                 buff.append(x)
-            elif aux == 4:
-                buff.append(x)
                 self.handLeft = buff
                 #Clearing the buffer
                 buff = []
+            elif aux == 4:
+                buff.append(x)
             elif aux == 5:
                 buff.append(x)
             elif aux == 6:
                 buff.append(x)
-            elif aux == 7:
-                buff.append(x)
                 self.elbowLeft = buff
                 #Clearing the buffer
                 buff = []
+            elif aux == 7:
+                buff.append(x)
             elif aux == 8:
                 buff.append(x)
             elif aux == 9:
                 buff.append(x)
-            elif aux == 10:
-                buff.append(x)
                 self.elbowRight = buff
                 #Clearing the buffer
                 buff = []
+            elif aux == 10:
+                buff.append(x)
             elif aux == 11:
                 buff.append(x)
             elif aux == 12:
                 buff.append(x)
-            elif aux == 13:
-                buff.append(x)
                 self.handRight = buff
                 #Clearing the buffer
                 buff = []
+            elif aux == 13:
+                buff.append(x)
             elif aux == 14:
                 buff.append(x)
             elif aux == 15:
                 buff.append(x)
-            elif aux == 16:
-                buff.append(x)
                 self.neck = buff
                 #Clearing the buffer
                 buff = []
+            elif aux == 16:
+                buff.append(x)
             elif aux == 17:
                 buff.append(x)
             elif aux == 18:
                 buff.append(x)
-            elif aux == 19:
-                buff.append(x)
                 self.spine = buff
                 #Clearing the buffer
                 buff = []
-
             aux = aux + 1
 
 
 
-
 f = open("skeltonData.txt","r")
-i = 0
-line = " "
-skeletonlist = []
+#skeletonlist = []
 
+line = "2"
+lista = list(f)
 
-while(line!= "\n"):
-    line = f.readline()
-    skeletonlist.append(SkeletonFrame(line))
+while(line != "\r\n"):
+    line = lista.pop()
+    if (line != "\r\n"):
+        print line
 
-
-
-skeleton = skeletonlist.pop()
-print skeleton.handRight
-skeleton = skeletonlist.pop()
-print skeleton.handRight
