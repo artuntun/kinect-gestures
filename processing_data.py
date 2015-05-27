@@ -1,4 +1,6 @@
-from collections import deque
+from collections import deque, namedtuple
+
+Coordenates = namedtuple('Coordenates', 'hand_left, elbow_left, elbow_right, hand_right, neck, spine')
 
 class SkeletonFrame():
     """This class store data for each Skeletonframe"""
@@ -6,19 +8,15 @@ class SkeletonFrame():
     def __init__(self, line):
         tokens = line.split()
         self.label = tokens[0]
-        self.handLeft = tokens[1:4]
-        self.elbowLeft = tokens[4:7]
-        self.elbowRight = tokens[7:10]
-        self.handRight = tokens[10:13]
-        self.neck = tokens[13:16]
-        self.spine = tokens[16:19]
+        self.coordenates = Coordenates(tokens[1:4], tokens[4:7], tokens[7:10],
+                                        tokens[10:13], tokens[13:16], tokens[16:19])
 
 def load_skeleton(file):
-    f = open(file,"r")
+    with open(file, 'r') as f:
+        essay_list = list(f)
+
     skeleton_queue = deque()
     trial_queue = deque()
-
-    essay_list = list(f)
 
     for line in essay_list:
         if line == "\r\n":
@@ -26,16 +24,15 @@ def load_skeleton(file):
             skeleton_queue = deque()
         else:
             skeleton_queue.append(SkeletonFrame(line))
-
     return trial_queue
 
 trial_queue = load_skeleton("skeltonData.txt")
 
 
-skeleton = trial_queue.pop().pop()
+skeleton = trial_queue[-1].pop()
 
-print skeleton.spine
+print skeleton.coordenates.spine
 
-skeleton2 = trial_queue.pop().pop()
+skeleton2 = trial_queue[-2].pop()
 
-print skeleton2.spine
+print skeleton2.coordenates.spine
