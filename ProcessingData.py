@@ -1,5 +1,4 @@
 
-
 import nltk
 from collections import deque
 
@@ -87,14 +86,27 @@ class SkeletonFrame():
 
 f = open("skeltonData.txt","r")
 skeleton_queue = deque([])
+trial_queue = deque([])
 
 line = "2"
 queue = deque(list(f))
 
-while(line != "\r\n"):
-    line = queue.popleft()
-    if (line != "\r\n"):
+for line in queue:
+    if (line == "\r\n"):
+        trial_queue.append(skeleton_queue)
+        skeleton_queue = []
+    else:
         skeleton_queue.append(SkeletonFrame(line))
 
-skeleton = skeleton_queue.popleft()
-print skeleton.spine
+print "loaded"
+
+lista = trial_queue.pop()
+
+skeleton = lista.pop()
+
+distance =  skeleton.spine - skeleton.neck
+print distance
+
+skeleton2 = trial_queue.pop().pop()
+
+print skeleton2.spine
