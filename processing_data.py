@@ -1,4 +1,5 @@
 from collections import deque, namedtuple
+import numpy as np
 
 Coordenates = namedtuple('Coordenates', 'hand_left, elbow_left, elbow_right, hand_right, neck, spine')
 
@@ -8,8 +9,12 @@ class SkeletonFrame():
     def __init__(self, line):
         tokens = line.split()
         self.label = tokens[0]
-        self.coordenates = Coordenates(tokens[1:4], tokens[4:7], tokens[7:10],
-                                        tokens[10:13], tokens[13:16], tokens[16:19])
+        self.coordenates = Coordenates(np.array(tokens[1:4], dtype=np.float32),
+                                        np.array(tokens[4:7], dtype=np.float32),
+                                        np.array(tokens[7:10], dtype=np.float32),
+                                        np.array(tokens[10:13], dtype=np.float32),
+                                        np.array(tokens[13:16], dtype=np.float32),
+                                        np.array(tokens[16:19], dtype=np.float32))
 
 def load_skeleton(file):
     with open(file, 'r') as f:
@@ -28,11 +33,15 @@ def load_skeleton(file):
 
 trial_queue = load_skeleton("skeltonData.txt")
 
+#GET CENTROID of last essay
+essay = trial_queue[-1]
+sum = np.array([0.0,0.0,0.0], dtype=np.float32)
+for i,ske in enumerate(essay):
+    sum = sum + ske.coordenates.spine
+    centroid = sum / (i+1)
+    print "{} : {}".format(i,centroid)
 
-skeleton = trial_queue[-1].pop()
-
-print skeleton.coordenates.spine
-
-skeleton2 = trial_queue[-2].pop()
-
-print skeleton2.coordenates.spine
+# substracting centroid from all cordenates of the essay
+for ske_frame in essay
+    for point in ske_frame.coordenates
+    
