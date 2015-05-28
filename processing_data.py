@@ -1,7 +1,5 @@
-from collections import deque, namedtuple
+from collections import deque
 import numpy as np
-
-Coordenates = namedtuple('Coordenates', 'hand_left, elbow_left, elbow_right, hand_right, neck, spine')
 
 class SkeletonFrame():
     """This class store data for each Skeletonframe"""
@@ -9,13 +7,14 @@ class SkeletonFrame():
     def __init__(self, line):
         tokens = line.split()
         self.label = tokens[0]
-        self.coordenates = Coordenates(np.array(tokens[1:4], dtype=np.float32),
-                                        np.array(tokens[4:7], dtype=np.float32),
-                                        np.array(tokens[7:10], dtype=np.float32),
-                                        np.array(tokens[10:13], dtype=np.float32),
-                                        np.array(tokens[13:16], dtype=np.float32),
-                                        np.array(tokens[16:19], dtype=np.float32))
+        self.hand_left = np.array(tokens[1:4], dtype=np.float32)
+        self.elbow_left = np.array(tokens[4:7], dtype=np.float32)
+        self.elbow_right= np.array(tokens[7:10], dtype=np.float32)
+        self.hand_right = np.array(tokens[10:13], dtype=np.float32)
+        self.neck = np.array(tokens[13:16], dtype=np.float32)
+        self.spine = np.array(tokens[16:19], dtype=np.float32)
 
+# Read Data from file and generate a list of essays
 def load_skeleton(file):
     with open(file, 'r') as f:
         essay_list = list(f)
@@ -37,19 +36,17 @@ trial_queue = load_skeleton("skeltonData.txt")
 essay = trial_queue[-1]
 sum = np.array([0.0,0.0,0.0], dtype=np.float32)
 for i,ske in enumerate(essay):
-    sum = sum + ske.coordenates.spine
+    sum = sum + ske.spine
     centroid = sum / (i+1)
-    #print "{} : {}".format(i,centroid)
 
-print "WAS: {}".format(essay[-1].coordenates.spine)
+print essay[-1].spine
 # substracting centroid from all cordenates of the essay
-"""for o,ske_frame in enumerate(essay):
-    for u,point in enumerate(ske_frame.coordenates):
-        was = essay[o].coordenates[u]
-        essay[o].coordenates[u] = point - centroid
-        now = essay[o].coordenates[u]
-        print " {} - {} = {}".format(was,centroid,now)"""
-
-essay[-1].coordenates[-1] = np.array([1.2,2,3.1], dtype=np.float32)
-
-print "NOW IS: {}".format(essay[-1].coordenates.spine)
+for o,ske_frame in enumerate(essay):
+    essay[o].spine = essay[o].spine - centroid
+    essay[o].hand_left = essay[o].hand_left - centroid
+    essay[o].hand_right = essay[o].hand_right - centroid
+    essay[o].elbow_left = essay[o].elbow_left - centroid
+    essay[o].elbow_right = essay[o].elbow_right - centroid
+    essay[o].neck = essay[o].neck - centroid
+print essay[-1].spine
+print "DONE"
