@@ -39,9 +39,17 @@ sum = np.array([0.0,0.0,0.0], dtype=np.float32)
 for i,ske in enumerate(essay):
     sum = sum + ske.coordenates.spine
     centroid = sum / (i+1)
-    print "{} : {}".format(i,centroid)
+    #print "{} : {}".format(i,centroid)
 
+print "WAS: {}".format(essay[-1].coordenates.spine)
 # substracting centroid from all cordenates of the essay
-for ske_frame in essay
-    for point in ske_frame.coordenates
-    
+"""for o,ske_frame in enumerate(essay):
+    for u,point in enumerate(ske_frame.coordenates):
+        was = essay[o].coordenates[u]
+        essay[o].coordenates[u] = point - centroid
+        now = essay[o].coordenates[u]
+        print " {} - {} = {}".format(was,centroid,now)"""
+
+essay[-1].coordenates[-1] = np.array([1.2,2,3.1], dtype=np.float32)
+
+print "NOW IS: {}".format(essay[-1].coordenates.spine)
