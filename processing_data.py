@@ -3,6 +3,7 @@ PREGUNTAS SOBRE EL CODIGO:
 1. la variables de los for ejemplo "i" se reinician cuando salen del for
 2. check the center_coordenates  function
 3. Tupla eliminado porque no es mutable. Alguna otra solucion?
+4. Cammbiar lista por numpy arrays en extract attributes
 """
 from collections import deque
 import numpy as np
@@ -82,29 +83,37 @@ def normalize_coordenates(trial_queue):
 
     return trial_queue
 
+#extracting attributes from data
 def extract_attributes(trial_queue):
     attributes_queue = []
+    label_list = []
     n = 6
     for p,essay_aux in enumerate(trial_queue):
-        a = len(essay_aux)
-        div = int(a/n)
+        samples = len(essay_aux)
+        div = int(samples/n)
         select = 0
         buffer_queue = []
+        buffer_queue2 = []
         for x in range(0,n):
             buffer_queue.append(essay_aux[select])
             select = select + div
-        attributes_queue.append(buffer_queue)
-    return attributes_queue
+        for x in range(0,n-1):
+            dif_hand_left = buffer_queue[x+1].hand_left - buffer_queue[x].hand_left
+            dif_hand_right = buffer_queue[x+1].hand_right - buffer_queue[x].hand_right
+            dif_elbow_left = buffer_queue[x+1].elbow_left - buffer_queue[x].elbow_left
+            dif_elbow_right = buffer_queue[x+1].elbow_right - buffer_queue[x].elbow_right
+            attributes_frame = np.array([dif_hand_left,dif_hand_right,dif_elbow_left,dif_elbow_right])
+            buffer_queue2.append(attributes_frame)
+        attributes_queue.append(buffer_queue2)
+        label_list.append(essay_aux[-1].label)
+
+    return attributes_queue, label_list
 
 data_set = load_skeleton("skeltonData.txt")
 set_centered = center_coordenates(data_set)
 set_normalize = normalize_coordenates(set_centered)
+attributes, labels = extract_attributes(set_normalize)
 
-attributes = extract_attributes(set_normalize)
-
-
-for essay in attributes:
-    for ske in essay:
-        print ske.spine
+print labels
 
 print "DONE"
