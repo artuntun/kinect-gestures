@@ -7,6 +7,7 @@ PREGUNTAS SOBRE EL CODIGO:
 """
 from collections import deque
 import numpy as np
+from sklearn.naive_bayes import GaussianNB
 
 class SkeletonFrame():
     """This class store data for each Skeletonframe"""
@@ -109,11 +110,27 @@ def extract_attributes(trial_queue):
 
     return attributes_queue, label_list
 
+
+
+
+
+
 data_set = load_skeleton("skeltonData.txt")
 set_centered = center_coordenates(data_set)
 set_normalize = normalize_coordenates(set_centered)
 attributes, labels = extract_attributes(set_normalize)
 
-print labels
+#Converting attributes to numpy array to reshape
+attributes_input = np.array(attributes)
+labels_input = np.array(labels)
+
+#Reshape from 2samples * 5Frames * 4Points * 3coordenates to 2samples*60attributes
+attributes_input_new = attributes_input.reshape(2,60)
+
+
+#Bayesian Classifier
+clf = GaussianNB()
+clf.fit(attributes_input_new,labels_input)
+
 
 print "DONE"
