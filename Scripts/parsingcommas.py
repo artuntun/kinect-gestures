@@ -4,9 +4,11 @@ Created on Fri May 15 18:33:19 2015
 
 @author: arturo
 """
+print "starting parsing"
 
-with open('skeltonData.txt', 'r') as data:
+with open('skeletonData.txt', 'r') as data:
   plaintext = data.read()
 
 plaintext = plaintext.replace(',', '.')
 
+print "Finish parsing"

@@ -69,7 +69,7 @@ def normalize_coordenates(trial_queue):
         sum = 0.0
         for i,ske in enumerate(trial_queue[p]):
             distance = np.linalg.norm(ske.neck - ske.spine)
-            sum = sum + distance
+            sum += distance
             mean = sum / (i+1)
 
         normalizer = mean/norm
@@ -84,21 +84,22 @@ def normalize_coordenates(trial_queue):
 
     return trial_queue
 
-#extracting attributes from data
-def extract_attributes(trial_queue):
+def extract_attributes(trial_queue, n=6):
+    """extracting attributes from data"""
+
     attributes_queue = []
     label_list = []
-    n = 6
+
     for p,essay_aux in enumerate(trial_queue):
         samples = len(essay_aux)
         div = int(samples/n)
         select = 0
         buffer_queue = []
         buffer_queue2 = []
-        for x in range(0,n):
+        for x in xrange(0,n):
             buffer_queue.append(essay_aux[select])
-            select = select + div
-        for x in range(0,n-1):
+            select += div
+        for x in xrange(0,n-1):
             dif_hand_left = buffer_queue[x+1].hand_left - buffer_queue[x].hand_left
             dif_hand_right = buffer_queue[x+1].hand_right - buffer_queue[x].hand_right
             dif_elbow_left = buffer_queue[x+1].elbow_left - buffer_queue[x].elbow_left
@@ -111,26 +112,31 @@ def extract_attributes(trial_queue):
     return attributes_queue, label_list
 
 
-
-
-
-
-data_set = load_skeleton("skeltonData.txt")
+data_set = load_skeleton("skeletonData.txt")
 set_centered = center_coordenates(data_set)
 set_normalize = normalize_coordenates(set_centered)
 attributes, labels = extract_attributes(set_normalize)
+test = attributes.pop()
+label_test = labels.pop()
+data_test = np.array(test)
+data_test = data_test.reshape(1,60)
 
 #Converting attributes to numpy array to reshape
 attributes_input = np.array(attributes)
 labels_input = np.array(labels)
 
 #Reshape from 2samples * 5Frames * 4Points * 3coordenates to 2samples*60attributes
-attributes_input_new = attributes_input.reshape(2,60)
-
+attributes_input_new = attributes_input.reshape(len(labels_input),60)
+print len(attributes_input_new)
 
 #Bayesian Classifier
 clf = GaussianNB()
 clf.fit(attributes_input_new,labels_input)
 
+print "The prediction is:"
+
+print(clf.predict(data_test))
+#print(clf.predict(attributes_input_new[-1]))
+print "The real value is {}".format(label_test)
 
 print "DONE"

@@ -23,5 +23,5 @@ def replace(file_path, pattern, subst):
     move(abs_path, file_path)
 
 
-replace("skeltonData.txt","Slide Right","SlideRight")
-replace("skeltonData.txt",",",".")
+replace("skeletonData.txt","Slide Right","SlideRight")
+replace("skeletonData.txt",",",".")
