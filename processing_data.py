@@ -22,8 +22,9 @@ class SkeletonFrame():
         self.neck = np.array(tokens[13:16], dtype=np.float32)
         self.spine = np.array(tokens[16:19], dtype=np.float32)
 
-# Read Data from file and generate a list of essays
 def load_skeleton(file):
+    """Read Data from file and generate a list of essays"""
+
     with open(file, 'r') as f:
         essay_list = list(f)
 
@@ -38,49 +39,32 @@ def load_skeleton(file):
             skeleton_queue.append(SkeletonFrame(line))
     return trial_queue
 
-#Center all the coordenates at the origin
-def center_coordenates(trial_queue):
+def center_normalize_coordenates(trial_queue):
+    """Center all the coordenates at the origin and normalize with a factor of 0.15"""
 
-    sum = np.array([0.0,0.0,0.0], dtype=np.float32)
+    norm = 0.15 #Normalaize factor
+    spine_sum = np.array([0.0,0.0,0.0], dtype=np.float32)
     for p,essay_aux in enumerate(trial_queue):
 
-        #GET CENTROID of the current essay
-        for i,ske in enumerate(trial_queue[p]):
-            sum = sum + ske.spine
-            centroid = sum / (i+1)
-        sum = [0.0,0.0,0.0]
-        #substract CENTROID from all the coordenates in the current essay
-        for o,ske_frame in enumerate(trial_queue[p]):
-            trial_queue[p][o].spine = trial_queue[p][o].spine - centroid
-            trial_queue[p][o].hand_left = trial_queue[p][o].hand_left - centroid
-            trial_queue[p][o].hand_right = trial_queue[p][o].hand_right - centroid
-            trial_queue[p][o].elbow_left = trial_queue[p][o].elbow_left - centroid
-            trial_queue[p][o].elbow_right = trial_queue[p][o].elbow_right - centroid
-            trial_queue[p][o].neck = trial_queue[p][o].neck - centroid
-
-    return trial_queue
-
-#Normalize all the coordenates
-def normalize_coordenates(trial_queue):
-    norm = 0.15
-    for p,essay_aux in enumerate(trial_queue):
-
-        #GET mean distance between neck and spine of the current essay
-        sum = 0.0
+        #GET CENTROID and mean distance between neck and spine of the current essay
+        distance_sum = 0.0
         for i,ske in enumerate(trial_queue[p]):
             distance = np.linalg.norm(ske.neck - ske.spine)
-            sum += distance
-            mean = sum / (i+1)
-
+            distance_sum += distance
+            spine_sum += ske.spine
+            centroid = spine_sum / (i+1)
+            mean = distance_sum / (i+1)
         normalizer = mean/norm
-        #substract CENTROID from all the coordenates in the current essay
-        for o,ske_frame in enumerate(trial_queue[p]):
-            trial_queue[p][o].spine = trial_queue[p][o].spine/normalizer
-            trial_queue[p][o].hand_left = trial_queue[p][o].hand_left/normalizer
-            trial_queue[p][o].hand_right = trial_queue[p][o].hand_right/normalizer
-            trial_queue[p][o].elbow_left = trial_queue[p][o].elbow_left/normalizer
-            trial_queue[p][o].elbow_right = trial_queue[p][o].elbow_right/normalizer
-            trial_queue[p][o].neck = trial_queue[p][o].neck/normalizer
+        spine_sum = [0.0,0.0,0.0]
+
+        #substract CENTROID and normalize each coordenate
+        for i,ske_frame in enumerate(trial_queue[p]):
+            trial_queue[p][i].spine = (trial_queue[p][i].spine - centroid)/normalizer
+            trial_queue[p][i].hand_left = (trial_queue[p][i].hand_left - centroid)/normalizer
+            trial_queue[p][i].hand_right = (trial_queue[p][i].hand_right - centroid)/normalizer
+            trial_queue[p][i].elbow_left = (trial_queue[p][i].elbow_left - centroid)/normalizer
+            trial_queue[p][i].elbow_right = (trial_queue[p][i].elbow_right - centroid)/normalizer
+            trial_queue[p][i].neck = (trial_queue[p][i].neck - centroid)/normalizer
 
     return trial_queue
 
@@ -113,9 +97,8 @@ def extract_attributes(trial_queue, n=6):
 
 
 data_set = load_skeleton("skeletonData.txt")
-set_centered = center_coordenates(data_set)
-set_normalize = normalize_coordenates(set_centered)
-attributes, labels = extract_attributes(set_normalize)
+processed_data = center_normalize_coordenates(data_set)
+attributes, labels = extract_attributes(processed_data)
 test = attributes.pop()
 label_test = labels.pop()
 data_test = np.array(test)
