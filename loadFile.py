@@ -1,13 +1,5 @@
-"""
-PREGUNTAS SOBRE EL CODIGO:
-1. la variables de los for ejemplo "i" se reinician cuando salen del for
-2. check the center_coordenates  function
-3. Tupla eliminado porque no es mutable. Alguna otra solucion?
-4. Cammbiar lista por numpy arrays en extract attributes
-"""
 from collections import deque
 import numpy as np
-from sklearn.naive_bayes import GaussianNB
 
 class SkeletonFrame():
     """This class store data for each Skeletonframe"""
@@ -95,37 +87,15 @@ def extract_attributes(trial_queue, n=6):
 
     return attributes_queue, label_list
 
+def load_data(file_path):
+    """return data normalized and attributes extracted. Also converted to numpy arrays for suiting with sklearn"""
 
-data_set = load_skeleton("skeletonData.txt")
-processed_data = center_normalize_coordenates(data_set)
-attributes, labels = extract_attributes(processed_data)
-print len(labels)
+    data_set = load_skeleton(file_path)
+    processed_data = center_normalize_coordenates(data_set)
+    data_o, labels_o = extract_attributes(processed_data)
 
+    labels = np.array(labels_o)
+    data_aux = np.array(data_o)
+    data = data_aux.reshape(len(labels),60)
 
-#atributes = 20 x (5 x 4 x 3).  Convert to 20 x 60
-
-data = np.zeros((21,60))
-for i in range(21):
-    data[i] = np.array(attributes[i]).reshape(60)
-
-
-labels = np.array(labels)
-#Converting attributes to numpy array to reshape
-attributes_input = np.array(attributes)
-labels_input = np.array(labels)
-
-#Reshape from 2samples * 5Frames * 4Points * 3coordenates to 2samples*60attributes
-attributes_input_new = attributes_input.reshape(len(labels_input),60)
-print len(attributes_input_new)
-
-#Bayesian Classifier
-clf = GaussianNB()
-clf.fit(attributes_input_new,labels_input)
-
-print "The prediction is:"
-
-#print(clf.predict(data_test))
-print(clf.predict(attributes_input_new[-1]))
-#print "The real value is {}".format(label_test)
-
-print "DONE"
+    return data, labels

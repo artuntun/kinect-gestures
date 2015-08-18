@@ -1,2 +1,0 @@
-class ProcessingData(object):
-  
