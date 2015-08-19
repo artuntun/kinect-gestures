@@ -8,6 +8,7 @@ from sklearn.grid_search import GridSearchCV
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import  make_scorer     # To make a scorer for the GridSearch.
 from collections import deque
+from sklearn.metrics import accuracy_score
 
 plt.close('all')
 
@@ -16,6 +17,7 @@ SVM_cl = 1;
 
 #%%load kinect normalized data
 data, labels = loadFile.load_data("skeletonData.txt")
+loadFile.show_info(labels)
 
 #################################################################
 #################### DATA PREPROCESSING #########################
@@ -35,21 +37,28 @@ if (Data_Prep == 1):
     Ytrain = labels[rang[:Ntrain]]
     Ytest = labels[rang[Ntrain:]]
 
+    from sklearn import cross_validation
+    Xtrain, Xtest, Ytrain, Ytest = cross_validation.train_test_split(data, labels, test_size = 0.2, random_state= 4)
+
     #%% Normalize data
     mx = np.mean(Xtrain,axis=0,dtype=np.float64)
     stdx = np.std(Xtrain,axis=0,dtype=np.float64)
 
-    Xtrain = np.divide(Xtrain-np.tile(mx,[Ntrain,1]),np.tile(stdx,[Ntrain,1]))
-    Xtest = np.divide(Xtest-np.tile(mx,[Ntest,1]),np.tile(stdx,[Ntest,1]))
+    Xtrain = np.divide(Xtrain-np.tile(mx,[len(Xtrain),1]),np.tile(stdx,[len(Xtrain),1]))
+    Xtest = np.divide(Xtest-np.tile(mx,[len(Xtest),1]),np.tile(stdx,[len(Xtest),1]))
 
     nClasses = np.alen(np.unique(labels))
     nFeatures = np.shape(data)[1]
+
+else:
     #==============================================================================
     # # Also we could have used:
-    # from sklearn import preprocessing
-    # scaler = preprocessing.StandardScaler().fit(Xtrain)
-    # Xtrain = scaler.transform(Xtrain)
-    # Xtest = scaler.transform(Xtest)
+    from sklearn import preprocessing
+    from sklearn import cross_validation
+    Xtrain, Xtest, Ytrain, Ytest = cross_validation.train_test_split(data, labels, test_size = 0.2, random_state=0)
+    scaler = preprocessing.StandardScaler().fit(Xtrain)
+    Xtrain = scaler.transform(Xtrain)
+    Xtest = scaler.transform(Xtest)
     #==============================================================================
 
 #################################################################

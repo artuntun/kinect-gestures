@@ -83,7 +83,7 @@ def extract_attributes(trial_queue, n=6):
             attributes_frame = np.array([dif_hand_left,dif_hand_right,dif_elbow_left,dif_elbow_right])
             buffer_queue2.append(attributes_frame)
         attributes_queue.append(buffer_queue2)
-        label_list.append(essay_aux[-1].label)
+        label_list.append(essay_aux[-1].label) #only necessary one label from all frames
 
     return attributes_queue, label_list
 
@@ -99,3 +99,19 @@ def load_data(file_path):
     data = data_aux.reshape(len(labels),60)
 
     return data, labels
+
+def show_info(labels):
+
+    dic_labels = {labels[0]: 0} #init dic of all labels and times is repeated
+    for label in labels:
+        if label in dic_labels:
+            dic_labels[label] = dic_labels[label] + 1
+        else:
+            dic_labels.update({label: 1})
+
+    print "-------------------------------------------------------------------"
+    print "There is ", len(labels), " samples.. "
+    for key in dic_labels:
+        print "{0} samples of {1}" .format(dic_labels[key], key)
+
+    print "-------------------------------------------------------------------"
