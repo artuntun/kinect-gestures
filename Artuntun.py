@@ -20,12 +20,12 @@ Load_Data = 1;
 Data_Prep = 1;
 
 LR_cl = 0;
-LDA_cl = 0;
+LDA_cl = 1;
 GNB_cl = 0;
-KNN_cl = 0;
+KNN_cl = 1;
 BT_cl = 0;
 Tree_cl = 0;
-SVM_cl = 1;
+SVM_cl = 0;
 #%% Load data
 
 data, labels = loadFile.load_data("skeletonData.txt")
@@ -250,7 +250,7 @@ if (KNN_cl == 1):
 #%% SVM Classifier
 # Params C, kernel, degree, params of kernel
 
-if (SVM_cl == 1):
+
 
     # Parameters for the validation
     C = np.logspace(-3,3,10)
