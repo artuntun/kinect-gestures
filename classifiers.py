@@ -3,7 +3,11 @@ import matplotlib.pyplot as plt
 import loadFile
 
 from sklearn.svm import SVC
+from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn import tree
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier,ExtraTreesClassifier,BaggingClassifier,AdaBoostClassifier
 from sklearn.cross_validation import StratifiedKFold
 from sklearn.grid_search import GridSearchCV
 from sklearn.metrics import accuracy_score
@@ -13,9 +17,12 @@ from sklearn.metrics import accuracy_score
 
 plt.close('all')
 
-Data_Prep = 0;
-SVM_cl = 0;
-KNN_cl = 1;
+Data_Prep = 1
+SVM_cl = 1
+KNN_cl = 1
+GNB_cl = 1
+Tree_cl = 1
+LDA_cl = 1
 
 #%%load kinect normalized data
 data, labels = loadFile.load_data("skeletonData.txt")
@@ -26,43 +33,69 @@ loadFile.show_info(labels) #print data info
 #################################################################
 if (Data_Prep == 1):
 
-    #%% Split data in training and test sets
-    train_ratio = 0.8
-    rang = np.arange(np.shape(data)[0],dtype=int) # Create array of index
-    np.random.seed(0)
-    rang = np.random.permutation(rang)        # Randomize the array of index
-
-    Ntrain = round(train_ratio*np.shape(data)[0])    # Number of samples used for training
-    Ntest = len(rang)-Ntrain                  # Number of samples used for testing
-    Xtrain = data[rang[:Ntrain]]
-    Xtest = data[rang[Ntrain:]]
-    Ytrain = labels[rang[:Ntrain]]
-    Ytest = labels[rang[Ntrain:]]
-
-    #%% Normalize data
-    mx = np.mean(Xtrain,axis=0,dtype=np.float64)
-    stdx = np.std(Xtrain,axis=0,dtype=np.float64)
-
-    Xtrain = np.divide(Xtrain-np.tile(mx,[len(Xtrain),1]),np.tile(stdx,[len(Xtrain),1]))
-    Xtest = np.divide(Xtest-np.tile(mx,[len(Xtest),1]),np.tile(stdx,[len(Xtest),1]))
-
-    nClasses = np.alen(np.unique(labels))
-    nFeatures = np.shape(data)[1]
-
-else:
-    #==============================================================================
-    # # Also we could have used:
     from sklearn import preprocessing
     from sklearn import cross_validation
+    #randomize the samples index and divide between Training and Testing data
     Xtrain, Xtest, Ytrain, Ytest = cross_validation.train_test_split(data, labels, test_size = 0.2, random_state=0)
+
+    #Standarize the features with train data: zero mean and unit variance
     scaler = preprocessing.StandardScaler().fit(Xtrain)
     Xtrain = scaler.transform(Xtrain)
     Xtest = scaler.transform(Xtest)
-    #==============================================================================
 
 #################################################################
 ###################### CLASSIFIERS ##############################
 #################################################################
+if (Tree_cl == 1):
+    param_grid = dict()
+    param_grid.update({'max_features':[None,'auto']})
+    param_grid.update({'max_depth':np.arange(1,21)})
+    param_grid.update({'min_samples_split':np.arange(2,11)})
+    gtree = GridSearchCV(DecisionTreeClassifier(),param_grid,scoring='precision',cv=StratifiedKFold(Ytrain, n_folds = 5),refit=True,n_jobs=-1)
+    gtree.fit(Xtrain,Ytrain)
+    scores = np.empty((6))
+    scores[0] = gtree.score(Xtrain,Ytrain)
+    scores[1] = gtree.score(Xtest,Ytest)
+    print "---------------------Decission Tree Clasifier--------------"
+    print('Decision Tree, train: {0:.02f}% '.format(scores[0]*100))
+    print('Decision Tree, test: {0:.02f}% '.format(scores[1]*100))
+
+    # Random Forest
+    rf = RandomForestClassifier(n_estimators=1000,max_features=gtree.best_estimator_.max_features,max_depth=gtree.best_estimator_.max_depth,min_samples_split=gtree.best_estimator_.min_samples_split,oob_score=True,n_jobs=-1)
+    rf.fit(Xtrain,Ytrain)
+    scores[2] = rf.score(Xtrain,Ytrain)
+    scores[3] = rf.score(Xtest,Ytest)
+    print('Random Forest, train: {0:.02f}% '.format(scores[2]*100))
+    print('Random Forest, test: {0:.02f}% '.format(scores[3]*100))
+
+    # Extremely Randomized Trees
+    ert = ExtraTreesClassifier(n_estimators=1000,max_features=gtree.best_estimator_.max_features,max_depth=gtree.best_estimator_.max_depth,min_samples_split=gtree.best_estimator_.min_samples_split,n_jobs=-1)
+    ert.fit(Xtrain,Ytrain)
+    scores[4] = ert.score(Xtrain,Ytrain)
+    scores[5] = ert.score(Xtest,Ytest)
+    print('Extremely Randomized Trees, train: {0:.02f}% '.format(scores[4]*100))
+    print('Extremely Randomized Trees, test: {0:.02f}% '.format(scores[5]*100))
+
+if (LDA_cl == 1):
+    from sklearn.lda import LDA
+    lda = LDA()
+    lda.fit(Xtrain,Ytrain)
+    scores = np.empty((4))
+    scores[0] = lda.score(Xtrain,Ytrain)
+    scores[1] = lda.score(Xtest,Ytest)
+    print "---------------------Linear Discriminant Analysis---------------------------"
+    print('LDA, train: {0:.02f}% '.format(scores[0]*100))
+    print('LDA, test: {0:.02f}% '.format(scores[1]*100))
+
+if (GNB_cl == 1):
+    nb = GaussianNB()
+    nb.fit(Xtrain,Ytrain)
+    scores = np.empty((4))
+    scores[0] = nb.score(Xtrain,Ytrain)
+    scores[1] = nb.score(Xtest,Ytest)
+    print "---------------------Naive Bayes Classifier------------------"
+    print('Gaussian Naive Bayes, train: {0:.02f}% '.format(scores[0]*100))
+    print('Gaussian Naive Bayes, test: {0:.02f}% '.format(scores[1]*100))
 
 if (SVM_cl == 1):
 
@@ -122,6 +155,7 @@ if (SVM_cl == 1):
     testscores = [gsvml.score(Xtest,Ytest),gsvmp.score(Xtest,Ytest),gsvmr.score(Xtest,Ytest)]
     maxtrain = np.amax(trainscores)
     maxtest = np.amax(testscores)
+    print "---------------------Support Vector Classifier---------------"
     print('Linear SVM, score: {0:.02f}% '.format(testscores[0]*100))
     print('Poly SVM, score: {0:.02f}% '.format(testscores[1]*100))
     print('rbf SVM, score: {0:.02f}% '.format(testscores[2]*100))
@@ -136,6 +170,7 @@ if (KNN_cl == 1):
     scores = np.empty((4))
     scores[0] = gknn.score(Xtrain,Ytrain)
     scores[1] = gknn.score(Xtest,Ytest)
+    print "---------------------K-NN Classifier---------------------------"
     print('{0}-NN, train: {1:.02f}% '.format(gknn.best_estimator_.n_neighbors,scores[0]*100))
     print('{0}-NN, test: {1:.02f}% '.format(gknn.best_estimator_.n_neighbors,scores[1]*100))
 
@@ -162,3 +197,6 @@ if (KNN_cl == 1):
     plt.legend()
     plt.grid()
     plt.show()
+
+
+loadFile.show_info(labels) #print data info

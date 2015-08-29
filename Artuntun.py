@@ -16,21 +16,19 @@ from collections import deque
 
 plt.close('all')
 
-Load_Data = 1;
 Data_Prep = 1;
 
 LR_cl = 0;
-LDA_cl = 1;
-GNB_cl = 0;
+LDA_cl = 0;
+GNB_cl = 1;
 KNN_cl = 1;
 BT_cl = 0;
-Tree_cl = 0;
-SVM_cl = 0;
+Tree_cl = 1;
+SVM_cl = 1;
 #%% Load data
 
 data, labels = loadFile.load_data("skeletonData.txt")
-
-print len(labels)
+loadFile.show_info(labels) #print data info
 
 #################################################################
 #################### DATA PREPROCESSING #########################
@@ -247,10 +245,10 @@ if (KNN_cl == 1):
     plt.legend(['Train','Test'])
     plt.show()
 
-#%% SVM Classifier
-# Params C, kernel, degree, params of kernel
 
-
+if (SVM_cl == 1):
+    #%% SVM Classifier
+    # Params C, kernel, degree, params of kernel
 
     # Parameters for the validation
     C = np.logspace(-3,3,10)

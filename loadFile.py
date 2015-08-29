@@ -109,9 +109,7 @@ def show_info(labels):
         else:
             dic_labels.update({label: 1})
 
-    print "-------------------------------------------------------------------"
+    print "------------------------DATA INFORMATION-----------------------------"
     print "There is ", len(labels), " samples.. "
     for key in dic_labels:
         print "{0} samples of {1}" .format(dic_labels[key], key)
-
-    print "-------------------------------------------------------------------"
