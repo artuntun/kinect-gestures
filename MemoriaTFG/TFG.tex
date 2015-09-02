@@ -1,10 +1,11 @@
 % Plantilla realizada por Santiago Morante Cendrero
 
 %parametros de tipo libro
-\documentclass[10pt,a4paper]{book}
+\documentclass[10pt,a4paper,openany, english]{book}
 
 %idioma español y acentos
-\usepackage[spanish]{babel}
+
+\usepackage[english]{babel}
 \usepackage[latin1]{inputenc}
 
 %algunos símbolos matemáticos y paquete para usar subimágenes
@@ -59,19 +60,20 @@
 \mainmatter
  
 \include{introduccion}
+\include{stateofart}
+\include{design}
+\include{conclusion}
+
   
   %partes finales del trabajo: conclusiones, bibliografia y anexos
 \backmatter
 
-\include{conclusion}
-
-\include{stateofart}
 
 %estilo de bibliografía: plana, alfa...
 \bibliographystyle{plain}
 
 %genera doble hoja en blanco
-\cleardoublepage
+%\cleardoublepage
 
 %apartado de bibliografía
 \addcontentsline{toc}{chapter}{Bibliografía}

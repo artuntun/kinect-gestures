@@ -21,7 +21,7 @@ Data_Prep = 1
 SVM_cl = 1
 KNN_cl = 1
 GNB_cl = 1
-Tree_cl = 1
+Tree_cl = 0
 LDA_cl = 1
 
 #%%load kinect normalized data
@@ -156,9 +156,33 @@ if (SVM_cl == 1):
     maxtrain = np.amax(trainscores)
     maxtest = np.amax(testscores)
     print "---------------------Support Vector Classifier---------------"
-    print('Linear SVM, score: {0:.02f}% '.format(testscores[0]*100))
-    print('Poly SVM, score: {0:.02f}% '.format(testscores[1]*100))
-    print('rbf SVM, score: {0:.02f}% '.format(testscores[2]*100))
+    print('Linear SVM(C = {0:.02f}), score: {1:.02f}% '.format(gsvml.best_params_['C'], testscores[0]*100))
+    print('Poly SVM(C = {0:.02f}, degree = {1:.02f}), score: {2:.02f}% '.format(gsvmp.best_params_['C'], gsvmp.best_params_['degree'], testscores[1]*100))
+    print('rbf SVM(C = {0:.02f}, gamma = {1:.02f}), score: {2:.02f}% '.format(gsvmr.best_params_['C'],gsvmr.best_params_['gamma'] , testscores[2]*100) )
+
+    scores_validation_rbf = {}
+    for i in range(len(gsvmr.grid_scores_)):
+        score = gsvmr.grid_scores_[i][1]
+        gammas = float("{0:.6f}".format(gsvmr.grid_scores_[i][0]['gamma']))
+        if gammas not in scores_validation_rbf:
+            scores_validation_rbf[gammas] = []
+        scores_validation_rbf[gammas].append(score)
+
+    print C
+    print np.logspace(-3,3,10)
+
+    plt.figure()
+    plt.plot(np.logspace(-3,3,10),scores_validation_rbf[0.02],c='g',lw=2,aa=True, label='gamma = 0.02')
+    plt.plot(np.logspace(-3,3,10),scores_validation_rbf[0.01],c='b',lw=2,aa=True, label='gamma = 0.01')
+    plt.plot(np.logspace(-3,3,10),scores_validation_rbf[0.005],c='r',lw=2,aa=True, label= 'gamma = 0.005')
+    plt.plot(np.argmax(scores)+1,np.amax(scores),'v')
+    plt.title('Grid precission for C in SVM_rbf')
+    plt.xlabel('C')
+    plt.ylabel('Mean training precission')
+    plt.legend()
+    plt.grid()
+    plt.show()
+
 
 if (KNN_cl == 1):
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.5.18)  21 MAY 2015 16:38
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.5.18)  2 SEP 2015 11:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -420,32 +420,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 204--205
 
 [5] [6
 
-] (./PFC.toc
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
-LaTeX Font Info:    Try loading font information for U+msa on input line 3.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 3.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Try loading font information for U+lasy on input line 3.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-) [7
-
-])
+] (./PFC.toc)
 \tf@toc=\write3
 \openout3 = `PFC.toc'.
 
+ [7
+
+]
 LaTeX Font Info:    Try loading font information for T1+aess on input line 219.
 
-
-(/usr/share/texlive/texmf-dist/tex/latex/ae/t1aess.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/ae/t1aess.fd
 File: t1aess.fd 1997/11/16 Font definitions for T1/aess.
 )
 
@@ -460,118 +444,185 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8] (./PFC.lof
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
+[8
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [9
-
-])
+] (./PFC.lof)
 \tf@lof=\write4
 \openout4 = `PFC.lof'.
 
+ [9]
 LaTeX Info: Redefining \. on input line 220.
 LaTeX Info: Redefining \% on input line 220.
+ [10
 
-[10]
-LaTeX Info: Redefining \. on input line 220.
-LaTeX Info: Redefining \% on input line 220.
- [11]
-LaTeX Info: Redefining \. on input line 220.
-LaTeX Info: Redefining \% on input line 220.
- [12
-
-] (./PFC.lot
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
-)
+] (./PFC.lot)
 \tf@lot=\write5
 \openout5 = `PFC.lot'.
 
- [13]
+ [11]
 LaTeX Info: Redefining \. on input line 229.
 LaTeX Info: Redefining \% on input line 229.
- [14
+ [12
 
 ]
 Cap\'{\i }tulo 1.
-(./capitulo1/1_Introduccion.tex [15]
+(./capitulo1/1_Introduccion.tex
+
+LaTeX Warning: Citation `Foschini98' on page 13 undefined on input line 7.
+
+
+LaTeX Warning: Citation `LTE' on page 13 undefined on input line 7.
+
+[13]
+LaTeX Font Info:    Try loading font information for U+msa on input line 23.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 23.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 23.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
 LaTeX Info: Redefining \. on input line 58.
 LaTeX Info: Redefining \% on input line 58.
- [16]
+ [14]
 LaTeX Info: Redefining \. on input line 72.
 LaTeX Info: Redefining \% on input line 72.
- [17])
+ [15])
 LaTeX Info: Redefining \. on input line 236.
 LaTeX Info: Redefining \% on input line 236.
- [18]
+ [16]
 Cap\'{\i }tulo 2.
 (./capitulo2/2_modelo.tex
+
+LaTeX Warning: Citation `Chizhik04' on page 17 undefined on input line 4.
+
+
+LaTeX Warning: Citation `mati' on page 17 undefined on input line 4.
+
+
+LaTeX Warning: Citation `Xu04' on page 17 undefined on input line 47.
+
+
+LaTeX Warning: Citation `Chizhik04' on page 17 undefined on input line 48.
+
+
 Underfull \vbox (badness 6927) has occurred while \output is active []
 
- [19
+ [17
 
 ]
+
+LaTeX Warning: Citation `Xu04' on page 18 undefined on input line 86.
+
+
+LaTeX Warning: Citation `Kermoal01' on page 18 undefined on input line 88.
+
 LaTeX Info: Redefining \. on input line 91.
 LaTeX Info: Redefining \% on input line 91.
-
-[20]) [21]
+[18]) [19]
 LaTeX Info: Redefining \. on input line 243.
 LaTeX Info: Redefining \% on input line 243.
- [22
+ [20
 
 ]
 Cap\'{\i }tulo 3.
 (./capitulo3/3_capacidad.tex
+
+LaTeX Warning: Citation `Goldsmith_book' on page 21 undefined on input line 4.
+
+
+LaTeX Warning: Citation `Biglieri' on page 21 undefined on input line 6.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [23]
+ [21]
 LaTeX Info: Redefining \. on input line 28.
 LaTeX Info: Redefining \% on input line 28.
 
-[24]
+[22]
 LaTeX Info: Redefining \. on input line 67.
 LaTeX Info: Redefining \% on input line 67.
- [25]
+ [23]
 LaTeX Info: Redefining \. on input line 106.
 LaTeX Info: Redefining \% on input line 106.
- [26]
+ [24]
 LaTeX Info: Redefining \. on input line 125.
 LaTeX Info: Redefining \% on input line 125.
- [27]
+ [25]
+
+LaTeX Warning: Citation `Huang' on page 26 undefined on input line 134.
+
 LaTeX Info: Redefining \. on input line 142.
 LaTeX Info: Redefining \% on input line 142.
- [28]
+[26]
 LaTeX Info: Redefining \. on input line 179.
 LaTeX Info: Redefining \% on input line 179.
- [29]
+ [27]
+
+LaTeX Warning: Citation `Lee73' on page 28 undefined on input line 184.
+
+
+LaTeX Warning: Citation `Shiu00' on page 28 undefined on input line 184.
+
+
+LaTeX Warning: Citation `Chizhik00' on page 28 undefined on input line 184.
+
+
+LaTeX Warning: Citation `Pedersen00' on page 28 undefined on input line 184.
+
+
+LaTeX Warning: Citation `Xu04' on page 28 undefined on input line 184.
+
 LaTeX Info: Redefining \. on input line 199.
 LaTeX Info: Redefining \% on input line 199.
- [30]
+[28]
+
+LaTeX Warning: Citation `Jafar04' on page 29 undefined on input line 217.
+
+
+LaTeX Warning: Citation `Visotsky01' on page 29 undefined on input line 217.
+
+
+LaTeX Warning: Citation `Tulino04' on page 29 undefined on input line 217.
+
+
+LaTeX Warning: Citation `Tulino04' on page 29 undefined on input line 221.
+
+
+LaTeX Warning: Citation `Tulino04' on page 29 undefined on input line 223.
+
 LaTeX Info: Redefining \. on input line 224.
 LaTeX Info: Redefining \% on input line 224.
- [31]
+[29]
 LaTeX Info: Redefining \. on input line 259.
 LaTeX Info: Redefining \% on input line 259.
- [32]
+ [30]
+
+LaTeX Warning: Citation `Tulino05' on page 31 undefined on input line 280.
+
 LaTeX Info: Redefining \. on input line 289.
 LaTeX Info: Redefining \% on input line 289.
- [33]
+[31]
 Package epstopdf Info: Source file: <figuras/CSIT_CDIT_ASD10_dt05.eps>
-(epstopdf)                    date: 2014-07-02 17:30:55
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 20899 bytes
 (epstopdf)             Output file: <figuras/CSIT_CDIT_ASD10_dt05-eps-converted
 -to.pdf>
-(epstopdf)                    date: 2014-07-02 17:37:57
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 13038 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CSIT_CDIT_ASD10_dt
 05-eps-converted-to.pdf figuras/CSIT_CDIT_ASD10_dt05.eps>
 (epstopdf)             \includegraphics on input line 303.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CSIT_CDIT_ASD10_dt05-eps-converted-to.pdf, id=136, 561.09625pt x 423.5
+<figuras/CSIT_CDIT_ASD10_dt05-eps-converted-to.pdf, id=130, 561.09625pt x 423.5
 825pt>
 File: figuras/CSIT_CDIT_ASD10_dt05-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -580,18 +631,18 @@ Package pdftex.def Info: figuras/CSIT_CDIT_ASD10_dt05-eps-converted-to.pdf used
  on input line 303.
 (pdftex.def)             Requested size: 561.09488pt x 423.58147pt.
 Package epstopdf Info: Source file: <figuras/CSIT_CDIT_ASD20_dt05.eps>
-(epstopdf)                    date: 2014-07-02 17:32:55
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 21034 bytes
 (epstopdf)             Output file: <figuras/CSIT_CDIT_ASD20_dt05-eps-converted
 -to.pdf>
-(epstopdf)                    date: 2014-07-02 17:38:02
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 13149 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CSIT_CDIT_ASD20_dt
 05-eps-converted-to.pdf figuras/CSIT_CDIT_ASD20_dt05.eps>
 (epstopdf)             \includegraphics on input line 304.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CSIT_CDIT_ASD20_dt05-eps-converted-to.pdf, id=137, 561.09625pt x 421.5
+<figuras/CSIT_CDIT_ASD20_dt05-eps-converted-to.pdf, id=131, 561.09625pt x 421.5
 75pt>
 File: figuras/CSIT_CDIT_ASD20_dt05-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -604,18 +655,18 @@ Package pdftex.def Info: figuras/CSIT_CDIT_ASD20_dt05-eps-converted-to.pdf used
 LaTeX Warning: Float too large for page by 30.18803pt on input line 307.
 
 Package epstopdf Info: Source file: <figuras/CSIT_CDIT_ASD10_dt1.eps>
-(epstopdf)                    date: 2014-07-02 17:34:20
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 21033 bytes
 (epstopdf)             Output file: <figuras/CSIT_CDIT_ASD10_dt1-eps-converted-
 to.pdf>
-(epstopdf)                    date: 2014-07-02 17:38:05
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 13150 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CSIT_CDIT_ASD10_dt
 1-eps-converted-to.pdf figuras/CSIT_CDIT_ASD10_dt1.eps>
 (epstopdf)             \includegraphics on input line 311.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CSIT_CDIT_ASD10_dt1-eps-converted-to.pdf, id=138, 561.09625pt x 421.57
+<figuras/CSIT_CDIT_ASD10_dt1-eps-converted-to.pdf, id=132, 561.09625pt x 421.57
 5pt>
 File: figuras/CSIT_CDIT_ASD10_dt1-eps-converted-to.pdf Graphic file (type pdf)
  <use figuras/CSIT_CDIT_ASD10_dt1-eps-converted-to.pdf>
@@ -623,18 +674,18 @@ Package pdftex.def Info: figuras/CSIT_CDIT_ASD10_dt1-eps-converted-to.pdf used
 on input line 311.
 (pdftex.def)             Requested size: 561.09488pt x 421.57396pt.
 Package epstopdf Info: Source file: <figuras/CSIT_CDIT_ASD20_dt1.eps>
-(epstopdf)                    date: 2014-07-02 17:35:45
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 21106 bytes
 (epstopdf)             Output file: <figuras/CSIT_CDIT_ASD20_dt1-eps-converted-
 to.pdf>
-(epstopdf)                    date: 2014-07-02 17:38:10
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 13153 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CSIT_CDIT_ASD20_dt
 1-eps-converted-to.pdf figuras/CSIT_CDIT_ASD20_dt1.eps>
 (epstopdf)             \includegraphics on input line 312.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CSIT_CDIT_ASD20_dt1-eps-converted-to.pdf, id=139, 561.09625pt x 421.57
+<figuras/CSIT_CDIT_ASD20_dt1-eps-converted-to.pdf, id=133, 561.09625pt x 421.57
 5pt>
 File: figuras/CSIT_CDIT_ASD20_dt1-eps-converted-to.pdf Graphic file (type pdf)
  <use figuras/CSIT_CDIT_ASD20_dt1-eps-converted-to.pdf>
@@ -647,28 +698,28 @@ LaTeX Warning: Float too large for page by 30.18396pt on input line 315.
 
 LaTeX Info: Redefining \. on input line 318.
 LaTeX Info: Redefining \% on input line 318.
-[34]
+[32]
 LaTeX Info: Redefining \. on input line 318.
 LaTeX Info: Redefining \% on input line 318.
- [35 <./figuras/CSIT_CDIT_ASD10_dt05-eps-converted-to.pdf> <./figuras/CSIT_CDIT
+ [33 <./figuras/CSIT_CDIT_ASD10_dt05-eps-converted-to.pdf> <./figuras/CSIT_CDIT
 _ASD20_dt05-eps-converted-to.pdf>]
 LaTeX Info: Redefining \. on input line 318.
 LaTeX Info: Redefining \% on input line 318.
- [36 <./figuras/CSIT_CDIT_ASD10_dt1-eps-converted-to.pdf> <./figuras/CSIT_CDIT_
+ [34 <./figuras/CSIT_CDIT_ASD10_dt1-eps-converted-to.pdf> <./figuras/CSIT_CDIT_
 ASD20_dt1-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figuras/CSIT_CDIT_ASD10_dt05_N4.eps>
-(epstopdf)                    date: 2014-07-02 17:41:19
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 21171 bytes
 (epstopdf)             Output file: <figuras/CSIT_CDIT_ASD10_dt05_N4-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2014-07-02 17:44:31
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 13274 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CSIT_CDIT_ASD10_dt
 05_N4-eps-converted-to.pdf figuras/CSIT_CDIT_ASD10_dt05_N4.eps>
 (epstopdf)             \includegraphics on input line 349.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CSIT_CDIT_ASD10_dt05_N4-eps-converted-to.pdf, id=174, 561.09625pt x 42
+<figuras/CSIT_CDIT_ASD10_dt05_N4-eps-converted-to.pdf, id=168, 561.09625pt x 42
 3.5825pt>
 File: figuras/CSIT_CDIT_ASD10_dt05_N4-eps-converted-to.pdf Graphic file (type p
 df)
@@ -677,18 +728,18 @@ Package pdftex.def Info: figuras/CSIT_CDIT_ASD10_dt05_N4-eps-converted-to.pdf u
 sed on input line 349.
 (pdftex.def)             Requested size: 561.09488pt x 423.58147pt.
 Package epstopdf Info: Source file: <figuras/CSIT_CDIT_ASD20_dt05_N4.eps>
-(epstopdf)                    date: 2014-07-02 17:41:56
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 21171 bytes
 (epstopdf)             Output file: <figuras/CSIT_CDIT_ASD20_dt05_N4-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2014-07-02 17:44:33
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 13215 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CSIT_CDIT_ASD20_dt
 05_N4-eps-converted-to.pdf figuras/CSIT_CDIT_ASD20_dt05_N4.eps>
 (epstopdf)             \includegraphics on input line 350.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CSIT_CDIT_ASD20_dt05_N4-eps-converted-to.pdf, id=175, 561.09625pt x 42
+<figuras/CSIT_CDIT_ASD20_dt05_N4-eps-converted-to.pdf, id=169, 561.09625pt x 42
 3.5825pt>
 File: figuras/CSIT_CDIT_ASD20_dt05_N4-eps-converted-to.pdf Graphic file (type p
 df)
@@ -701,18 +752,18 @@ sed on input line 350.
 LaTeX Warning: Float too large for page by 30.19211pt on input line 353.
 
 Package epstopdf Info: Source file: <figuras/CSIT_CDIT_ASD10_dt1_N4.eps>
-(epstopdf)                    date: 2014-07-02 17:42:36
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 21171 bytes
 (epstopdf)             Output file: <figuras/CSIT_CDIT_ASD10_dt1_N4-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2014-07-02 17:44:35
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 13273 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CSIT_CDIT_ASD10_dt
 1_N4-eps-converted-to.pdf figuras/CSIT_CDIT_ASD10_dt1_N4.eps>
 (epstopdf)             \includegraphics on input line 357.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CSIT_CDIT_ASD10_dt1_N4-eps-converted-to.pdf, id=176, 561.09625pt x 423
+<figuras/CSIT_CDIT_ASD10_dt1_N4-eps-converted-to.pdf, id=170, 561.09625pt x 423
 .5825pt>
 File: figuras/CSIT_CDIT_ASD10_dt1_N4-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -721,18 +772,18 @@ Package pdftex.def Info: figuras/CSIT_CDIT_ASD10_dt1_N4-eps-converted-to.pdf us
 ed on input line 357.
 (pdftex.def)             Requested size: 561.09488pt x 423.58147pt.
 Package epstopdf Info: Source file: <figuras/CSIT_CDIT_ASD20_dt1_N4.eps>
-(epstopdf)                    date: 2014-07-02 17:43:26
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 21168 bytes
 (epstopdf)             Output file: <figuras/CSIT_CDIT_ASD20_dt1_N4-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2014-07-02 17:44:38
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 13281 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CSIT_CDIT_ASD20_dt
 1_N4-eps-converted-to.pdf figuras/CSIT_CDIT_ASD20_dt1_N4.eps>
 (epstopdf)             \includegraphics on input line 358.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CSIT_CDIT_ASD20_dt1_N4-eps-converted-to.pdf, id=177, 561.09625pt x 423
+<figuras/CSIT_CDIT_ASD20_dt1_N4-eps-converted-to.pdf, id=171, 561.09625pt x 423
 .5825pt>
 File: figuras/CSIT_CDIT_ASD20_dt1_N4-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -746,37 +797,40 @@ LaTeX Warning: Float too large for page by 30.19211pt on input line 361.
 
 LaTeX Info: Redefining \. on input line 366.
 LaTeX Info: Redefining \% on input line 366.
-[37]
+[35]
 LaTeX Info: Redefining \. on input line 366.
 LaTeX Info: Redefining \% on input line 366.
- [38]
+ [36]
 LaTeX Info: Redefining \. on input line 366.
 LaTeX Info: Redefining \% on input line 366.
- [39 <./figuras/CSIT_CDIT_ASD10_dt05_N4-eps-converted-to.pdf> <./figuras/CSIT_C
+ [37 <./figuras/CSIT_CDIT_ASD10_dt05_N4-eps-converted-to.pdf> <./figuras/CSIT_C
 DIT_ASD20_dt05_N4-eps-converted-to.pdf>]
 LaTeX Info: Redefining \. on input line 366.
 LaTeX Info: Redefining \% on input line 366.
- [40 <./figuras/CSIT_CDIT_ASD10_dt1_N4-eps-converted-to.pdf> <./figuras/CSIT_CD
+ [38 <./figuras/CSIT_CDIT_ASD10_dt1_N4-eps-converted-to.pdf> <./figuras/CSIT_CD
 IT_ASD20_dt1_N4-eps-converted-to.pdf>]
+
+LaTeX Warning: Citation `Tulino05' on page 39 undefined on input line 395.
+
 LaTeX Info: Redefining \. on input line 416.
 LaTeX Info: Redefining \% on input line 416.
- [41]
+[39]
 LaTeX Info: Redefining \. on input line 416.
 LaTeX Info: Redefining \% on input line 416.
- [42]
+ [40]
 Package epstopdf Info: Source file: <figuras/CDIT_CSIT_SNR19_ASD10.eps>
-(epstopdf)                    date: 2014-07-02 18:05:51
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 14956 bytes
 (epstopdf)             Output file: <figuras/CDIT_CSIT_SNR19_ASD10-eps-converte
 d-to.pdf>
-(epstopdf)                    date: 2014-07-02 18:08:34
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 11426 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CDIT_CSIT_SNR19_AS
 D10-eps-converted-to.pdf figuras/CDIT_CSIT_SNR19_ASD10.eps>
 (epstopdf)             \includegraphics on input line 419.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CDIT_CSIT_SNR19_ASD10-eps-converted-to.pdf, id=222, 561.09625pt x 421.
+<figuras/CDIT_CSIT_SNR19_ASD10-eps-converted-to.pdf, id=216, 561.09625pt x 421.
 575pt>
 File: figuras/CDIT_CSIT_SNR19_ASD10-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -785,18 +839,18 @@ Package pdftex.def Info: figuras/CDIT_CSIT_SNR19_ASD10-eps-converted-to.pdf use
 d on input line 419.
 (pdftex.def)             Requested size: 561.09488pt x 421.57396pt.
 Package epstopdf Info: Source file: <figuras/CDIT_CSIT_SNR19_ASD20.eps>
-(epstopdf)                    date: 2014-07-02 18:06:14
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 15005 bytes
 (epstopdf)             Output file: <figuras/CDIT_CSIT_SNR19_ASD20-eps-converte
 d-to.pdf>
-(epstopdf)                    date: 2014-07-02 18:08:40
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 11407 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CDIT_CSIT_SNR19_AS
 D20-eps-converted-to.pdf figuras/CDIT_CSIT_SNR19_ASD20.eps>
 (epstopdf)             \includegraphics on input line 420.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CDIT_CSIT_SNR19_ASD20-eps-converted-to.pdf, id=223, 561.09625pt x 423.
+<figuras/CDIT_CSIT_SNR19_ASD20-eps-converted-to.pdf, id=217, 561.09625pt x 423.
 5825pt>
 File: figuras/CDIT_CSIT_SNR19_ASD20-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -809,18 +863,18 @@ d on input line 420.
 LaTeX Warning: Float too large for page by 43.78804pt on input line 423.
 
 Package epstopdf Info: Source file: <figuras/CDIT_CSIT_SNR19_dt05.eps>
-(epstopdf)                    date: 2014-07-02 17:56:51
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 21778 bytes
 (epstopdf)             Output file: <figuras/CDIT_CSIT_SNR19_dt05-eps-converted
 -to.pdf>
-(epstopdf)                    date: 2014-07-02 18:08:44
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 16343 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CDIT_CSIT_SNR19_dt
 05-eps-converted-to.pdf figuras/CDIT_CSIT_SNR19_dt05.eps>
 (epstopdf)             \includegraphics on input line 430.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CDIT_CSIT_SNR19_dt05-eps-converted-to.pdf, id=224, 561.09625pt x 421.5
+<figuras/CDIT_CSIT_SNR19_dt05-eps-converted-to.pdf, id=218, 561.09625pt x 421.5
 75pt>
 File: figuras/CDIT_CSIT_SNR19_dt05-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -829,18 +883,18 @@ Package pdftex.def Info: figuras/CDIT_CSIT_SNR19_dt05-eps-converted-to.pdf used
  on input line 430.
 (pdftex.def)             Requested size: 561.09488pt x 421.57396pt.
 Package epstopdf Info: Source file: <figuras/CDIT_CSIT_SNR19_dt1.eps>
-(epstopdf)                    date: 2014-07-02 17:57:24
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 21725 bytes
 (epstopdf)             Output file: <figuras/CDIT_CSIT_SNR19_dt1-eps-converted-
 to.pdf>
-(epstopdf)                    date: 2014-07-02 18:08:49
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 16209 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CDIT_CSIT_SNR19_dt
 1-eps-converted-to.pdf figuras/CDIT_CSIT_SNR19_dt1.eps>
 (epstopdf)             \includegraphics on input line 431.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CDIT_CSIT_SNR19_dt1-eps-converted-to.pdf, id=225, 561.09625pt x 421.57
+<figuras/CDIT_CSIT_SNR19_dt1-eps-converted-to.pdf, id=219, 561.09625pt x 421.57
 5pt>
 File: figuras/CDIT_CSIT_SNR19_dt1-eps-converted-to.pdf Graphic file (type pdf)
  <use figuras/CDIT_CSIT_SNR19_dt1-eps-converted-to.pdf>
@@ -852,18 +906,18 @@ on input line 431.
 LaTeX Warning: Float too large for page by 44.73238pt on input line 434.
 
 Package epstopdf Info: Source file: <figuras/CDIT_CSIT_SNR19_ASD10_N4.eps>
-(epstopdf)                    date: 2014-07-02 18:07:11
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 14924 bytes
 (epstopdf)             Output file: <figuras/CDIT_CSIT_SNR19_ASD10_N4-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2014-07-02 18:08:55
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 11426 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CDIT_CSIT_SNR19_AS
 D10_N4-eps-converted-to.pdf figuras/CDIT_CSIT_SNR19_ASD10_N4.eps>
 (epstopdf)             \includegraphics on input line 445.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CDIT_CSIT_SNR19_ASD10_N4-eps-converted-to.pdf, id=226, 561.09625pt x 4
+<figuras/CDIT_CSIT_SNR19_ASD10_N4-eps-converted-to.pdf, id=220, 561.09625pt x 4
 21.575pt>
 File: figuras/CDIT_CSIT_SNR19_ASD10_N4-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -872,18 +926,18 @@ Package pdftex.def Info: figuras/CDIT_CSIT_SNR19_ASD10_N4-eps-converted-to.pdf
 used on input line 445.
 (pdftex.def)             Requested size: 561.09488pt x 421.57396pt.
 Package epstopdf Info: Source file: <figuras/CDIT_CSIT_SNR19_ASD20_N4.eps>
-(epstopdf)                    date: 2014-07-02 18:07:56
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 14911 bytes
 (epstopdf)             Output file: <figuras/CDIT_CSIT_SNR19_ASD20_N4-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2014-07-02 18:09:00
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 11418 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CDIT_CSIT_SNR19_AS
 D20_N4-eps-converted-to.pdf figuras/CDIT_CSIT_SNR19_ASD20_N4.eps>
 (epstopdf)             \includegraphics on input line 446.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CDIT_CSIT_SNR19_ASD20_N4-eps-converted-to.pdf, id=227, 561.09625pt x 4
+<figuras/CDIT_CSIT_SNR19_ASD20_N4-eps-converted-to.pdf, id=221, 561.09625pt x 4
 23.5825pt>
 File: figuras/CDIT_CSIT_SNR19_ASD20_N4-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -896,18 +950,18 @@ used on input line 446.
 LaTeX Warning: Float too large for page by 43.78804pt on input line 449.
 
 Package epstopdf Info: Source file: <figuras/CDIT_CSIT_SNR19_dt05_N4.eps>
-(epstopdf)                    date: 2014-07-02 17:58:58
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 21759 bytes
 (epstopdf)             Output file: <figuras/CDIT_CSIT_SNR19_dt05_N4-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2014-07-02 18:09:06
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 16570 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CDIT_CSIT_SNR19_dt
 05_N4-eps-converted-to.pdf figuras/CDIT_CSIT_SNR19_dt05_N4.eps>
 (epstopdf)             \includegraphics on input line 454.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CDIT_CSIT_SNR19_dt05_N4-eps-converted-to.pdf, id=228, 561.09625pt x 42
+<figuras/CDIT_CSIT_SNR19_dt05_N4-eps-converted-to.pdf, id=222, 561.09625pt x 42
 3.5825pt>
 File: figuras/CDIT_CSIT_SNR19_dt05_N4-eps-converted-to.pdf Graphic file (type p
 df)
@@ -916,18 +970,18 @@ Package pdftex.def Info: figuras/CDIT_CSIT_SNR19_dt05_N4-eps-converted-to.pdf u
 sed on input line 454.
 (pdftex.def)             Requested size: 561.09488pt x 423.58147pt.
 Package epstopdf Info: Source file: <figuras/CDIT_CSIT_SNR19_dt1_N4.eps>
-(epstopdf)                    date: 2014-07-02 17:59:31
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 21746 bytes
 (epstopdf)             Output file: <figuras/CDIT_CSIT_SNR19_dt1_N4-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2014-07-02 18:09:11
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 16534 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CDIT_CSIT_SNR19_dt
 1_N4-eps-converted-to.pdf figuras/CDIT_CSIT_SNR19_dt1_N4.eps>
 (epstopdf)             \includegraphics on input line 455.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CDIT_CSIT_SNR19_dt1_N4-eps-converted-to.pdf, id=229, 561.09625pt x 423
+<figuras/CDIT_CSIT_SNR19_dt1_N4-eps-converted-to.pdf, id=223, 561.09625pt x 423
 .5825pt>
 File: figuras/CDIT_CSIT_SNR19_dt1_N4-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -944,37 +998,37 @@ Underfull \vbox (badness 2452) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 465.
 LaTeX Info: Redefining \% on input line 465.
- [43]
+ [41]
 LaTeX Info: Redefining \. on input line 465.
 LaTeX Info: Redefining \% on input line 465.
 
-[44 <./figuras/CDIT_CSIT_SNR19_ASD10-eps-converted-to.pdf> <./figuras/CDIT_CSIT
+[42 <./figuras/CDIT_CSIT_SNR19_ASD10-eps-converted-to.pdf> <./figuras/CDIT_CSIT
 _SNR19_ASD20-eps-converted-to.pdf>]
 LaTeX Info: Redefining \. on input line 465.
 LaTeX Info: Redefining \% on input line 465.
- [45 <./figuras/CDIT_CSIT_SNR19_dt05-eps-converted-to.pdf> <./figuras/CDIT_CSIT
+ [43 <./figuras/CDIT_CSIT_SNR19_dt05-eps-converted-to.pdf> <./figuras/CDIT_CSIT
 _SNR19_dt1-eps-converted-to.pdf>]
 LaTeX Info: Redefining \. on input line 465.
 LaTeX Info: Redefining \% on input line 465.
- [46 <./figuras/CDIT_CSIT_SNR19_ASD10_N4-eps-converted-to.pdf> <./figuras/CDIT_
+ [44 <./figuras/CDIT_CSIT_SNR19_ASD10_N4-eps-converted-to.pdf> <./figuras/CDIT_
 CSIT_SNR19_ASD20_N4-eps-converted-to.pdf>]
 LaTeX Info: Redefining \. on input line 465.
 LaTeX Info: Redefining \% on input line 465.
- [47 <./figuras/CDIT_CSIT_SNR19_dt05_N4-eps-converted-to.pdf> <./figuras/CDIT_C
+ [45 <./figuras/CDIT_CSIT_SNR19_dt05_N4-eps-converted-to.pdf> <./figuras/CDIT_C
 SIT_SNR19_dt1_N4-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figuras/CDIT_CSIT_SNRm5_ASD10.eps>
-(epstopdf)                    date: 2014-07-02 18:12:31
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 15058 bytes
 (epstopdf)             Output file: <figuras/CDIT_CSIT_SNRm5_ASD10-eps-converte
 d-to.pdf>
-(epstopdf)                    date: 2014-07-02 18:17:38
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 11491 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CDIT_CSIT_SNRm5_AS
 D10-eps-converted-to.pdf figuras/CDIT_CSIT_SNRm5_ASD10.eps>
 (epstopdf)             \includegraphics on input line 503.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CDIT_CSIT_SNRm5_ASD10-eps-converted-to.pdf, id=314, 561.09625pt x 423.
+<figuras/CDIT_CSIT_SNRm5_ASD10-eps-converted-to.pdf, id=308, 561.09625pt x 423.
 5825pt>
 File: figuras/CDIT_CSIT_SNRm5_ASD10-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -983,18 +1037,18 @@ Package pdftex.def Info: figuras/CDIT_CSIT_SNRm5_ASD10-eps-converted-to.pdf use
 d on input line 503.
 (pdftex.def)             Requested size: 561.09488pt x 423.58147pt.
 Package epstopdf Info: Source file: <figuras/CDIT_CSIT_SNRm5_ASD20.eps>
-(epstopdf)                    date: 2014-07-02 18:13:02
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 14987 bytes
 (epstopdf)             Output file: <figuras/CDIT_CSIT_SNRm5_ASD20-eps-converte
 d-to.pdf>
-(epstopdf)                    date: 2014-07-02 18:17:40
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 11494 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CDIT_CSIT_SNRm5_AS
 D20-eps-converted-to.pdf figuras/CDIT_CSIT_SNRm5_ASD20.eps>
 (epstopdf)             \includegraphics on input line 504.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CDIT_CSIT_SNRm5_ASD20-eps-converted-to.pdf, id=315, 561.09625pt x 423.
+<figuras/CDIT_CSIT_SNRm5_ASD20-eps-converted-to.pdf, id=309, 561.09625pt x 423.
 5825pt>
 File: figuras/CDIT_CSIT_SNRm5_ASD20-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -1007,24 +1061,18 @@ d on input line 504.
 LaTeX Warning: Float too large for page by 43.79211pt on input line 507.
 
 Package epstopdf Info: Source file: <figuras/CDIT_CSIT_SNRm5_dt05.eps>
-(epstopdf)                    date: 2014-07-08 14:16:22
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 21880 bytes
 (epstopdf)             Output file: <figuras/CDIT_CSIT_SNRm5_dt05-eps-converted
 -to.pdf>
-(epstopdf)                    date: 2014-07-02 18:17:42
-(epstopdf)                    size: 16642 bytes
+(epstopdf)                    date: 2015-07-18 13:20:09
+(epstopdf)                    size: 16543 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CDIT_CSIT_SNRm5_dt
 05-eps-converted-to.pdf figuras/CDIT_CSIT_SNRm5_dt05.eps>
 (epstopdf)             \includegraphics on input line 512.
-runsystem(repstopdf --outfile=figuras/CDIT_CSIT_SNRm5_dt05-eps-converted-to.pdf
- figuras/CDIT_CSIT_SNRm5_dt05.eps)...executed safely (allowed).
+Package epstopdf Info: Output file is already uptodate.
 
-Package epstopdf Info: Result file: <figuras/CDIT_CSIT_SNRm5_dt05-eps-converted
--to.pdf>
-(epstopdf)                    date: 2015-05-21 16:38:39
-(epstopdf)                    size: 16543 bytes.
-
-<figuras/CDIT_CSIT_SNRm5_dt05-eps-converted-to.pdf, id=316, 561.09625pt x 423.5
+<figuras/CDIT_CSIT_SNRm5_dt05-eps-converted-to.pdf, id=310, 561.09625pt x 423.5
 825pt>
 File: figuras/CDIT_CSIT_SNRm5_dt05-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -1033,24 +1081,18 @@ Package pdftex.def Info: figuras/CDIT_CSIT_SNRm5_dt05-eps-converted-to.pdf used
  on input line 512.
 (pdftex.def)             Requested size: 561.09488pt x 423.58147pt.
 Package epstopdf Info: Source file: <figuras/CDIT_CSIT_SNRm5_dt1.eps>
-(epstopdf)                    date: 2014-07-08 14:19:18
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 21925 bytes
 (epstopdf)             Output file: <figuras/CDIT_CSIT_SNRm5_dt1-eps-converted-
 to.pdf>
-(epstopdf)                    date: 2014-07-02 18:17:45
-(epstopdf)                    size: 16721 bytes
+(epstopdf)                    date: 2015-07-18 13:20:09
+(epstopdf)                    size: 16692 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CDIT_CSIT_SNRm5_dt
 1-eps-converted-to.pdf figuras/CDIT_CSIT_SNRm5_dt1.eps>
 (epstopdf)             \includegraphics on input line 513.
-runsystem(repstopdf --outfile=figuras/CDIT_CSIT_SNRm5_dt1-eps-converted-to.pdf 
-figuras/CDIT_CSIT_SNRm5_dt1.eps)...executed safely (allowed).
+Package epstopdf Info: Output file is already uptodate.
 
-Package epstopdf Info: Result file: <figuras/CDIT_CSIT_SNRm5_dt1-eps-converted-
-to.pdf>
-(epstopdf)                    date: 2015-05-21 16:38:39
-(epstopdf)                    size: 16692 bytes.
-
-<figuras/CDIT_CSIT_SNRm5_dt1-eps-converted-to.pdf, id=317, 561.09625pt x 423.58
+<figuras/CDIT_CSIT_SNRm5_dt1-eps-converted-to.pdf, id=311, 561.09625pt x 423.58
 25pt>
 File: figuras/CDIT_CSIT_SNRm5_dt1-eps-converted-to.pdf Graphic file (type pdf)
  <use figuras/CDIT_CSIT_SNRm5_dt1-eps-converted-to.pdf>
@@ -1063,28 +1105,28 @@ LaTeX Warning: Float too large for page by 44.74052pt on input line 516.
 
 LaTeX Info: Redefining \. on input line 519.
 LaTeX Info: Redefining \% on input line 519.
-[48]
+[46]
 LaTeX Info: Redefining \. on input line 519.
 LaTeX Info: Redefining \% on input line 519.
- [49 <./figuras/CDIT_CSIT_SNRm5_ASD10-eps-converted-to.pdf> <./figuras/CDIT_CSI
+ [47 <./figuras/CDIT_CSIT_SNRm5_ASD10-eps-converted-to.pdf> <./figuras/CDIT_CSI
 T_SNRm5_ASD20-eps-converted-to.pdf>]
 LaTeX Info: Redefining \. on input line 519.
 LaTeX Info: Redefining \% on input line 519.
- [50 <./figuras/CDIT_CSIT_SNRm5_dt05-eps-converted-to.pdf> <./figuras/CDIT_CSIT
+ [48 <./figuras/CDIT_CSIT_SNRm5_dt05-eps-converted-to.pdf> <./figuras/CDIT_CSIT
 _SNRm5_dt1-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figuras/CDIT_CSIT_SNRm5_ASD10_N4.eps>
-(epstopdf)                    date: 2014-07-02 18:14:15
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 14792 bytes
 (epstopdf)             Output file: <figuras/CDIT_CSIT_SNRm5_ASD10_N4-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2014-07-02 18:17:47
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 11488 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CDIT_CSIT_SNRm5_AS
 D10_N4-eps-converted-to.pdf figuras/CDIT_CSIT_SNRm5_ASD10_N4.eps>
 (epstopdf)             \includegraphics on input line 526.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CDIT_CSIT_SNRm5_ASD10_N4-eps-converted-to.pdf, id=363, 561.09625pt x 4
+<figuras/CDIT_CSIT_SNRm5_ASD10_N4-eps-converted-to.pdf, id=356, 561.09625pt x 4
 23.5825pt>
 File: figuras/CDIT_CSIT_SNRm5_ASD10_N4-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -1093,18 +1135,18 @@ Package pdftex.def Info: figuras/CDIT_CSIT_SNRm5_ASD10_N4-eps-converted-to.pdf
 used on input line 526.
 (pdftex.def)             Requested size: 561.09488pt x 423.58147pt.
 Package epstopdf Info: Source file: <figuras/CDIT_CSIT_SNRm5_ASD20_N4.eps>
-(epstopdf)                    date: 2014-07-02 18:14:48
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 14777 bytes
 (epstopdf)             Output file: <figuras/CDIT_CSIT_SNRm5_ASD20_N4-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2014-07-02 18:17:50
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 11492 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CDIT_CSIT_SNRm5_AS
 D20_N4-eps-converted-to.pdf figuras/CDIT_CSIT_SNRm5_ASD20_N4.eps>
 (epstopdf)             \includegraphics on input line 527.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CDIT_CSIT_SNRm5_ASD20_N4-eps-converted-to.pdf, id=364, 561.09625pt x 4
+<figuras/CDIT_CSIT_SNRm5_ASD20_N4-eps-converted-to.pdf, id=357, 561.09625pt x 4
 23.5825pt>
 File: figuras/CDIT_CSIT_SNRm5_ASD20_N4-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -1117,18 +1159,18 @@ used on input line 527.
 LaTeX Warning: Float too large for page by 43.79211pt on input line 530.
 
 Package epstopdf Info: Source file: <figuras/CDIT_CSIT_SNRm5_dt05_N4.eps>
-(epstopdf)                    date: 2014-07-02 18:16:16
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 21846 bytes
 (epstopdf)             Output file: <figuras/CDIT_CSIT_SNRm5_dt05_N4-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2014-07-02 18:17:52
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 16468 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CDIT_CSIT_SNRm5_dt
 05_N4-eps-converted-to.pdf figuras/CDIT_CSIT_SNRm5_dt05_N4.eps>
 (epstopdf)             \includegraphics on input line 535.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CDIT_CSIT_SNRm5_dt05_N4-eps-converted-to.pdf, id=365, 561.09625pt x 42
+<figuras/CDIT_CSIT_SNRm5_dt05_N4-eps-converted-to.pdf, id=358, 561.09625pt x 42
 3.5825pt>
 File: figuras/CDIT_CSIT_SNRm5_dt05_N4-eps-converted-to.pdf Graphic file (type p
 df)
@@ -1137,18 +1179,18 @@ Package pdftex.def Info: figuras/CDIT_CSIT_SNRm5_dt05_N4-eps-converted-to.pdf u
 sed on input line 535.
 (pdftex.def)             Requested size: 561.09488pt x 423.58147pt.
 Package epstopdf Info: Source file: <figuras/CDIT_CSIT_SNRm5_dt1_N4.eps>
-(epstopdf)                    date: 2014-07-02 18:17:08
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 21854 bytes
 (epstopdf)             Output file: <figuras/CDIT_CSIT_SNRm5_dt1_N4-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2014-07-02 18:17:54
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 16509 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/CDIT_CSIT_SNRm5_dt
 1_N4-eps-converted-to.pdf figuras/CDIT_CSIT_SNRm5_dt1_N4.eps>
 (epstopdf)             \includegraphics on input line 536.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/CDIT_CSIT_SNRm5_dt1_N4-eps-converted-to.pdf, id=366, 561.09625pt x 423
+<figuras/CDIT_CSIT_SNRm5_dt1_N4-eps-converted-to.pdf, id=359, 561.09625pt x 423
 .5825pt>
 File: figuras/CDIT_CSIT_SNRm5_dt1_N4-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -1162,18 +1204,18 @@ LaTeX Warning: Float too large for page by 44.74052pt on input line 539.
 
 Package epstopdf Info: Source file: <figuras/comparacion_cdit_bf_M2_N2_dt05.eps
 >
-(epstopdf)                    date: 2014-06-15 11:10:52
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 10915 bytes
 (epstopdf)             Output file: <figuras/comparacion_cdit_bf_M2_N2_dt05-eps
 -converted-to.pdf>
-(epstopdf)                    date: 2014-06-15 13:35:01
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 8414 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/comparacion_cdit_b
 f_M2_N2_dt05-eps-converted-to.pdf figuras/comparacion_cdit_bf_M2_N2_dt05.eps>
 (epstopdf)             \includegraphics on input line 549.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/comparacion_cdit_bf_M2_N2_dt05-eps-converted-to.pdf, id=367, 561.09625
+<figuras/comparacion_cdit_bf_M2_N2_dt05-eps-converted-to.pdf, id=360, 561.09625
 pt x 423.5825pt>
 File: figuras/comparacion_cdit_bf_M2_N2_dt05-eps-converted-to.pdf Graphic file 
 (type pdf)
@@ -1184,18 +1226,18 @@ o.pdf used on input line 549.
 (pdftex.def)             Requested size: 561.09488pt x 423.58147pt.
 Package epstopdf Info: Source file: <figuras/comparacion_cdit_bf_M2_N2_dt1.eps>
 
-(epstopdf)                    date: 2014-06-15 11:13:12
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 10689 bytes
 (epstopdf)             Output file: <figuras/comparacion_cdit_bf_M2_N2_dt1-eps-
 converted-to.pdf>
-(epstopdf)                    date: 2014-06-15 13:35:04
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 8176 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/comparacion_cdit_b
 f_M2_N2_dt1-eps-converted-to.pdf figuras/comparacion_cdit_bf_M2_N2_dt1.eps>
 (epstopdf)             \includegraphics on input line 550.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/comparacion_cdit_bf_M2_N2_dt1-eps-converted-to.pdf, id=368, 561.09625p
+<figuras/comparacion_cdit_bf_M2_N2_dt1-eps-converted-to.pdf, id=361, 561.09625p
 t x 421.575pt>
 File: figuras/comparacion_cdit_bf_M2_N2_dt1-eps-converted-to.pdf Graphic file (
 type pdf)
@@ -1206,18 +1248,18 @@ Package pdftex.def Info: figuras/comparacion_cdit_bf_M2_N2_dt1-eps-converted-to
 (pdftex.def)             Requested size: 561.09488pt x 421.57396pt.
 Package epstopdf Info: Source file: <figuras/comparacion_cdit_bf_M2_N2_dt2.eps>
 
-(epstopdf)                    date: 2014-06-15 11:15:43
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 10701 bytes
 (epstopdf)             Output file: <figuras/comparacion_cdit_bf_M2_N2_dt2-eps-
 converted-to.pdf>
-(epstopdf)                    date: 2014-06-15 13:35:06
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 8228 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/comparacion_cdit_b
 f_M2_N2_dt2-eps-converted-to.pdf figuras/comparacion_cdit_bf_M2_N2_dt2.eps>
 (epstopdf)             \includegraphics on input line 551.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/comparacion_cdit_bf_M2_N2_dt2-eps-converted-to.pdf, id=369, 561.09625p
+<figuras/comparacion_cdit_bf_M2_N2_dt2-eps-converted-to.pdf, id=362, 561.09625p
 t x 423.5825pt>
 File: figuras/comparacion_cdit_bf_M2_N2_dt2-eps-converted-to.pdf Graphic file (
 type pdf)
@@ -1232,18 +1274,18 @@ LaTeX Warning: Float too large for page by 82.57442pt on input line 554.
 
 Package epstopdf Info: Source file: <figuras/comparacion_cdit_bf_M2_N2_ASD2.eps
 >
-(epstopdf)                    date: 2014-06-15 14:04:52
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 9599 bytes
 (epstopdf)             Output file: <figuras/comparacion_cdit_bf_M2_N2_ASD2-eps
 -converted-to.pdf>
-(epstopdf)                    date: 2014-06-15 14:38:39
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 8492 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/comparacion_cdit_b
 f_M2_N2_ASD2-eps-converted-to.pdf figuras/comparacion_cdit_bf_M2_N2_ASD2.eps>
 (epstopdf)             \includegraphics on input line 558.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/comparacion_cdit_bf_M2_N2_ASD2-eps-converted-to.pdf, id=370, 561.09625
+<figuras/comparacion_cdit_bf_M2_N2_ASD2-eps-converted-to.pdf, id=363, 561.09625
 pt x 423.5825pt>
 File: figuras/comparacion_cdit_bf_M2_N2_ASD2-eps-converted-to.pdf Graphic file 
 (type pdf)
@@ -1254,11 +1296,11 @@ o.pdf used on input line 558.
 (pdftex.def)             Requested size: 561.09488pt x 423.58147pt.
 Package epstopdf Info: Source file: <figuras/comparacion_cdit_bf_M2_N2_ASD10.ep
 s>
-(epstopdf)                    date: 2014-06-15 14:03:08
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 9498 bytes
 (epstopdf)             Output file: <figuras/comparacion_cdit_bf_M2_N2_ASD10-ep
 s-converted-to.pdf>
-(epstopdf)                    date: 2014-06-15 14:38:41
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 8318 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/comparacion_cdit_b
 f_M2_N2_ASD10-eps-converted-to.pdf figuras/comparacion_cdit_bf_M2_N2_ASD10.eps>
@@ -1266,7 +1308,7 @@ f_M2_N2_ASD10-eps-converted-to.pdf figuras/comparacion_cdit_bf_M2_N2_ASD10.eps>
 (epstopdf)             \includegraphics on input line 559.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/comparacion_cdit_bf_M2_N2_ASD10-eps-converted-to.pdf, id=371, 561.0962
+<figuras/comparacion_cdit_bf_M2_N2_ASD10-eps-converted-to.pdf, id=364, 561.0962
 5pt x 421.575pt>
 File: figuras/comparacion_cdit_bf_M2_N2_ASD10-eps-converted-to.pdf Graphic file
  (type pdf)
@@ -1277,11 +1319,11 @@ to.pdf used on input line 559.
 (pdftex.def)             Requested size: 561.09488pt x 421.57396pt.
 Package epstopdf Info: Source file: <figuras/comparacion_cdit_bf_M2_N2_ASD16.ep
 s>
-(epstopdf)                    date: 2014-06-15 14:34:02
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 9490 bytes
 (epstopdf)             Output file: <figuras/comparacion_cdit_bf_M2_N2_ASD16-ep
 s-converted-to.pdf>
-(epstopdf)                    date: 2014-06-15 14:38:44
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 8340 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/comparacion_cdit_b
 f_M2_N2_ASD16-eps-converted-to.pdf figuras/comparacion_cdit_bf_M2_N2_ASD16.eps>
@@ -1289,7 +1331,7 @@ f_M2_N2_ASD16-eps-converted-to.pdf figuras/comparacion_cdit_bf_M2_N2_ASD16.eps>
 (epstopdf)             \includegraphics on input line 560.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/comparacion_cdit_bf_M2_N2_ASD16-eps-converted-to.pdf, id=372, 561.0962
+<figuras/comparacion_cdit_bf_M2_N2_ASD16-eps-converted-to.pdf, id=365, 561.0962
 5pt x 421.575pt>
 File: figuras/comparacion_cdit_bf_M2_N2_ASD16-eps-converted-to.pdf Graphic file
  (type pdf)
@@ -1304,57 +1346,63 @@ LaTeX Warning: Float too large for page by 81.62769pt on input line 563.
 
 LaTeX Info: Redefining \. on input line 568.
 LaTeX Info: Redefining \% on input line 568.
-[51]
+[49]
 LaTeX Info: Redefining \. on input line 568.
 LaTeX Info: Redefining \% on input line 568.
- [52 <./figuras/CDIT_CSIT_SNRm5_ASD10_N4-eps-converted-to.pdf> <./figuras/CDIT_
+ [50 <./figuras/CDIT_CSIT_SNRm5_ASD10_N4-eps-converted-to.pdf> <./figuras/CDIT_
 CSIT_SNRm5_ASD20_N4-eps-converted-to.pdf>]
 LaTeX Info: Redefining \. on input line 568.
 LaTeX Info: Redefining \% on input line 568.
- [53 <./figuras/CDIT_CSIT_SNRm5_dt05_N4-eps-converted-to.pdf> <./figuras/CDIT_C
+ [51 <./figuras/CDIT_CSIT_SNRm5_dt05_N4-eps-converted-to.pdf> <./figuras/CDIT_C
 SIT_SNRm5_dt1_N4-eps-converted-to.pdf>]
 LaTeX Info: Redefining \. on input line 568.
 LaTeX Info: Redefining \% on input line 568.
- [54 <./figuras/comparacion_cdit_bf_M2_N2_dt05-eps-converted-to.pdf> <./figuras
+ [52 <./figuras/comparacion_cdit_bf_M2_N2_dt05-eps-converted-to.pdf> <./figuras
 /comparacion_cdit_bf_M2_N2_dt1-eps-converted-to.pdf> <./figuras/comparacion_cdi
 t_bf_M2_N2_dt2-eps-converted-to.pdf>]
 LaTeX Info: Redefining \. on input line 568.
 LaTeX Info: Redefining \% on input line 568.
- [55 <./figuras/comparacion_cdit_bf_M2_N2_ASD2-eps-converted-to.pdf> <./figuras
+ [53 <./figuras/comparacion_cdit_bf_M2_N2_ASD2-eps-converted-to.pdf> <./figuras
 /comparacion_cdit_bf_M2_N2_ASD10-eps-converted-to.pdf> <./figuras/comparacion_c
 dit_bf_M2_N2_ASD16-eps-converted-to.pdf>])
 LaTeX Info: Redefining \. on input line 250.
 LaTeX Info: Redefining \% on input line 250.
- [56]
+ [54]
 Cap\'{\i }tulo 4.
-(./capitulo4/4_ortogonalidad.tex [57
+(./capitulo4/4_ortogonalidad.tex [55
 
 ]
+
+LaTeX Warning: Reference `anexo' on page 56 undefined on input line 39.
+
 LaTeX Info: Redefining \. on input line 46.
 LaTeX Info: Redefining \% on input line 46.
- [58]
+[56]
 LaTeX Info: Redefining \. on input line 84.
 LaTeX Info: Redefining \% on input line 84.
- [59]
+ [57]
 LaTeX Info: Redefining \. on input line 117.
 LaTeX Info: Redefining \% on input line 117.
- [60]
+ [58]
+
+LaTeX Warning: Citation `tensor' on page 59 undefined on input line 150.
+
 LaTeX Info: Redefining \. on input line 157.
 LaTeX Info: Redefining \% on input line 157.
- [61]
+[59]
 Package epstopdf Info: Source file: <figuras/orto_barridoM_N2_ASD5.eps>
-(epstopdf)                    date: 2014-05-24 14:15:45
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 12871 bytes
 (epstopdf)             Output file: <figuras/orto_barridoM_N2_ASD5-eps-converte
 d-to.pdf>
-(epstopdf)                    date: 2014-05-24 14:25:13
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 9992 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/orto_barridoM_N2_A
 SD5-eps-converted-to.pdf figuras/orto_barridoM_N2_ASD5.eps>
 (epstopdf)             \includegraphics on input line 172.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/orto_barridoM_N2_ASD5-eps-converted-to.pdf, id=491, 561.09625pt x 423.
+<figuras/orto_barridoM_N2_ASD5-eps-converted-to.pdf, id=484, 561.09625pt x 423.
 5825pt>
 File: figuras/orto_barridoM_N2_ASD5-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -1363,18 +1411,18 @@ Package pdftex.def Info: figuras/orto_barridoM_N2_ASD5-eps-converted-to.pdf use
 d on input line 172.
 (pdftex.def)             Requested size: 561.09488pt x 423.58147pt.
 Package epstopdf Info: Source file: <figuras/orto_barridoM_N2_ASD10.eps>
-(epstopdf)                    date: 2014-05-24 14:16:38
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 12867 bytes
 (epstopdf)             Output file: <figuras/orto_barridoM_N2_ASD10-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2014-05-24 14:25:16
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 9993 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/orto_barridoM_N2_A
 SD10-eps-converted-to.pdf figuras/orto_barridoM_N2_ASD10.eps>
 (epstopdf)             \includegraphics on input line 173.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/orto_barridoM_N2_ASD10-eps-converted-to.pdf, id=492, 561.09625pt x 423
+<figuras/orto_barridoM_N2_ASD10-eps-converted-to.pdf, id=485, 561.09625pt x 423
 .5825pt>
 File: figuras/orto_barridoM_N2_ASD10-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -1383,18 +1431,18 @@ Package pdftex.def Info: figuras/orto_barridoM_N2_ASD10-eps-converted-to.pdf us
 ed on input line 173.
 (pdftex.def)             Requested size: 561.09488pt x 423.58147pt.
 Package epstopdf Info: Source file: <figuras/orto_barridoM_N2_ASD20.eps>
-(epstopdf)                    date: 2014-05-24 14:16:48
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 12859 bytes
 (epstopdf)             Output file: <figuras/orto_barridoM_N2_ASD20-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2014-05-24 14:25:18
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 9959 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/orto_barridoM_N2_A
 SD20-eps-converted-to.pdf figuras/orto_barridoM_N2_ASD20.eps>
 (epstopdf)             \includegraphics on input line 174.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/orto_barridoM_N2_ASD20-eps-converted-to.pdf, id=493, 561.09625pt x 423
+<figuras/orto_barridoM_N2_ASD20-eps-converted-to.pdf, id=486, 561.09625pt x 423
 .5825pt>
 File: figuras/orto_barridoM_N2_ASD20-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -1407,18 +1455,18 @@ ed on input line 174.
 LaTeX Warning: Float too large for page by 68.02432pt on input line 177.
 
 Package epstopdf Info: Source file: <figuras/orto_barridoM_N2_dt05.eps>
-(epstopdf)                    date: 2014-05-24 14:18:21
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 15461 bytes
 (epstopdf)             Output file: <figuras/orto_barridoM_N2_dt05-eps-converte
 d-to.pdf>
-(epstopdf)                    date: 2014-05-24 14:25:20
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 10764 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/orto_barridoM_N2_d
 t05-eps-converted-to.pdf figuras/orto_barridoM_N2_dt05.eps>
 (epstopdf)             \includegraphics on input line 183.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/orto_barridoM_N2_dt05-eps-converted-to.pdf, id=494, 561.09625pt x 423.
+<figuras/orto_barridoM_N2_dt05-eps-converted-to.pdf, id=487, 561.09625pt x 423.
 5825pt>
 File: figuras/orto_barridoM_N2_dt05-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -1427,18 +1475,18 @@ Package pdftex.def Info: figuras/orto_barridoM_N2_dt05-eps-converted-to.pdf use
 d on input line 183.
 (pdftex.def)             Requested size: 561.09488pt x 423.58147pt.
 Package epstopdf Info: Source file: <figuras/orto_barridoM_N2_dt1.eps>
-(epstopdf)                    date: 2014-05-24 14:18:07
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 15469 bytes
 (epstopdf)             Output file: <figuras/orto_barridoM_N2_dt1-eps-converted
 -to.pdf>
-(epstopdf)                    date: 2014-05-24 14:25:23
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 10826 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/orto_barridoM_N2_d
 t1-eps-converted-to.pdf figuras/orto_barridoM_N2_dt1.eps>
 (epstopdf)             \includegraphics on input line 184.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/orto_barridoM_N2_dt1-eps-converted-to.pdf, id=495, 561.09625pt x 423.5
+<figuras/orto_barridoM_N2_dt1-eps-converted-to.pdf, id=488, 561.09625pt x 423.5
 825pt>
 File: figuras/orto_barridoM_N2_dt1-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -1447,18 +1495,18 @@ Package pdftex.def Info: figuras/orto_barridoM_N2_dt1-eps-converted-to.pdf used
  on input line 184.
 (pdftex.def)             Requested size: 561.09488pt x 423.58147pt.
 Package epstopdf Info: Source file: <figuras/orto_barridoM_N2_dt2.eps>
-(epstopdf)                    date: 2014-05-24 14:17:54
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 15455 bytes
 (epstopdf)             Output file: <figuras/orto_barridoM_N2_dt2-eps-converted
 -to.pdf>
-(epstopdf)                    date: 2014-05-24 14:25:25
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 10798 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/orto_barridoM_N2_d
 t2-eps-converted-to.pdf figuras/orto_barridoM_N2_dt2.eps>
 (epstopdf)             \includegraphics on input line 185.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/orto_barridoM_N2_dt2-eps-converted-to.pdf, id=496, 561.09625pt x 423.5
+<figuras/orto_barridoM_N2_dt2-eps-converted-to.pdf, id=489, 561.09625pt x 423.5
 825pt>
 File: figuras/orto_barridoM_N2_dt2-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -1472,30 +1520,30 @@ LaTeX Warning: Float too large for page by 68.02432pt on input line 188.
 
 LaTeX Info: Redefining \. on input line 192.
 LaTeX Info: Redefining \% on input line 192.
-[62]
+[60]
 LaTeX Info: Redefining \. on input line 192.
 LaTeX Info: Redefining \% on input line 192.
- [63 <./figuras/orto_barridoM_N2_ASD5-eps-converted-to.pdf> <./figuras/orto_bar
+ [61 <./figuras/orto_barridoM_N2_ASD5-eps-converted-to.pdf> <./figuras/orto_bar
 ridoM_N2_ASD10-eps-converted-to.pdf> <./figuras/orto_barridoM_N2_ASD20-eps-conv
 erted-to.pdf>]
 LaTeX Info: Redefining \. on input line 192.
 LaTeX Info: Redefining \% on input line 192.
- [64 <./figuras/orto_barridoM_N2_dt05-eps-converted-to.pdf> <./figuras/orto_bar
+ [62 <./figuras/orto_barridoM_N2_dt05-eps-converted-to.pdf> <./figuras/orto_bar
 ridoM_N2_dt1-eps-converted-to.pdf> <./figuras/orto_barridoM_N2_dt2-eps-converte
 d-to.pdf>]
 Package epstopdf Info: Source file: <figuras/orto_barridoM_N4_ASD10.eps>
-(epstopdf)                    date: 2014-05-24 14:23:22
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 13436 bytes
 (epstopdf)             Output file: <figuras/orto_barridoM_N4_ASD10-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2014-05-24 14:25:29
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 10188 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/orto_barridoM_N4_A
 SD10-eps-converted-to.pdf figuras/orto_barridoM_N4_ASD10.eps>
 (epstopdf)             \includegraphics on input line 205.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/orto_barridoM_N4_ASD10-eps-converted-to.pdf, id=557, 561.09625pt x 423
+<figuras/orto_barridoM_N4_ASD10-eps-converted-to.pdf, id=551, 561.09625pt x 423
 .5825pt>
 File: figuras/orto_barridoM_N4_ASD10-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -1504,18 +1552,18 @@ Package pdftex.def Info: figuras/orto_barridoM_N4_ASD10-eps-converted-to.pdf us
 ed on input line 205.
 (pdftex.def)             Requested size: 561.09488pt x 423.58147pt.
 Package epstopdf Info: Source file: <figuras/orto_barridoM_N4dt1.eps>
-(epstopdf)                    date: 2014-05-24 14:22:49
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 15093 bytes
 (epstopdf)             Output file: <figuras/orto_barridoM_N4dt1-eps-converted-
 to.pdf>
-(epstopdf)                    date: 2014-05-24 14:25:36
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 10674 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/orto_barridoM_N4dt
 1-eps-converted-to.pdf figuras/orto_barridoM_N4dt1.eps>
 (epstopdf)             \includegraphics on input line 206.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/orto_barridoM_N4dt1-eps-converted-to.pdf, id=558, 561.09625pt x 423.58
+<figuras/orto_barridoM_N4dt1-eps-converted-to.pdf, id=552, 561.09625pt x 423.58
 25pt>
 File: figuras/orto_barridoM_N4dt1-eps-converted-to.pdf Graphic file (type pdf)
  <use figuras/orto_barridoM_N4dt1-eps-converted-to.pdf>
@@ -1527,18 +1575,18 @@ on input line 206.
 LaTeX Warning: Float too large for page by 16.5921pt on input line 209.
 
 Package epstopdf Info: Source file: <figuras/orto_barridoM_NM_ASD10.eps>
-(epstopdf)                    date: 2014-05-24 18:36:39
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 13475 bytes
 (epstopdf)             Output file: <figuras/orto_barridoM_NM_ASD10-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2014-05-24 18:50:05
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 10189 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/orto_barridoM_NM_A
 SD10-eps-converted-to.pdf figuras/orto_barridoM_NM_ASD10.eps>
 (epstopdf)             \includegraphics on input line 220.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/orto_barridoM_NM_ASD10-eps-converted-to.pdf, id=559, 561.09625pt x 421
+<figuras/orto_barridoM_NM_ASD10-eps-converted-to.pdf, id=553, 561.09625pt x 421
 .575pt>
 File: figuras/orto_barridoM_NM_ASD10-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -1547,18 +1595,18 @@ Package pdftex.def Info: figuras/orto_barridoM_NM_ASD10-eps-converted-to.pdf us
 ed on input line 220.
 (pdftex.def)             Requested size: 561.09488pt x 421.57396pt.
 Package epstopdf Info: Source file: <figuras/orto_barridoM_NM_dt1.eps>
-(epstopdf)                    date: 2014-05-24 18:36:50
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 15589 bytes
 (epstopdf)             Output file: <figuras/orto_barridoM_NM_dt1-eps-converted
 -to.pdf>
-(epstopdf)                    date: 2014-05-24 18:50:03
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 10818 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/orto_barridoM_NM_d
 t1-eps-converted-to.pdf figuras/orto_barridoM_NM_dt1.eps>
 (epstopdf)             \includegraphics on input line 221.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/orto_barridoM_NM_dt1-eps-converted-to.pdf, id=560, 561.09625pt x 421.5
+<figuras/orto_barridoM_NM_dt1-eps-converted-to.pdf, id=554, 561.09625pt x 421.5
 75pt>
 File: figuras/orto_barridoM_NM_dt1-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -1572,28 +1620,28 @@ LaTeX Warning: Float too large for page by 16.58395pt on input line 224.
 
 LaTeX Info: Redefining \. on input line 229.
 LaTeX Info: Redefining \% on input line 229.
-[65]
+[63]
 LaTeX Info: Redefining \. on input line 229.
 LaTeX Info: Redefining \% on input line 229.
- [66 <./figuras/orto_barridoM_N4_ASD10-eps-converted-to.pdf> <./figuras/orto_ba
+ [64 <./figuras/orto_barridoM_N4_ASD10-eps-converted-to.pdf> <./figuras/orto_ba
 rridoM_N4dt1-eps-converted-to.pdf>]
 LaTeX Info: Redefining \. on input line 229.
 LaTeX Info: Redefining \% on input line 229.
- [67 <./figuras/orto_barridoM_NM_ASD10-eps-converted-to.pdf> <./figuras/orto_ba
+ [65 <./figuras/orto_barridoM_NM_ASD10-eps-converted-to.pdf> <./figuras/orto_ba
 rridoM_NM_dt1-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figuras/orto_M50_iid_ASD10.eps>
-(epstopdf)                    date: 2014-05-24 19:19:52
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 12152 bytes
 (epstopdf)             Output file: <figuras/orto_M50_iid_ASD10-eps-converted-t
 o.pdf>
-(epstopdf)                    date: 2014-05-24 19:25:01
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 8817 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/orto_M50_iid_ASD10
 -eps-converted-to.pdf figuras/orto_M50_iid_ASD10.eps>
 (epstopdf)             \includegraphics on input line 235.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/orto_M50_iid_ASD10-eps-converted-to.pdf, id=605, 561.09625pt x 423.582
+<figuras/orto_M50_iid_ASD10-eps-converted-to.pdf, id=598, 561.09625pt x 423.582
 5pt>
 File: figuras/orto_M50_iid_ASD10-eps-converted-to.pdf Graphic file (type pdf)
  <use figuras/orto_M50_iid_ASD10-eps-converted-to.pdf>
@@ -1601,18 +1649,18 @@ Package pdftex.def Info: figuras/orto_M50_iid_ASD10-eps-converted-to.pdf used o
 n input line 235.
 (pdftex.def)             Requested size: 561.09488pt x 423.58147pt.
 Package epstopdf Info: Source file: <figuras/orto_M50_iid_dt1.eps>
-(epstopdf)                    date: 2014-05-24 19:20:09
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 16544 bytes
 (epstopdf)             Output file: <figuras/orto_M50_iid_dt1-eps-converted-to.
 pdf>
-(epstopdf)                    date: 2014-05-24 19:24:59
+(epstopdf)                    date: 2015-07-18 13:20:09
 (epstopdf)                    size: 11424 bytes
 (epstopdf)             Command: <repstopdf --outfile=figuras/orto_M50_iid_dt1-e
 ps-converted-to.pdf figuras/orto_M50_iid_dt1.eps>
 (epstopdf)             \includegraphics on input line 236.
 Package epstopdf Info: Output file is already uptodate.
 
-<figuras/orto_M50_iid_dt1-eps-converted-to.pdf, id=606, 561.09625pt x 423.5825p
+<figuras/orto_M50_iid_dt1-eps-converted-to.pdf, id=599, 561.09625pt x 423.5825p
 t>
 File: figuras/orto_M50_iid_dt1-eps-converted-to.pdf Graphic file (type pdf)
  <use figuras/orto_M50_iid_dt1-eps-converted-to.pdf>
@@ -1626,14 +1674,14 @@ LaTeX Warning: Float too large for page by 30.19211pt on input line 239.
 )
 LaTeX Info: Redefining \. on input line 258.
 LaTeX Info: Redefining \% on input line 258.
- [68]
+ [66]
 LaTeX Info: Redefining \. on input line 258.
 LaTeX Info: Redefining \% on input line 258.
- [69 <./figuras/orto_M50_iid_ASD10-eps-converted-to.pdf> <./figuras/orto_M50_ii
+ [67 <./figuras/orto_M50_iid_ASD10-eps-converted-to.pdf> <./figuras/orto_M50_ii
 d_dt1-eps-converted-to.pdf>]
 LaTeX Info: Redefining \. on input line 258.
 LaTeX Info: Redefining \% on input line 258.
- [70
+ [68
 
 ]
 Cap\'{\i }tulo 5.
@@ -1653,10 +1701,10 @@ l.259 \input{capitulo5/5_conclusiones.tex}
 
  
 Here is how much of TeX's memory you used:
- 6031 strings out of 493304
- 91245 string characters out of 6139871
+ 6028 strings out of 493304
+ 91213 string characters out of 6139871
  155434 words of memory out of 5000000
- 9165 multiletter control sequences out of 15000+600000
+ 9162 multiletter control sequences out of 15000+600000
  88006 words of font info for 173 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  42i,23n,43p,1199b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
