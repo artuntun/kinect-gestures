@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.5.18)  2 SEP 2015 12:29
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.5.18)  8 SEP 2015 17:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -47,6 +47,9 @@ Package: inputenc 2008/03/30 v1.1d Input encoding file
 (/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 ))
+(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip43
@@ -313,41 +316,27 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip52
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 34.
+Package hyperref Info: Option `colorlinks' set `true' on input line 36.
 
-(./TFG.aux (./portada.aux)
-
-! Package babel Error: Unknown language `spanish'. Either you have
-(babel)                misspelled its name, it has not been installed,
-(babel)                or you requested it in a previous run. Fix its name,
-(babel)                install it or just rerun the file, respectively.
-
-See the babel package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.24 \select@language{spanish}
-                              
-You may proceed, but expect unexpected results
-
-(./licencia.aux) (./evaluacion.aux) (./agradecimientos.aux) (./resumen.aux)
-(./introduccion.aux) (./stateofart.aux) (./design.aux) (./conclusion.aux))
+(./TFG.aux (./portada.aux) (./licencia.aux) (./evaluacion.aux)
+(./agradecimientos.aux) (./resumen.aux) (./introduccion.aux) (./stateofart.aux)
+(./design.aux) (./conclusion.aux))
 \openout1 = `TFG.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -388,7 +377,7 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-Package hyperref Info: Link coloring ON on input line 37.
+Package hyperref Info: Link coloring ON on input line 39.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -398,9 +387,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count134
 )
-LaTeX Info: Redefining \ref on input line 37.
-LaTeX Info: Redefining \pageref on input line 37.
-LaTeX Info: Redefining \nameref on input line 37.
+LaTeX Info: Redefining \ref on input line 39.
+LaTeX Info: Redefining \pageref on input line 39.
+LaTeX Info: Redefining \nameref on input line 39.
 
 (./TFG.out) (./TFG.out)
 \@outlinefile=\write3
@@ -409,36 +398,41 @@ LaTeX Info: Redefining \nameref on input line 37.
 \openout2 = `portada.aux'.
 
  (./portada.tex
-<figuras/cabecera.png, id=55, 433.62pt x 87.381pt>
+<figuras/cabecera.png, id=103, 433.62pt x 87.381pt>
 File: figuras/cabecera.png Graphic file (type png)
  <use figuras/cabecera.png>
 Package pdftex.def Info: figuras/cabecera.png used on input line 6.
 (pdftex.def)             Requested size: 345.0pt x 69.52621pt.
 
-[1
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1
 
 
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figuras/cabecera.png (PN
-G copy)>])
+G copy)>] [2])
 \openout2 = `licencia.aux'.
 
  (./licencia.tex
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 3.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3.
-) [2
+) [3
 
 
 ]
 \openout2 = `evaluacion.aux'.
 
- (./evaluacion.tex
+ (./evaluacion.tex [4
+
+
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 22--23
 
  []
@@ -452,114 +446,53 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 32.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ))
-Overfull \hbox (17.61108pt too wide) in paragraph at lines 28--47
+Overfull \hbox (17.61108pt too wide) in paragraph at lines 28--49
 []$[]$ $[]$ 
  []
 
-[3
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-]
+ [5]
+[6]
 \openout2 = `agradecimientos.aux'.
 
- (./agradecimientos.tex) [4
+ (./agradecimientos.tex) [7
 
 
 
 ]
 \openout2 = `resumen.aux'.
 
- (./resumen.tex [5
+ (./resumen.tex [8
 
 
 
-]) [6
+]) [9
 
-] (./TFG.toc
+] (./TFG.toc [10
 
-! Package babel Error: Unknown language `spanish'. Either you have
-(babel)                misspelled its name, it has not been installed,
-(babel)                or you requested it in a previous run. Fix its name,
-(babel)                install it or just rerun the file, respectively.
 
-See the babel package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1 \select@language {spanish}
-                              
-You may proceed, but expect unexpected results
-
-! Undefined control sequence.
-<argument> \es@scroman 
-                       {v}
-l.2 ...radecimientos}{\es@scroman {v}}{chapter*.1}
-                                                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> \es@scroman 
-                       {vii}
-l.3 ...er}{Resumen}{\es@scroman {vii}}{chapter*.2}
-                                                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> \es@scroman 
-                       {ix}
-l.5 ...er}{Abstract}{\es@scroman {ix}}{chapter*.4}
-                                                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-)
+])
 \tf@toc=\write4
 \openout4 = `TFG.toc'.
 
- [7
 
-
-] (./TFG.lof
-
-! Package babel Error: Unknown language `spanish'. Either you have
-(babel)                misspelled its name, it has not been installed,
-(babel)                or you requested it in a previous run. Fix its name,
-(babel)                install it or just rerun the file, respectively.
-
-See the babel package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1 \select@language {spanish}
-                              
-You may proceed, but expect unexpected results
-
+[11] (./TFG.lof
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 6.
 )
 \tf@lof=\write5
 \openout5 = `TFG.lof'.
 
- [8
+ [12
 
 ]
 \openout2 = `introduccion.aux'.
 
  (./introduccion.tex
 Chapter 1.
-<figuras/uc3m.png, id=119, 81.76534pt x 81.76534pt>
+<figuras/uc3m.png, id=204, 81.76534pt x 81.76534pt>
 File: figuras/uc3m.png Graphic file (type png)
  <use figuras/uc3m.png>
 Package pdftex.def Info: figuras/uc3m.png used on input line 25.
@@ -575,17 +508,10 @@ Package pdftex.def Info: figuras/uc3m.png used on input line 25.
  (./stateofart.tex
 Chapter 2.
 
-! LaTeX Error: There's no line here to end.
+LaTeX Warning: Citation `arthursamuel' on page 3 undefined on input line 7.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.4 A
-     Rtajsdasdnasdfjaskodfcas
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+
+LaTeX Warning: Citation `johnmccarthy' on page 3 undefined on input line 7.
 
 ) [3
 
@@ -596,73 +522,262 @@ or  <return>  to continue without it.
 
  (./design.tex
 Chapter 3.
-) [4
+[4
 
 
 
-]
+] [5]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.47 Gesture =( N_
+                  {frames} \times 6_{joint} \times 3_{coordinates} ) + 1 label
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.48 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.49 ... necessary anymore. By this we reducing N_
+                                                  {frames} x 2 points, aroun...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.50 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.51 Gesture =( N_
+                  {frames} \times 4_{joint} \times 3_{coordinates} ) + 1 label
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.52 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.56 Gesture = [n_
+                  {chuncks} \times 4_{joint} \times (\bigtriangleup x, \bigt...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.57 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
+\OT1/cmr/m/n/12 datasets have sam-ples from ev-ery cat-e-gory.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
+
+ []
+
+[7]
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `latin1'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.80 ...s are based on the Bayes Theorem with a ‚Ä
+                                                  únaive‚Äù assumption that ...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `latin1'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.80 ... are based on the Bayes Theorem with a ‚Äú
+                                                  naive‚Äù assumption that e...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `latin1'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.80 ...sed on the Bayes Theorem with a ‚Äúnaive‚Ä
+                                                  ù assumption that every pa...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `latin1'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.80 ...ed on the Bayes Theorem with a ‚Äúnaive‚Äù
+                                                   assumption that every pai...
+
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
+\OT1/cmr/m/n/12 fea-tures the Bayes The-o-rem states:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
+
+ []
+
+
+Overfull \hbox (23.58507pt too wide) in paragraph at lines 89--90
+\OT1/cmr/m/n/12 method works by mod-elling the class con-di-tional dis-tri-bu-t
+ion P(f1,....fn|
+ []
+
+[8] [9]
+! Undefined control sequence.
+l.112 ...KNN classifier labels an input sample \vv
+                                                  {Y} according to the follo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.112 ...tly it finds the K nearest vectors to \vv
+                                                  {Y} among the training dat...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.112 ...uclidean distances. Secondly it label \vv
+                                                  {Y} as the majority votes ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[10]
+Overfull \hbox (5.81703pt too wide) in paragraph at lines 132--133
+[]\OT1/cmr/m/n/12 A so-lu-tion for this prob-lem is a pro-ce-dure called \OT1/c
+mr/bx/n/12 cross-validation\OT1/cmr/m/n/12 .
+ []
+
+[11] <figuras/cv_knn.png, id=262, 586.8324pt x 441.5697pt>
+File: figuras/cv_knn.png Graphic file (type png)
+
+<use figuras/cv_knn.png>
+Package pdftex.def Info: figuras/cv_knn.png used on input line 147.
+(pdftex.def)             Requested size: 345.0pt x 259.60751pt.
+
+<figuras/cv_svmr.png, id=263, 586.8324pt x 442.2924pt>
+File: figuras/cv_svmr.png Graphic file (type png)
+
+<use figuras/cv_svmr.png>
+Package pdftex.def Info: figuras/cv_svmr.png used on input line 153.
+(pdftex.def)             Requested size: 345.0pt x 260.03241pt.
+) [12] [13 <./figuras/cv_knn.png> <./figuras/cv_svmr.png>]
 \openout2 = `conclusion.aux'.
 
  (./conclusion.tex
 Chapter 4.
-) [5
+) [14
 
 
 
 ] (./TFG.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 85.
- [6
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 87.
+ [15
 
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 85.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 87.
  (./TFG.aux (./portada.aux) (./licencia.aux)
 (./evaluacion.aux) (./agradecimientos.aux) (./resumen.aux) (./introduccion.aux)
 (./stateofart.aux) (./design.aux) (./conclusion.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 85.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 85.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 87.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 87.
+Package rerunfilecheck Info: File `TFG.out' has not changed.
+(rerunfilecheck)             Checksum: A78B8E80124AED30368ADBB9B9C459A8;1573.
 
 
-Package rerunfilecheck Warning: File `TFG.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: Checksums for `TFG.out':
-(rerunfilecheck)             Before: 514CF2D9321D4ED9880F9A47F9399413;739
-(rerunfilecheck)             After:  B7E353F5F8CCB3A744590546295C82C1;739.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 85.
- ) 
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 87.
+ )
+(\end occurred inside a group at level 1)
+
+### semi simple group (level 1) entered at line 11 (\begingroup)
+### bottom level 
 Here is how much of TeX's memory you used:
- 8141 strings out of 493304
- 115824 string characters out of 6139871
- 209799 words of memory out of 5000000
- 11388 multiletter control sequences out of 15000+600000
- 12318 words of font info for 45 fonts, out of 8000000 for 9000
+ 8235 strings out of 493304
+ 117204 string characters out of 6139871
+ 215177 words of memory out of 5000000
+ 11443 multiletter control sequences out of 15000+600000
+ 12665 words of font info for 46 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 29i,7n,32p,376b,393s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{section.2.2} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.2.1} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.9} has been referenced but does not exist,
- replaced by a fixed one
-
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmti12.pfb>
-Output written on TFG.pdf (14 pages, 326690 bytes).
+ 29i,7n,32p,593b,6746s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmti12.pfb>
+Output written on TFG.pdf (27 pages, 473290 bytes).
 PDF statistics:
- 196 PDF objects out of 1000 (max. 8388607)
- 166 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
- 115 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 340 PDF objects out of 1000 (max. 8388607)
+ 290 compressed objects within 3 object streams
+ 70 named destinations out of 1000 (max. 500000)
+ 221 words of extra memory for PDF output out of 10000 (max. 10000000)
 

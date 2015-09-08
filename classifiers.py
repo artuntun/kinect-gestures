@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import loadFile
+from time import time
 
 from sklearn.svm import SVC
 from sklearn.naive_bayes import GaussianNB
@@ -22,7 +23,24 @@ SVM_cl = 1
 KNN_cl = 1
 GNB_cl = 1
 Tree_cl = 0
-LDA_cl = 1
+LDA_cl = 0
+
+def cross_validate(estimator,x_test,y_test_np):
+    """print the prediction vs real value"""
+    pred = estimator.predict(x_test)
+    y_test =  [val for val in y_test_np]
+    results_cv = {}
+    for i in range(len(y_test)):
+        if pred[i]==y_test[i]:
+            if (pred[i] not in results_cv):
+                results_cv[pred[i]] = 0
+            results_cv[pred[i]] += 1
+        else:
+            if (pred[i]+"-"+y_test[i] not in results_cv):
+                results_cv[pred[i]+"-"+y_test[i]] = 0
+            results_cv[pred[i]+"-"+y_test[i]] +=1
+    return results_cv
+
 
 #%%load kinect normalized data
 data, labels = loadFile.load_data("skeletonData.txt")
@@ -60,22 +78,6 @@ if (Tree_cl == 1):
     print('Decision Tree, train: {0:.02f}% '.format(scores[0]*100))
     print('Decision Tree, test: {0:.02f}% '.format(scores[1]*100))
 
-    # Random Forest
-    rf = RandomForestClassifier(n_estimators=1000,max_features=gtree.best_estimator_.max_features,max_depth=gtree.best_estimator_.max_depth,min_samples_split=gtree.best_estimator_.min_samples_split,oob_score=True,n_jobs=-1)
-    rf.fit(Xtrain,Ytrain)
-    scores[2] = rf.score(Xtrain,Ytrain)
-    scores[3] = rf.score(Xtest,Ytest)
-    print('Random Forest, train: {0:.02f}% '.format(scores[2]*100))
-    print('Random Forest, test: {0:.02f}% '.format(scores[3]*100))
-
-    # Extremely Randomized Trees
-    ert = ExtraTreesClassifier(n_estimators=1000,max_features=gtree.best_estimator_.max_features,max_depth=gtree.best_estimator_.max_depth,min_samples_split=gtree.best_estimator_.min_samples_split,n_jobs=-1)
-    ert.fit(Xtrain,Ytrain)
-    scores[4] = ert.score(Xtrain,Ytrain)
-    scores[5] = ert.score(Xtest,Ytest)
-    print('Extremely Randomized Trees, train: {0:.02f}% '.format(scores[4]*100))
-    print('Extremely Randomized Trees, test: {0:.02f}% '.format(scores[5]*100))
-
 if (LDA_cl == 1):
     from sklearn.lda import LDA
     lda = LDA()
@@ -87,15 +89,22 @@ if (LDA_cl == 1):
     print('LDA, train: {0:.02f}% '.format(scores[0]*100))
     print('LDA, test: {0:.02f}% '.format(scores[1]*100))
 
+    print cross_validate(lda, Xtest, Ytest)
+
 if (GNB_cl == 1):
     nb = GaussianNB()
     nb.fit(Xtrain,Ytrain)
     scores = np.empty((4))
     scores[0] = nb.score(Xtrain,Ytrain)
+    t0 = time()
     scores[1] = nb.score(Xtest,Ytest)
+    t1 = time()
     print "---------------------Naive Bayes Classifier------------------"
+    print "Prediction time:", t1-t0, "s"
     print('Gaussian Naive Bayes, train: {0:.02f}% '.format(scores[0]*100))
     print('Gaussian Naive Bayes, test: {0:.02f}% '.format(scores[1]*100))
+
+    print cross_validate(nb, Xtest, Ytest)
 
 if (SVM_cl == 1):
 
@@ -149,40 +158,75 @@ if (SVM_cl == 1):
     gsvmp.fit(Xtrain,Ytrain)
     gsvmr.fit(Xtrain,Ytrain)
 
-    params = gsvmr.get_params() #parameters found with gridSerach of the rbf classifier
-
     trainscores = [gsvml.score(Xtrain,Ytrain),gsvmp.score(Xtrain,Ytrain),gsvmr.score(Xtrain,Ytrain)]
-    testscores = [gsvml.score(Xtest,Ytest),gsvmp.score(Xtest,Ytest),gsvmr.score(Xtest,Ytest)]
+    t0 = time()
+    testscores = [0,0,0]
+    testscores[0] = gsvml.score(Xtest,Ytest)
+    t1 = time()
+    testscores[1] = gsvmp.score(Xtest,Ytest)
+    t2 = time()
+    testscores[2] = gsvmr.score(Xtest,Ytest)
+    t3 = time()
     maxtrain = np.amax(trainscores)
     maxtest = np.amax(testscores)
     print "---------------------Support Vector Classifier---------------"
+    print "Linear SVM Prediction time:", t1-t0, "s"
+    print "Poly SVM Prediction time:", t2-t1, "s"
+    print "RBF SVM Prediction time:", t3-t2, "s"
     print('Linear SVM(C = {0:.02f}), score: {1:.02f}% '.format(gsvml.best_params_['C'], testscores[0]*100))
     print('Poly SVM(C = {0:.02f}, degree = {1:.02f}), score: {2:.02f}% '.format(gsvmp.best_params_['C'], gsvmp.best_params_['degree'], testscores[1]*100))
     print('rbf SVM(C = {0:.02f}, gamma = {1:.02f}), score: {2:.02f}% '.format(gsvmr.best_params_['C'],gsvmr.best_params_['gamma'] , testscores[2]*100) )
 
-    scores_validation_rbf = {}
-    for i in range(len(gsvmr.grid_scores_)):
-        score = gsvmr.grid_scores_[i][1]
-        gammas = float("{0:.6f}".format(gsvmr.grid_scores_[i][0]['gamma']))
-        if gammas not in scores_validation_rbf:
-            scores_validation_rbf[gammas] = []
-        scores_validation_rbf[gammas].append(score)
+    #################################################
+    ####    PLOTTING CROSS VALIDATION SCORES  #######
+    #################################################
 
-    print C
-    print np.logspace(-3,3,10)
+    grid_scores_gsvmp = {} #scores and C values for each degree value tested
+    for i in range(len(gsvmp.grid_scores_)):
+        degree_aux = gsvmp.grid_scores_[i][0]['degree']
+        c_aux = gsvmp.grid_scores_[i][0]['C']
+        score = gsvmp.grid_scores_[i][1]
+        if degree_aux not in grid_scores_gsvmp:
+            grid_scores_gsvmp[degree_aux] = {'scores':[], 'C':[]}
+        grid_scores_gsvmp[degree_aux]['scores'].append(score)
+        grid_scores_gsvmp[degree_aux]['C'].append(c_aux)
 
     plt.figure()
-    plt.plot(np.logspace(-3,3,10),scores_validation_rbf[0.02],c='g',lw=2,aa=True, label='gamma = 0.02')
-    plt.plot(np.logspace(-3,3,10),scores_validation_rbf[0.01],c='b',lw=2,aa=True, label='gamma = 0.01')
-    plt.plot(np.logspace(-3,3,10),scores_validation_rbf[0.005],c='r',lw=2,aa=True, label= 'gamma = 0.005')
-    plt.plot(np.argmax(scores)+1,np.amax(scores),'v')
-    plt.title('Grid precission for C in SVM_rbf')
+    plt.plot(grid_scores_gsvmp[2]['C'],grid_scores_gsvmp[2]['scores'],c='g',lw=2,aa=True, label='degree = 2')
+    plt.plot(grid_scores_gsvmp[3]['C'],grid_scores_gsvmp[3]['scores'],c='b',lw=2,aa=True, label='degree = 3')
+    plt.plot(grid_scores_gsvmp[4]['C'],grid_scores_gsvmp[4]['scores'],c='r',lw=2,aa=True, label='degree = 4')
+    plt.title('Grid precission for C in SVM_poly')
     plt.xlabel('C')
     plt.ylabel('Mean training precission')
-    plt.legend()
+    plt.xscale('log')
+    plt.legend(loc=4)
     plt.grid()
     plt.show()
 
+    #RBF SVM cross validation graph
+
+    grid_scores_gsvmr = {}
+    for i in range(len(gsvmr.grid_scores_)):
+        score = gsvmr.grid_scores_[i][1]
+        gammas = float("{0:.6f}".format(gsvmr.grid_scores_[i][0]['gamma']))
+        c_aux = gsvmr.grid_scores_[i][0]['C']
+        if gammas not in grid_scores_gsvmr:
+            grid_scores_gsvmr[gammas] = {'scores':[], 'C':[]}
+        grid_scores_gsvmr[gammas]['scores'].append(score)
+        grid_scores_gsvmr[gammas]['C'].append(c_aux)
+
+    plt.figure()
+    plt.plot(grid_scores_gsvmr[0.01]['C'],grid_scores_gsvmr[0.01]['scores'],c='g',lw=2,aa=True, label='gamma = 0.01')
+    plt.plot(grid_scores_gsvmr[0.005]['C'],grid_scores_gsvmr[0.005]['scores'],c='r',lw=2,aa=True, label='gamma = 0.005')
+    plt.plot(grid_scores_gsvmr[0.000625]['C'],grid_scores_gsvmr[0.000625]['scores'],c='b',lw=2,aa=True, label='gamma = 0.000625')
+    plt.plot(grid_scores_gsvmr[0.02]['C'],grid_scores_gsvmr[0.02]['scores'],c='y',lw=2,aa=True, label='gamma = 0.02')
+    plt.title('Grid precission for C in SVM_rbf')
+    plt.xlabel('C')
+    plt.ylabel('Mean training precission')
+    plt.xscale('log')
+    plt.legend(loc=4)
+    plt.grid()
+    plt.show()
 
 if (KNN_cl == 1):
 
@@ -193,10 +237,21 @@ if (KNN_cl == 1):
     gknn.fit(Xtrain,Ytrain)
     scores = np.empty((4))
     scores[0] = gknn.score(Xtrain,Ytrain)
+    t0 = time()
     scores[1] = gknn.score(Xtest,Ytest)
+    t1 = time()
     print "---------------------K-NN Classifier---------------------------"
+    print "Prediction time:", t1-t0,"s"
     print('{0}-NN, train: {1:.02f}% '.format(gknn.best_estimator_.n_neighbors,scores[0]*100))
     print('{0}-NN, test: {1:.02f}% '.format(gknn.best_estimator_.n_neighbors,scores[1]*100))
+
+    # Bagging kNN
+    bknn = BaggingClassifier(gknn.best_estimator_,n_jobs=-1, random_state=0)
+    bknn.fit(Xtrain,Ytrain)
+    scores[2] = bknn.score(Xtrain,Ytrain)
+    scores[3] = bknn.score(Xtest,Ytest)
+    print('Bagging {0}-NN, train: {1:.02f}% '.format(gknn.best_estimator_.n_neighbors,scores[2]*100))
+    print('Bagging {0}-NN, test: {1:.02f}% '.format(gknn.best_estimator_.n_neighbors,scores[3]*100))
 
     ##### Scores in validation, training and testing data for each K-nn tested
     tested_Ks = [val[0]['n_neighbors'] for val in gknn.grid_scores_] # K tested in GridSearch
