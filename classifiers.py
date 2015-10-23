@@ -20,8 +20,8 @@ plt.close('all')
 
 Data_Prep = 1
 SVM_cl = 1
-KNN_cl = 1
-GNB_cl = 1
+KNN_cl = 0
+GNB_cl = 0
 Tree_cl = 0
 LDA_cl = 0
 
@@ -89,6 +89,10 @@ if (LDA_cl == 1):
     print('LDA, train: {0:.02f}% '.format(scores[0]*100))
     print('LDA, test: {0:.02f}% '.format(scores[1]*100))
 
+    print lda.predict_proba(Xtest[-1])
+    print lda.predict(Xtest[-1])
+    print Ytest[-1]
+
     print cross_validate(lda, Xtest, Ytest)
 
 if (GNB_cl == 1):
@@ -104,7 +108,14 @@ if (GNB_cl == 1):
     print('Gaussian Naive Bayes, train: {0:.02f}% '.format(scores[0]*100))
     print('Gaussian Naive Bayes, test: {0:.02f}% '.format(scores[1]*100))
 
+    proba = nb.predict_proba(Xtest[-4])
+
+    print proba
+    print nb.predict(Xtest[-4])
+    print Ytest[-4]
+
     print cross_validate(nb, Xtest, Ytest)
+
 
 if (SVM_cl == 1):
 
@@ -160,12 +171,13 @@ if (SVM_cl == 1):
 
     trainscores = [gsvml.score(Xtrain,Ytrain),gsvmp.score(Xtrain,Ytrain),gsvmr.score(Xtrain,Ytrain)]
     t0 = time()
-    testscores = [0,0,0]
+    testscores = [0,0,0,0]
     testscores[0] = gsvml.score(Xtest,Ytest)
     t1 = time()
     testscores[1] = gsvmp.score(Xtest,Ytest)
     t2 = time()
     testscores[2] = gsvmr.score(Xtest,Ytest)
+    testscores[3] = gsvmr.score(Xtrain,Ytrain)
     t3 = time()
     maxtrain = np.amax(trainscores)
     maxtest = np.amax(testscores)
@@ -176,7 +188,7 @@ if (SVM_cl == 1):
     print('Linear SVM(C = {0:.02f}), score: {1:.02f}% '.format(gsvml.best_params_['C'], testscores[0]*100))
     print('Poly SVM(C = {0:.02f}, degree = {1:.02f}), score: {2:.02f}% '.format(gsvmp.best_params_['C'], gsvmp.best_params_['degree'], testscores[1]*100))
     print('rbf SVM(C = {0:.02f}, gamma = {1:.02f}), score: {2:.02f}% '.format(gsvmr.best_params_['C'],gsvmr.best_params_['gamma'] , testscores[2]*100) )
-
+    print testscores[3]
     #################################################
     ####    PLOTTING CROSS VALIDATION SCORES  #######
     #################################################
@@ -228,6 +240,8 @@ if (SVM_cl == 1):
     plt.grid()
     plt.show()
 
+    print cross_validate(gsvmr,Xtest,Ytest)
+
 if (KNN_cl == 1):
 
     # Perform authomatic grid search
@@ -276,6 +290,8 @@ if (KNN_cl == 1):
     plt.legend()
     plt.grid()
     plt.show()
+
+    print cross_validate(gknn,Xtest,Ytest)
 
 
 loadFile.show_info(labels) #print data info
