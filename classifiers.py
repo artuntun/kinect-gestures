@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import loadFile
-from time import time
+import loadFile   # Custom library
 
 from sklearn.svm import SVC
 from sklearn.naive_bayes import GaussianNB
@@ -19,28 +18,11 @@ from sklearn.metrics import accuracy_score
 plt.close('all')
 
 Data_Prep = 1
-SVM_cl = 1
+SVM_cl = 0
 KNN_cl = 0
-GNB_cl = 0
+GNB_cl = 1
 Tree_cl = 0
 LDA_cl = 0
-
-def cross_validate(estimator,x_test,y_test_np):
-    """print the prediction vs real value"""
-    pred = estimator.predict(x_test)
-    y_test =  [val for val in y_test_np]
-    results_cv = {}
-    for i in range(len(y_test)):
-        if pred[i]==y_test[i]:
-            if (pred[i] not in results_cv):
-                results_cv[pred[i]] = 0
-            results_cv[pred[i]] += 1
-        else:
-            if (pred[i]+"-"+y_test[i] not in results_cv):
-                results_cv[pred[i]+"-"+y_test[i]] = 0
-            results_cv[pred[i]+"-"+y_test[i]] +=1
-    return results_cv
-
 
 #%%load kinect normalized data
 data, labels = loadFile.load_data("skeletonData.txt")
@@ -93,29 +75,17 @@ if (LDA_cl == 1):
     print lda.predict(Xtest[-1])
     print Ytest[-1]
 
-    print cross_validate(lda, Xtest, Ytest)
-
 if (GNB_cl == 1):
     nb = GaussianNB()
     nb.fit(Xtrain,Ytrain)
     scores = np.empty((4))
     scores[0] = nb.score(Xtrain,Ytrain)
-    t0 = time()
     scores[1] = nb.score(Xtest,Ytest)
-    t1 = time()
+
     print "---------------------Naive Bayes Classifier------------------"
     print "Prediction time:", t1-t0, "s"
     print('Gaussian Naive Bayes, train: {0:.02f}% '.format(scores[0]*100))
     print('Gaussian Naive Bayes, test: {0:.02f}% '.format(scores[1]*100))
-
-    proba = nb.predict_proba(Xtest[-4])
-
-    print proba
-    print nb.predict(Xtest[-4])
-    print Ytest[-4]
-
-    print cross_validate(nb, Xtest, Ytest)
-
 
 if (SVM_cl == 1):
 
@@ -170,28 +140,24 @@ if (SVM_cl == 1):
     gsvmr.fit(Xtrain,Ytrain)
 
     trainscores = [gsvml.score(Xtrain,Ytrain),gsvmp.score(Xtrain,Ytrain),gsvmr.score(Xtrain,Ytrain)]
-    t0 = time()
     testscores = [0,0,0,0]
     testscores[0] = gsvml.score(Xtest,Ytest)
-    t1 = time()
     testscores[1] = gsvmp.score(Xtest,Ytest)
-    t2 = time()
     testscores[2] = gsvmr.score(Xtest,Ytest)
     testscores[3] = gsvmr.score(Xtrain,Ytrain)
-    t3 = time()
     maxtrain = np.amax(trainscores)
     maxtest = np.amax(testscores)
     print "---------------------Support Vector Classifier---------------"
-    print "Linear SVM Prediction time:", t1-t0, "s"
-    print "Poly SVM Prediction time:", t2-t1, "s"
-    print "RBF SVM Prediction time:", t3-t2, "s"
     print('Linear SVM(C = {0:.02f}), score: {1:.02f}% '.format(gsvml.best_params_['C'], testscores[0]*100))
     print('Poly SVM(C = {0:.02f}, degree = {1:.02f}), score: {2:.02f}% '.format(gsvmp.best_params_['C'], gsvmp.best_params_['degree'], testscores[1]*100))
     print('rbf SVM(C = {0:.02f}, gamma = {1:.02f}), score: {2:.02f}% '.format(gsvmr.best_params_['C'],gsvmr.best_params_['gamma'] , testscores[2]*100) )
-    print testscores[3]
+
     #################################################
-    ####    PLOTTING CROSS VALIDATION SCORES  #######
+    ####    PLOTTING GRID Search SCORES       #######
     #################################################
+
+
+    #GRID SEARCH plotting for ploy kernel
 
     grid_scores_gsvmp = {} #scores and C values for each degree value tested
     for i in range(len(gsvmp.grid_scores_)):
@@ -215,7 +181,7 @@ if (SVM_cl == 1):
     plt.grid()
     plt.show()
 
-    #RBF SVM cross validation graph
+    #GRID SEARCH plotting for rbf kernel
 
     grid_scores_gsvmr = {}
     for i in range(len(gsvmr.grid_scores_)):
@@ -240,8 +206,6 @@ if (SVM_cl == 1):
     plt.grid()
     plt.show()
 
-    print cross_validate(gsvmr,Xtest,Ytest)
-
 if (KNN_cl == 1):
 
     # Perform authomatic grid search
@@ -251,21 +215,12 @@ if (KNN_cl == 1):
     gknn.fit(Xtrain,Ytrain)
     scores = np.empty((4))
     scores[0] = gknn.score(Xtrain,Ytrain)
-    t0 = time()
     scores[1] = gknn.score(Xtest,Ytest)
-    t1 = time()
+
     print "---------------------K-NN Classifier---------------------------"
     print "Prediction time:", t1-t0,"s"
     print('{0}-NN, train: {1:.02f}% '.format(gknn.best_estimator_.n_neighbors,scores[0]*100))
     print('{0}-NN, test: {1:.02f}% '.format(gknn.best_estimator_.n_neighbors,scores[1]*100))
-
-    # Bagging kNN
-    bknn = BaggingClassifier(gknn.best_estimator_,n_jobs=-1, random_state=0)
-    bknn.fit(Xtrain,Ytrain)
-    scores[2] = bknn.score(Xtrain,Ytrain)
-    scores[3] = bknn.score(Xtest,Ytest)
-    print('Bagging {0}-NN, train: {1:.02f}% '.format(gknn.best_estimator_.n_neighbors,scores[2]*100))
-    print('Bagging {0}-NN, test: {1:.02f}% '.format(gknn.best_estimator_.n_neighbors,scores[3]*100))
 
     ##### Scores in validation, training and testing data for each K-nn tested
     tested_Ks = [val[0]['n_neighbors'] for val in gknn.grid_scores_] # K tested in GridSearch
@@ -292,6 +247,3 @@ if (KNN_cl == 1):
     plt.show()
 
     print cross_validate(gknn,Xtest,Ytest)
-
-
-loadFile.show_info(labels) #print data info
