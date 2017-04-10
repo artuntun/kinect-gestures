@@ -1,4 +1,5 @@
 import numpy as np
+#    print "Prediction time:", t1-t0,"s"
 import matplotlib.pyplot as plt
 import loadFile   # Custom library
 
@@ -19,7 +20,7 @@ plt.close('all')
 
 Data_Prep = 1
 SVM_cl = 0
-KNN_cl = 0
+KNN_cl = 1
 GNB_cl = 1
 Tree_cl = 0
 LDA_cl = 0
@@ -71,9 +72,6 @@ if (LDA_cl == 1):
     print('LDA, train: {0:.02f}% '.format(scores[0]*100))
     print('LDA, test: {0:.02f}% '.format(scores[1]*100))
 
-    print lda.predict_proba(Xtest[-1])
-    print lda.predict(Xtest[-1])
-    print Ytest[-1]
 
 if (GNB_cl == 1):
     nb = GaussianNB()
@@ -83,7 +81,7 @@ if (GNB_cl == 1):
     scores[1] = nb.score(Xtest,Ytest)
 
     print "---------------------Naive Bayes Classifier------------------"
-    print "Prediction time:", t1-t0, "s"
+#    print "Prediction time:", t1-t0, "s"
     print('Gaussian Naive Bayes, train: {0:.02f}% '.format(scores[0]*100))
     print('Gaussian Naive Bayes, test: {0:.02f}% '.format(scores[1]*100))
 
@@ -218,9 +216,9 @@ if (KNN_cl == 1):
     scores[1] = gknn.score(Xtest,Ytest)
 
     print "---------------------K-NN Classifier---------------------------"
-    print "Prediction time:", t1-t0,"s"
+#    print "Prediction time:", t1-t0,"s"
     print('{0}-NN, train: {1:.02f}% '.format(gknn.best_estimator_.n_neighbors,scores[0]*100))
-    print('{0}-NN, test: {1:.02f}% '.format(gknn.best_estimator_.n_neighbors,scores[1]*100))
+    #print('{0}-NN, test: {1:.02f}% '.format(gknn.best_estimator_.n_neighbors,scores[1]*100))
 
     ##### Scores in validation, training and testing data for each K-nn tested
     tested_Ks = [val[0]['n_neighbors'] for val in gknn.grid_scores_] # K tested in GridSearch
@@ -246,4 +244,4 @@ if (KNN_cl == 1):
     plt.grid()
     plt.show()
 
-    print cross_validate(gknn,Xtest,Ytest)
+#   print cross_validate(gknn,Xtest,Ytest)
